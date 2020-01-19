@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# get path, name and url arg
+# download poster and rename
+# setup and add html
+
+NAME=$1
+IMAGE=$2
+URL=$3
+
+FILE="../../content/movies.md"
+
+if [ -z "$*" ]; then echo 'usage: sp $Name $Name $Url'; exit 0; fi
+
+HTML1="<a href='$URL' class='fl w-50 w-25-l link overflow-hidden'>"
+HTML2="<div role='img' aria-label='$NAME' class='grow aspect-ratio--4x6' style='background: url(/movies/$IMAGE) no-repeat center center; background-size: cover;'></div>"
+HTML3="</a>"
+
+
+wget $URL -O $IMAGE
+
+
+C="grep '' -c $FILE "
+COUNT=$(eval $C)
+
+C="tac $FILE | grep '</a>' -m1  -n | sed 's/\:.*//g' -"
+OUT=$(eval $C)
+
+NEW=`expr $COUNT - $OUT + 3`
+echo $NEW
+sed -i "$NEW i $HTML1" "$FILE"
+NEWLINE=`expr $NEW + 1`
+echo $NEWLINE
+sed -i "$NEWLINE i $HTML2" "$FILE"
+NEWLINE=`expr $NEW + 2`
+echo $NEWLINE
+sed -i "$NEWLINE i $HTML3" "$FILE"
+
+#echo $HTML
