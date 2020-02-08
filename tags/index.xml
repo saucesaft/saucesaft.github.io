@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
-    <lastBuildDate>Sat, 11 Jan 2020 23:12:03 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 13:49:39 -0600</lastBuildDate>
     
 	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,27 @@
     <item>
       <title>rant?</title>
       <link>https://example.com/tags/rant/</link>
-      <pubDate>Sat, 11 Jan 2020 23:12:03 -0600</pubDate>
+      <pubDate>Sat, 08 Feb 2020 13:49:39 -0600</pubDate>
       
       <guid>https://example.com/tags/rant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spanish</title>
+      <link>https://example.com/tags/spanish/</link>
+      <pubDate>Sat, 08 Feb 2020 13:49:39 -0600</pubDate>
+      
+      <guid>https://example.com/tags/spanish/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>english</title>
+      <link>https://example.com/tags/english/</link>
+      <pubDate>Sat, 11 Jan 2020 23:12:03 -0600</pubDate>
+      
+      <guid>https://example.com/tags/english/</guid>
       <description></description>
     </item>
     

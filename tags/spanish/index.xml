@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spanish on saucesaft</title>
+    <link>https://example.com/tags/spanish/</link>
+    <description>Recent content in spanish on saucesaft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
+    <lastBuildDate>Sat, 08 Feb 2020 13:49:39 -0600</lastBuildDate>
+    
+	<atom:link href="https://example.com/tags/spanish/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tacos</title>
+      <link>https://example.com/posts/tacos/</link>
+      <pubDate>Sat, 08 Feb 2020 13:49:39 -0600</pubDate>
+      
+      <guid>https://example.com/posts/tacos/</guid>
+      <description>No me gusta comer tacos, son ineficientes y aburridos.</description>
+    </item>
+    
+  </channel>
+</rss>

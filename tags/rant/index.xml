@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
-    <lastBuildDate>Sat, 11 Jan 2020 23:12:03 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 08 Feb 2020 13:49:39 -0600</lastBuildDate>
     
 	<atom:link href="https://example.com/tags/rant/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tacos</title>
+      <link>https://example.com/posts/tacos/</link>
+      <pubDate>Sat, 08 Feb 2020 13:49:39 -0600</pubDate>
+      
+      <guid>https://example.com/posts/tacos/</guid>
+      <description>No me gusta comer tacos, son ineficientes y aburridos.</description>
+    </item>
     
     <item>
       <title>Cheaper to write software</title>
@@ -20,7 +29,7 @@
       <guid>https://example.com/posts/electrical/</guid>
       <description>It is definetly easier and cheaper to add some if statements to a program than physical functionality.
 the firmware of my soldering iron just crashed
-&amp;mdash; whitequark (@whitequark) January 17, 2020  Recently i&#39;ve had to develop some software that needed to interface an Arduino, well it wasn&#39;t originally like that. It was supposed to have some lcds and 8-segment displays which the arduino could drive and show temperature values via sensors.</description>
+&amp;mdash; whitequark (@whitequark) January 17, 2020  Recently i&amp;rsquo;ve had to develop some software that needed to interface an Arduino, well it wasn&amp;rsquo;t originally like that. It was supposed to have some lcds and 8-segment displays which the arduino could drive and show temperature values via sensors.</description>
     </item>
     
   </channel>
