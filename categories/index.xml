@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
-    <lastBuildDate>Sat, 08 Feb 2020 13:49:39 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 18:20:52 -0600</lastBuildDate>
     
 	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>reflection</title>
       <link>https://example.com/categories/reflection/</link>
-      <pubDate>Sat, 08 Feb 2020 13:49:39 -0600</pubDate>
+      <pubDate>Tue, 11 Feb 2020 18:20:52 -0600</pubDate>
       
       <guid>https://example.com/categories/reflection/</guid>
       <description></description>

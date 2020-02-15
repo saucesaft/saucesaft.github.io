@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
-    <lastBuildDate>Sat, 08 Feb 2020 13:49:39 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 18:20:52 -0600</lastBuildDate>
     
 	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Interface</title>
+      <link>https://example.com/posts/interface/</link>
+      <pubDate>Tue, 11 Feb 2020 18:20:52 -0600</pubDate>
+      
+      <guid>https://example.com/posts/interface/</guid>
+      <description>What&amp;rsquo;s the purpose of a calculator? Calculate. What&amp;rsquo;s the pupose of some digital callipers? Measure. Just some vague examples of old (really old) computing. People like Ada Loveace set the standards for modern computing. During World War 2, the germans developed the Engima Machine, rasing the bar of encryption. British geniuses reunited and developed an algorithm to break the cypher, if done manually would take constant days of work, bad thing that the Germans changed the hash every 12 hours.</description>
+    </item>
     
     <item>
       <title>Tacos</title>
