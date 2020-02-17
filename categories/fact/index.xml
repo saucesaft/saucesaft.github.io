@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fact on saucesaft</title>
+    <link>https://example.com/categories/fact/</link>
+    <description>Recent content in fact on saucesaft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
+    <lastBuildDate>Sun, 16 Feb 2020 18:10:49 -0600</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/fact/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Warhol</title>
+      <link>https://example.com/posts/warhol/</link>
+      <pubDate>Sun, 16 Feb 2020 18:10:49 -0600</pubDate>
+      
+      <guid>https://example.com/posts/warhol/</guid>
+      <description>Fun fact:
+Andy Warhol was once shot 3 times, whose only one hit and almost killed him.
+Funny enough they were fired by Valerie Solanas, a radical feminist who wrote the S.C.U.M Maniefesto years before.
+It talked about eliminating the male sex and fixing the society.</description>
+    </item>
+    
+  </channel>
+</rss>
