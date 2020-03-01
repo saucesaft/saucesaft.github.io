@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
-    <lastBuildDate>Sun, 16 Feb 2020 18:10:49 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 18:46:01 -0600</lastBuildDate>
     
 	<atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>english</title>
+      <link>https://example.com/tags/english/</link>
+      <pubDate>Fri, 28 Feb 2020 18:46:01 -0600</pubDate>
+      
+      <guid>https://example.com/tags/english/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>music</title>
+      <link>https://example.com/tags/music/</link>
+      <pubDate>Fri, 28 Feb 2020 18:46:01 -0600</pubDate>
+      
+      <guid>https://example.com/tags/music/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>art</title>
@@ -18,15 +36,6 @@
       <pubDate>Sun, 16 Feb 2020 18:10:49 -0600</pubDate>
       
       <guid>https://example.com/tags/art/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>english</title>
-      <link>https://example.com/tags/english/</link>
-      <pubDate>Sun, 16 Feb 2020 18:10:49 -0600</pubDate>
-      
-      <guid>https://example.com/tags/english/</guid>
       <description></description>
     </item>
     

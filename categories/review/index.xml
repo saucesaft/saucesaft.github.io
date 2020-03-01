@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>review? on saucesaft</title>
+    <link>https://example.com/categories/review/</link>
+    <description>Recent content in review? on saucesaft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
+    <lastBuildDate>Fri, 28 Feb 2020 18:46:01 -0600</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/review/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tyler</title>
+      <link>https://example.com/posts/igor/</link>
+      <pubDate>Fri, 28 Feb 2020 18:46:01 -0600</pubDate>
+      
+      <guid>https://example.com/posts/igor/</guid>
+      <description>Just watched tyler&amp;rsquo;s camp flog gnaw live concert and this came out of my hands;
+Igor&amp;rsquo;s theme:
+ Running from past songs, albums, setting the principal mood for the album. Experimenting with new vocals. Agresive mixture Femenine voice Delightful piano chords Exact word repetition sounds effects  I think:
+ Maybe taking decisions back Imiting critics Curiosity killed the felline Love as inspiration, explaining it How can i tell you? Nice moves Nice finale  A boy&amp;rsquo;s a gun:</description>
+    </item>
+    
+  </channel>
+</rss>
