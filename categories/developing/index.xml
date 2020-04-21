@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>developing on saucesaft</title>
+    <link>https://example.com/categories/developing/</link>
+    <description>Recent content in developing on saucesaft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
+    <lastBuildDate>Sun, 05 Apr 2020 15:50:05 -0500</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/developing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rubiks Blog 1</title>
+      <link>https://example.com/posts/rubiks-1/</link>
+      <pubDate>Sun, 05 Apr 2020 15:50:05 -0500</pubDate>
+      
+      <guid>https://example.com/posts/rubiks-1/</guid>
+      <description>I had this idea, there&amp;rsquo;s this simple universal algorithm which if followed will lead you to have a &amp;ldquo;solved cube&amp;rdquo;. Which by solved i refer to it having each face with 9 same colors each. Now that&amp;rsquo;s easy to process, but what if i wanted to have a custom pattern? What if my solved state wasn&amp;rsquo;t the ordinary.
+Let&amp;rsquo;s say my solved state was the ordinary one but with the center pieces shifted to the right, on paper, if we ran the algorithms from the pdf but with the modifications we mentioned, we would end up with the rubik&amp;rsquo;s cube with the pattern we wanted.</description>
+    </item>
+    
+  </channel>
+</rss>
