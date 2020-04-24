@@ -1,27 +1,126 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>/categories/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/categories/developing/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/tags/english/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/posts/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/posts/rubiks-1/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/tags/software/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/tags/</loc><lastmod>2020-04-05T15:50:05-05:00</lastmod></url><url>
-    <loc>/tags/music/</loc><lastmod>2020-02-28T18:46:01-06:00</lastmod></url><url>
-    <loc>/categories/review/</loc><lastmod>2020-02-28T18:46:01-06:00</lastmod></url><url>
-    <loc>/posts/igor/</loc><lastmod>2020-02-28T18:46:01-06:00</lastmod></url><url>
-    <loc>/tags/art/</loc><lastmod>2020-02-16T18:10:49-06:00</lastmod></url><url>
-    <loc>/categories/fact/</loc><lastmod>2020-02-16T18:10:49-06:00</lastmod></url><url>
-    <loc>/posts/warhol/</loc><lastmod>2020-02-16T18:10:49-06:00</lastmod></url><url>
-    <loc>/posts/interface/</loc><lastmod>2020-02-11T18:20:52-06:00</lastmod></url><url>
-    <loc>/categories/reflection/</loc><lastmod>2020-02-11T18:20:52-06:00</lastmod></url><url>
-    <loc>/tags/thoughts/</loc><lastmod>2020-02-11T18:20:52-06:00</lastmod></url><url>
-    <loc>/tags/rant/</loc><lastmod>2020-02-08T13:49:39-06:00</lastmod></url><url>
-    <loc>/tags/spanish/</loc><lastmod>2020-02-08T13:49:39-06:00</lastmod></url><url>
-    <loc>/posts/tacos/</loc><lastmod>2020-02-08T13:49:39-06:00</lastmod></url><url>
-    <loc>/posts/electrical/</loc><lastmod>2020-01-11T23:12:03-06:00</lastmod></url><url>
-    <loc>/about/</loc></url><url>
-    <loc>/homepage/movies/</loc></url><url>
-    <loc>/homepage/</loc></url><url>
-    <loc>/movies/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://example.com/categories/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/developing/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/english/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/rubiks-1/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/software/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/</loc>
+    <lastmod>2020-04-05T15:50:05-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/music/</loc>
+    <lastmod>2020-02-28T18:46:01-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/review/</loc>
+    <lastmod>2020-02-28T18:46:01-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/igor/</loc>
+    <lastmod>2020-02-28T18:46:01-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/art/</loc>
+    <lastmod>2020-02-16T18:10:49-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/fact/</loc>
+    <lastmod>2020-02-16T18:10:49-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/warhol/</loc>
+    <lastmod>2020-02-16T18:10:49-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/interface/</loc>
+    <lastmod>2020-02-11T18:20:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/categories/reflection/</loc>
+    <lastmod>2020-02-11T18:20:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/thoughts/</loc>
+    <lastmod>2020-02-11T18:20:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/rant/</loc>
+    <lastmod>2020-02-08T13:49:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/tags/spanish/</loc>
+    <lastmod>2020-02-08T13:49:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/tacos/</loc>
+    <lastmod>2020-02-08T13:49:39-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/posts/electrical/</loc>
+    <lastmod>2020-01-11T23:12:03-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://example.com/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/homepage/movies/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/homepage/</loc>
+  </url>
+  
+  <url>
+    <loc>https://example.com/movies/</loc>
+  </url>
+  
+</urlset>

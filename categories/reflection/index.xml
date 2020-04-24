@@ -5,7 +5,6 @@
     <link>https://example.com/categories/reflection/</link>
     <description>Recent content in reflection on saucesaft</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
     <copyright>DON&#39;T PANIC &lt;br&gt; ©2019 saucesaft. </copyright>
     <lastBuildDate>Tue, 11 Feb 2020 18:20:52 -0600</lastBuildDate>
     
@@ -37,8 +36,7 @@
       
       <guid>https://example.com/posts/electrical/</guid>
       <description>It is definetly easier and cheaper to add some if statements to a program than physical functionality.
-the firmware of my soldering iron just crashed
-&amp;mdash; whitequark (@whitequark) January 17, 2020  Recently i&amp;rsquo;ve had to develop some software that needed to interface an Arduino, well it wasn&amp;rsquo;t originally like that. It was supposed to have some lcds and 8-segment displays which the arduino could drive and show temperature values via sensors.</description>
+Recently i&amp;rsquo;ve had to develop some software that needed to interface an Arduino, well it wasn&amp;rsquo;t originally like that. It was supposed to have some lcds and 8-segment displays which the arduino could drive and show temperature values via sensors. The problem was that I had to modify my whole plan because of the complexity involving electrical components, specially the LCD.</description>
     </item>
     
   </channel>
