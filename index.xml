@@ -79,7 +79,7 @@ Recently i&amp;rsquo;ve had to develop some software that needed to interface an
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/about/</guid>
-      <description>Programming languages  Rust Golang Python Js  Setup  Arch linux Gnome Neovim  Github</description>
+      <description></description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ Recently i&amp;rsquo;ve had to develop some software that needed to interface an
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://example.com/movies/</guid>
-      <description></description>
+      <description> .base-body {max-width:90%;} .fl {margin-bottom: 0px !important}                </description>
     </item>
     
   </channel>
