@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-home
+---
+
+<div class="finder screen" style="display: block;">
+  <header class="header">
+    <span class="title">
+      <br-bold class="br-bold"> {{ title }} </br-bold>
+    </span>
+    <button class="close">x</button>
+  </header>
+  <div class="body">
+    <div class="d-flex flex-wrap">
+      {{ content | wikimage | safe }}
+    </div>
+  </div>
+</div>

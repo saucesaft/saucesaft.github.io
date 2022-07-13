@@ -1,0 +1,68 @@
+<div class="sidebar_layout">
+
+<a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+
+{% set n = 4 %}
+
+{% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
+{%- for entry in navPages %}
+    {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
+    {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
+        {% set lpix = loop.index0 %}
+        {% if loop.index % n == 1%}
+            <div class="sidebar">
+              {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
+                {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n)) %}
+                    {% if entry.title != "home" %}
+                        <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
+                    {% endif %}
+                {% endif %}
+              {%- endfor %}
+            </div>
+            {% if (loop.last == false) and (navPagesLength != 0) %}
+                <div class="sidebar">
+                    <a class="separator">></a>
+                </div>
+            {% endif %}
+        {% endif %}
+    {%- endfor  %}
+{%- endfor %}
+
+{% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
+{% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
+{%- for entry in navPages %}
+    {% if loop.index % n == 1 %}
+        {% set lpix = loop.index0 %}
+        <div class="sidebar lol">
+        {%- for entry in navPages %}
+            {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n))  %}
+                <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
+            {% endif %}
+        {%- endfor %}
+        </div>
+    {% endif %}
+{%- endfor %}
+
+</div>
+
+{# <script type="text/javascript">
+    function show_garden() {
+        let g = document.getElementsByClassName('garden')[0];
+            g.classList.add('in');
+            g.classList.remove('out');
+
+            g = document.body;
+            g.classList.add('in');
+            g.classList.remove('out');
+    }
+
+    function hide_garden() {
+        let g = document.getElementsByClassName('garden')[0];
+            g.classList.add('out');
+            g.classList.remove('in');
+            
+            g = document.body;
+            g.classList.add('out');
+            g.classList.remove('in');
+    }
+</script> #}

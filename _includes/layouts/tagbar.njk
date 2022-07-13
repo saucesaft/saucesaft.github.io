@@ -1,0 +1,31 @@
+<div class="sidebar">
+
+{%- for garden in collections.garden -%}
+    <a href={{ garden.url }}> {{ garden.data.title }} </a>
+{%- endfor -%}
+
+</div>
+
+<a> WINDOW EXPLAINING THE CATEGORIES </a>
+
+{# <script type="text/javascript">
+    function show_garden() {
+        let g = document.getElementsByClassName('garden')[0];
+            g.classList.add('in');
+            g.classList.remove('out');
+
+            g = document.body;
+            g.classList.add('in');
+            g.classList.remove('out');
+    }
+
+    function hide_garden() {
+        let g = document.getElementsByClassName('garden')[0];
+            g.classList.add('out');
+            g.classList.remove('in');
+            
+            g = document.body;
+            g.classList.add('out');
+            g.classList.remove('in');
+    }
+</script> #}

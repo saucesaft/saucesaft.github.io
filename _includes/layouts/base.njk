@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="generator" content="{{ eleventy.generator }}">
+
+    {# <link rel="stylesheet" href="https://unpkg.com/98.css" /> #}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="{{ '/css/base.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/2049.css' | url }}">
+
+    <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+  </head>
+  <body>
+
+    {% include "layouts/sidebar.njk" %}
+
+    <div class="layout">
+
+      {{ content | safe }}
+
+    </div>
+
+    <!-- Current page: {{ page.url | url }} -->
+  </body>
+
+  <div class="footer"></div>
+
+</html>
