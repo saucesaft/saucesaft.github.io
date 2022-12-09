@@ -1,18 +1,14 @@
 ---
 title: index
-layout: layouts/windowpage.njk
+layout: layouts/homepage.njk
 eleventyNavigation:
   key: home
 ---
 
-## welcome to my brain garden
+## welcome to my garden
 
 ### feel free to explore
 
 i try to write useful, fun and interesting things
 
-### below are some of my favorite ongoing seeds that you can start reading
-
-- my morrowind playthrough
-
-- exploring the space and creating a story in meantime ft. dall-e
+below are some projects i'm working on

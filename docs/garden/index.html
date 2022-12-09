@@ -16,7 +16,7 @@
 
 
     <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/2049.css">
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css">
 
     <link rel="alternate" href="." type="application/atom+xml" title="">
     <link rel="alternate" href="." type="application/json" title="">
@@ -25,12 +25,19 @@
 
     <div class="sidebar_layout">
 
-<a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+<div id="head">
+    <a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+    <a id="scroller"> hello i am scrolling ... </a>
+</div>
+
+
 
 
 
 
     
+    
+
         
         
             <div class="sidebar">
@@ -48,14 +55,19 @@
                     
                 
             </div>
+
+
             
                 <div class="sidebar">
-                    <a class="separator">></a>
+                    <a class="divider">></a>
                 </div>
             
+
+        
+
         
         
-        
+
         
         
 
@@ -63,15 +75,15 @@
 
     
         
-        <div class="sidebar lol">
-            
-                <a href="/garden/wiki/"> wiki </a>
-            
+        <div class="sidebar">
             
                 <a href="/garden/brain/"> brain </a>
             
             
                 <a href="/garden/rp/"> rp </a>
+            
+            
+                <a href="/garden/wiki/"> wiki </a>
             
         </div>
     
@@ -81,28 +93,30 @@
 </div>
 
 
+    
 
     <div class="layout">
 
       
-<div class="finder screen" style="display: block;">
-  <header class="header">
-    <span class="title">
-      <br-bold class="br-bold">  </br-bold>
-    </span>
-    <button class="close">x</button>
-  </header>
-  <div class="body">
-    <div class="d-flex flex-wrap">
-      <p>brain: random notes of maybe unrelated brain ideas that i wanted to write</p>
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title">  </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    <p>brain: random notes of maybe unrelated brain ideas that i wanted to write</p>
 <p>rp: role playing notes and stories</p>
 <p>wiki: more &quot;intelligent&quot; stuff lol</p>
 
-    </div>
   </div>
 </div>
 
     </div>
+
+
 
     <!-- Current page: /garden/ -->
   </body>

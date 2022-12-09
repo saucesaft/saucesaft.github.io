@@ -1,13 +1,20 @@
 <div class="sidebar_layout">
 
-<a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+<div id="head">
+    <a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+    <a id="scroller"> hello i am scrolling ... </a>
+</div>
 
 {% set n = 4 %}
 
+{% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
+
 {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
 {%- for entry in navPages %}
-    {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
+    {% set highLoop = loop %}
+    {# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
     {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
+
         {% set lpix = loop.index0 %}
         {% if loop.index % n == 1%}
             <div class="sidebar">
@@ -19,21 +26,25 @@
                 {% endif %}
               {%- endfor %}
             </div>
-            {% if (loop.last == false) and (navPagesLength != 0) %}
+
+
+            {% if (loop.last == false or navPagesLength != 0) %}
                 <div class="sidebar">
-                    <a class="separator">></a>
+                    <a class="divider">></a>
                 </div>
             {% endif %}
+
         {% endif %}
+
     {%- endfor  %}
 {%- endfor %}
 
-{% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
+{# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
 {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
 {%- for entry in navPages %}
     {% if loop.index % n == 1 %}
         {% set lpix = loop.index0 %}
-        <div class="sidebar lol">
+        <div class="sidebar">
         {%- for entry in navPages %}
             {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n))  %}
                 <a href="{{ entry.url | url }}"> {{ entry.title }} </a>

@@ -16,7 +16,7 @@
 
 
     <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/2049.css">
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css">
 
     <link rel="alternate" href="." type="application/atom+xml" title="">
     <link rel="alternate" href="." type="application/json" title="">
@@ -25,12 +25,19 @@
 
     <div class="sidebar_layout">
 
-<a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+<div id="head">
+    <a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+    <a id="scroller"> hello i am scrolling ... </a>
+</div>
+
+
 
 
 
 
     
+    
+
         
         
             <div class="sidebar">
@@ -48,10 +55,19 @@
                     
                 
             </div>
+
+
             
+                <div class="sidebar">
+                    <a class="divider">></a>
+                </div>
+            
+
+        
+
         
         
-        
+
         
         
 
@@ -61,37 +77,71 @@
 </div>
 
 
+    
 
     <div class="layout">
 
       
-<div class="finder screen" style="display: block;">
-  <header class="header">
-    <span class="title">
-      <br-bold class="br-bold"> index </br-bold>
-    </span>
-    <button class="close">x</button>
-  </header>
-  <div class="body">
-    <div class="d-flex flex-wrap">
-      <h2>welcome to my brain garden</h2>
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title"> index </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    <h2>welcome to my garden</h2>
 <h3>feel free to explore</h3>
 <p>i try to write useful, fun and interesting things</p>
-<h3>below are some of my favorite ongoing seeds that you can start reading</h3>
-<ul>
-<li>
-<p>my morrowind playthrough</p>
-</li>
-<li>
-<p>exploring the space and creating a story in meantime ft. dall-e</p>
-</li>
-</ul>
+<p>below are some projects i'm working on</p>
 
-    </div>
   </div>
 </div>
 
+<div id="projects">
+  <div class="window">
+      <div class="title-bar">
+        <button aria-label="Close" class="close"></button>
+        <h1 class="title"> cyberdeck </h1>
+        <button aria-label="Resize" class="resize"></button>
+      </div>
+      <div class="separator"></div>
+
+      <div class="window-pane">
+        hello world!
+      </div>
     </div>
+  <div class="window">
+      <div class="title-bar">
+        <button aria-label="Close" class="close"></button>
+        <h1 class="title"> compiler </h1>
+        <button aria-label="Resize" class="resize"></button>
+      </div>
+      <div class="separator"></div>
+
+      <div class="window-pane">
+        hello world!
+      </div>
+    </div>
+  <div class="window">
+      <div class="title-bar">
+        <button aria-label="Close" class="close"></button>
+        <h1 class="title"> buoy recognition </h1>
+        <button aria-label="Resize" class="resize"></button>
+      </div>
+      <div class="separator"></div>
+
+      <div class="window-pane">
+        hello world!
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+
 
     <!-- Current page: / -->
   </body>

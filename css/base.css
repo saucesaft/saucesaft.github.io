@@ -12,6 +12,8 @@ img.center-post {
 body {
   margin: 0;
   background-color: #000002;
+  background: url(/img/poolside-fm-martini-picnic.png) !important;
+  background-size: 120% !important;
   font-family: 'Libre Franklin', sans-serif;
 }
 
@@ -20,7 +22,26 @@ body {
 }
 
 .finder{
+  margin-top: 80px;
   width: 72%;
+}
+
+#projects {
+  max-width: 920px;
+  min-width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#projects .window {
+  height: 150px;
+  flex: 1 0 auto;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  width: 25%;
+  min-width: 0px;
 }
 
 .body {
@@ -31,6 +52,7 @@ body {
   display: flex;
   justify-content: center;
   padding-bottom: 8em;
+  flex-wrap: wrap;
 }
 
 a:link {
@@ -50,10 +72,12 @@ h1 {
   display: flex;
   flex-flow: wrap;
   margin: 1%;
+  margin-top: 1em;
 }
 
 .sidebar {
   margin: 0;
+  margin-top: 1em;
   padding: 0;
   height: 100%;
   scrollbar-color: #3d3d3a #292927;
@@ -62,38 +86,65 @@ h1 {
   display: inline-block;
 }
 
-.sidebar a {
+a {
   font-size: 15px;
   display: block;
   color: white;
   padding: 8px;
-  text-decoration: none;
+  text-decoration: none !important;
   text-align: left;
   font-weight: 700;
   cursor: pointer;
   font-family: 'Chicago', sans-serif;
 }
+
+.sidebar a {
+  color: white;
+}
  
+div#head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  height: 2em;
+}
+
 a#title {
   color: #fc6a5d;
   font-size: 27px;
   font-family: "over_there";
   position: relative;
   float: left;
-  width: 100%;
   text-decoration: none;
 }
 
-.sidebar a:hover:not(#title):not(.separator) {
+a#scroller {
+/*  background-color: #222;*/
+  color: white;
+}
+
+.sidebar a:hover:not(#title):not(.divider) {
   /*color: #f1bc71;*/
+  color: #222;
+  background-color: white;
+  /*
+  text-decoration: underline;
+  text-decoration-color: #f1bc71;
+  text-decoration-thickness: 4px; */
+}
+
+.sidebar a:not(#title):not(.divider) {
+/*  color: #f1bc71; yellowwww*/
   background-color: #222/*
   text-decoration: underline;
   text-decoration-color: #f1bc71;
   text-decoration-thickness: 4px; */
 }
 
-.sidebar a.separator {
+.sidebar a.divider {
   cursor: default;
+  font-size: 1.5em;
 }
 
 div.content {
@@ -103,9 +154,11 @@ div.content {
 }
 
 div.window { 
+  border-radius: 10px;
   margin: 2em;
   margin-left: 8em;
   margin-right: 8em;
+  min-width: 65%;
 }
 
 /*body.in {
@@ -142,15 +195,30 @@ div.window {
 
 .footer {
   position: fixed;
-  left: 0;
-  bottom: 0;
+  right: 0;
+  top: 0;
   width: 100%;
   height : 300px ;
 
-  background-image: url("https://66.media.tumblr.com/34fae0950c3da10a34678a5ba44566f7/tumblr_o5wp4xjtN71qf2dg2o1_500.gifv");
-  /*background-attachment: fixed;*/
-  background-repeat : repeat-x ;
-  background-size: 300px;
+/*  background-image: url("https://66.media.tumblr.com/34fae0950c3da10a34678a5ba44566f7/tumblr_o5wp4xjtN71qf2dg2o1_500.gifv");*/
+  background-repeat : no-repeat ;
+  background-size: 160px;
+
+  z-index: -99;
+}
+
+/*menos de 600, centrar titulo, quitar scroller*/
+
+@media screen and (max-width: 600px) {
+
+  div#head {
+    justify-content: center;
+  }
+
+  a#scroller {
+    display: none;
+  }
+
 }
 
 @media screen and (max-width: 700px) {

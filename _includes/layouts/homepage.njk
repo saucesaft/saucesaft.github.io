@@ -1,0 +1,34 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-home
+---
+
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title"> {{ title }} </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    {{ content | wikimage | safe }}
+  </div>
+</div>
+
+<div id="projects">
+  {% for project in projects -%}
+    <div class="window">
+      <div class="title-bar">
+        <button aria-label="Close" class="close"></button>
+        <h1 class="title"> {{ project.title }} </h1>
+        <button aria-label="Resize" class="resize"></button>
+      </div>
+      <div class="separator"></div>
+
+      <div class="window-pane">
+        hello world!
+      </div>
+    </div>
+  {% endfor %}
+</div>

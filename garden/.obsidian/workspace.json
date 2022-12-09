@@ -1,0 +1,147 @@
+{
+  "main": {
+    "id": "4aeac4e3abbef236",
+    "type": "split",
+    "children": [
+      {
+        "id": "1ad6b0ed20bd4cc7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2883ae3763da12c4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "brain/game-brainstorm.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "209f596e690d6d44",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "c4d01e7b4c4e8590",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "brain/hypercontent.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "8904613f7238779c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "wiki/hacking my kindle.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "82de9fb3b28922e1",
+    "type": "split",
+    "children": [
+      {
+        "id": "c644a2872eaed4b7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab85e899492de65f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3a85bb138a2319f7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9022e6c2c0891faa",
+    "type": "split",
+    "children": [
+      {
+        "id": "4a9a70565c108eb7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30646dd17ae76633",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "wiki/hacking my kindle.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "8904613f7238779c",
+  "lastOpenFiles": [
+    "brain/hypercontent.md",
+    "brain/aicontent.md",
+    "brain/secondbrain/testcontent.md",
+    "brain/game-brainstorm.md",
+    "brain/img/brutalist-architecture.png",
+    "Pasted image 20220102174830.png.md",
+    "index.md",
+    "rp/morrowind/day2.md",
+    "rp/morrowind/day1.md",
+    "rp/galaxies/week1.md"
+  ]
+}

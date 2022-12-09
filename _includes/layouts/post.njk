@@ -1,13 +1,16 @@
-<div class="finder screen" style="display: block; top: 131px; left: 85px;">
-  <header class="header">
-    <span class="title">
-      <br-bold class="br-bold"> {{ title }} </br-bold>
-    </span>
-    <button class="close">x</button>
-  </header>
-  <div class="body">
-    <div class="d-flex flex-wrap">
-      {{ content | safe }}
-    </div>
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title"> {{ title }} </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="details-bar">
+    <span>some</span>
+    <span>more</span>
+    <span>details</span>
+  </div>
+
+  <div class="window-pane">
+    {{ content | safe }}
   </div>
 </div>

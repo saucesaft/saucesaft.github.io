@@ -16,7 +16,7 @@
 
 
     <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/2049.css">
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css">
 
     <link rel="alternate" href="." type="application/atom+xml" title="">
     <link rel="alternate" href="." type="application/json" title="">
@@ -25,12 +25,19 @@
 
     <div class="sidebar_layout">
 
-<a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+<div id="head">
+    <a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
+    <a id="scroller"> hello i am scrolling ... </a>
+</div>
+
+
 
 
 
 
     
+    
+
         
         
             <div class="sidebar">
@@ -48,21 +55,27 @@
                     
                 
             </div>
+
+
             
+                <div class="sidebar">
+                    <a class="divider">></a>
+                </div>
+            
+
+        
+
         
         
-        
+
         
         
     
+    
+
         
         
             <div class="sidebar">
-                
-                    
-                        <a href="/garden/wiki/"> wiki </a>
-                    
-                
                 
                     
                         <a href="/garden/brain/"> brain </a>
@@ -73,14 +86,30 @@
                         <a href="/garden/rp/"> rp </a>
                     
                 
+                
+                    
+                        <a href="/garden/wiki/"> wiki </a>
+                    
+                
             </div>
+
+
             
+                <div class="sidebar">
+                    <a class="divider">></a>
+                </div>
+            
+
+        
+
         
         
-        
+
         
         
     
+    
+
         
         
             <div class="sidebar">
@@ -94,9 +123,33 @@
                         <a href="/garden/brain/game-brainstorm/"> game-brainstorm.md </a>
                     
                 
+                
+                    
+                        <a href="/garden/brain/hypercontent/"> hypercontent.md </a>
+                    
+                
+                
+                    
+                        <a href="/garden/brain/secondbrain/"> secondbrain </a>
+                    
+                
             </div>
+
+
             
+                <div class="sidebar">
+                    <a class="divider">></a>
+                </div>
+            
+
         
+
+        
+        
+
+        
+        
+
         
         
 
@@ -106,20 +159,21 @@
 </div>
 
 
+    
 
     <div class="layout">
 
       
-<div class="finder screen" style="display: block;">
-  <header class="header">
-    <span class="title">
-      <br-bold class="br-bold"> AI-Generated Content </br-bold>
-    </span>
-    <button class="close">x</button>
-  </header>
-  <div class="body">
-    <div class="d-flex flex-wrap">
-      <p>Even today, 2022, AI-generated content is slowly starting to break into mainstream culture. Lets take Dalle as an example, people are going crazy by the posibility of entering random word sequences that turn into an image.</p>
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title"> AI-Generated Content </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    <p>Even today, 2022, AI-generated content is slowly starting to break into mainstream culture. Lets take Dalle as an example, people are going crazy by the posibility of entering random word sequences that turn into an image.</p>
 <p>Who would have thought that a court sketch with godzilla would have been a thing?</p>
 <p><a href="https://twitter.com/tylerzanca/status/1534894404523069440?s=20&amp;t=BtIKHw8xez7HASpCHKeQHg">https://twitter.com/tylerzanca/status/1534894404523069440?s=20&amp;t=BtIKHw8xez7HASpCHKeQHg</a></p>
 <p>Imagine the sheer posibilities of content creation in the future.</p>
@@ -133,11 +187,12 @@
 <li>Surveillance that watches every single action that we make, and that when asked, will generate content based on it. How? Let's say you live with your sister,</li>
 </ul>
 
-    </div>
   </div>
 </div>
 
     </div>
+
+
 
     <!-- Current page: /garden/brain/aicontent/ -->
   </body>

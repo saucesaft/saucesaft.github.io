@@ -1,10 +1,11 @@
 ---
 title: wiki
-layout: layouts/base.njk
+layout: layouts/windowpage.njk
 templateClass: garden-posts
 eleventyNavigation:
   key: wiki
   parent: garden
 ---
 
-{% include "layouts/tagbar.njk" %}
+general knowledge, i also talk about my projects
+
