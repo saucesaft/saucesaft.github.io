@@ -5,9 +5,8 @@ eleventyNavigation:
   key: home
 ---
 
-## welcome to my garden
 
-### feel free to explore
+hello
 
 i try to write useful, fun and interesting things
 

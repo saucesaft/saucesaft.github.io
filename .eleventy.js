@@ -4,6 +4,7 @@ const markdownItOptions = {
     html: true,
     linkify: true
 };
+const inspect = require("node:util").inspect;
 
 module.exports = function(eleventyConfig) {
 
@@ -25,6 +26,15 @@ module.exports = function(eleventyConfig) {
     })
     return string
   })
+
+  eleventyConfig.addFilter("getRandom", function(items) {
+    let selected = items[Math.floor(Math.random() * items.length)];
+    return selected;
+  });
+
+  eleventyConfig.addFilter("inspect", function (obj = {}) {
+    return inspect(obj, {sorted: true});
+  });
 
   eleventyConfig.setLibrary('md', md);
 

@@ -44,6 +44,11 @@ body {
   min-width: 0px;
 }
 
+#scroller {
+/*  width: 100%;*/
+  flex-grow: 1;
+}
+
 .body {
   padding: 1em;
 }
@@ -102,12 +107,34 @@ a {
   color: white;
 }
  
+div#menu {
+  flex-basis: 100%;
+}
+
 div#head {
   width: 100%;
   display: flex;
   align-items: center;
   background-color: #222;
   height: 2em;
+}
+
+div#subhead {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  background-color: #222;
+  height: 0.8em;
+  margin-top: 0.6em;
+}
+
+a#subtitle {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Chicago', sans-serif;
+  position: relative;
+  float: left;
+  text-decoration: none;
 }
 
 a#title {
@@ -159,6 +186,11 @@ div.window {
   margin-left: 8em;
   margin-right: 8em;
   min-width: 65%;
+/*  overflow-y: visible;*/
+}
+
+div.window-pane {
+  overflow-y: visible;
 }
 
 /*body.in {

@@ -1,58 +1,74 @@
 <div class="sidebar_layout">
 
+{% if (title == "index") %}
+    {% set phrase = phrases[0] %}
+{% else %}
+    {% set phrase = phrases | getRandom %}
+{% endif %}
+
 <div id="head">
-    <a id="title" href="/" onclick="hide_garden()"> &lt;saucesaft&gt; </a>
-    <a id="scroller"> hello i am scrolling ... </a>
+    <a id="title" href="/">&lt;hair on the circuits&gt;</a>
+    <a id="scroller">
+        <marquee loop="infinite" behavior="scroll" direction="left">
+            {{ phrase }}
+        </marquee>
+    </a>
 </div>
 
-{% set n = 4 %}
+<div id="subhead">
+    <a id="subtitle">a blog by eduardo hdz - saucesaft</a>
+</div>
 
-{% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
+<div id="menu">
+    {% set n = 4 %}
 
-{% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
-{%- for entry in navPages %}
-    {% set highLoop = loop %}
-    {# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
-    {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
+    {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
 
-        {% set lpix = loop.index0 %}
-        {% if loop.index % n == 1%}
-            <div class="sidebar">
-              {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
-                {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n)) %}
-                    {% if entry.title != "home" %}
-                        <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
-                    {% endif %}
-                {% endif %}
-              {%- endfor %}
-            </div>
+    {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
+    {%- for entry in navPages %}
+        {% set highLoop = loop %}
+        {# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
+        {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
 
-
-            {% if (loop.last == false or navPagesLength != 0) %}
+            {% set lpix = loop.index0 %}
+            {% if loop.index % n == 1%}
                 <div class="sidebar">
-                    <a class="divider">></a>
+                  {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
+                    {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n)) %}
+                        {% if entry.title != "home" %}
+                            <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
+                        {% endif %}
+                    {% endif %}
+                  {%- endfor %}
                 </div>
+
+
+                {% if (loop.last == false or navPagesLength != 0) %}
+                    <div class="sidebar">
+                        <a class="divider">></a>
+                    </div>
+                {% endif %}
+
             {% endif %}
 
+        {%- endfor  %}
+    {%- endfor %}
+
+    {# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
+    {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
+    {%- for entry in navPages %}
+        {% if loop.index % n == 1 %}
+            {% set lpix = loop.index0 %}
+            <div class="sidebar">
+            {%- for entry in navPages %}
+                {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n))  %}
+                    <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
+                {% endif %}
+            {%- endfor %}
+            </div>
         {% endif %}
-
-    {%- endfor  %}
-{%- endfor %}
-
-{# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
-{% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
-{%- for entry in navPages %}
-    {% if loop.index % n == 1 %}
-        {% set lpix = loop.index0 %}
-        <div class="sidebar">
-        {%- for entry in navPages %}
-            {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n))  %}
-                <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
-            {% endif %}
-        {%- endfor %}
-        </div>
-    {% endif %}
-{%- endfor %}
+    {%- endfor %}
+</div>
 
 </div>
 

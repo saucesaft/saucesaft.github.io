@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hacking my kindle pt.2</title>
+    <meta name="description" content="">
+    <meta name="generator" content="Eleventy v1.0.1">
+
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="https://unpkg.com/@sakun/system.css">
+
+    <link rel="alternate" href="." type="application/atom+xml" title="">
+    <link rel="alternate" href="." type="application/json" title="">
+  </head>
+  <body>
+
+    <div class="sidebar_layout">
+
+
+    
+
+
+<div id="head">
+    <a id="title" href="/">&lt;hair on the circuits&gt;</a>
+    <a id="scroller">
+        <marquee loop="infinite" behavior="scroll" direction="left">
+            where are your friends tonight?
+        </marquee>
+    </a>
+</div>
+
+<div id="subhead">
+    <a id="subtitle">a blog by eduardo hdz - saucesaft</a>
+</div>
+
+<div id="menu">
+    
+
+    
+
+    
+        
+        
+
+            
+            
+                <div class="sidebar">
+                    
+                        
+                            <a href="/garden/"> garden </a>
+                        
+                    
+                    
+                        
+                            <a href="/about/"> abouut </a>
+                        
+                    
+                    
+                        
+                    
+                </div>
+
+
+                
+                    <div class="sidebar">
+                        <a class="divider">></a>
+                    </div>
+                
+
+            
+
+            
+            
+
+            
+            
+        
+        
+
+            
+            
+                <div class="sidebar">
+                    
+                        
+                            <a href="/garden/brain/"> brain </a>
+                        
+                    
+                    
+                        
+                            <a href="/garden/rp/"> rp </a>
+                        
+                    
+                    
+                        
+                            <a href="/garden/wiki/"> wiki </a>
+                        
+                    
+                </div>
+
+
+                
+                    <div class="sidebar">
+                        <a class="divider">></a>
+                    </div>
+                
+
+            
+
+            
+            
+
+            
+            
+        
+        
+
+            
+            
+                <div class="sidebar">
+                    
+                        
+                            <a href="/garden/wiki/cyberdeck/"> cyberdeck </a>
+                        
+                    
+                </div>
+
+
+                
+
+            
+        
+        
+
+            
+            
+                <div class="sidebar">
+                    
+                        
+                            <a href="/garden/wiki/cyberdeck/hacking my kindle pt.1/"> pt1 </a>
+                        
+                    
+                    
+                        
+                            <a href="/garden/wiki/cyberdeck/hacking my kindle pt.2/"> pt2 </a>
+                        
+                    
+                </div>
+
+
+                
+                    <div class="sidebar">
+                        <a class="divider">></a>
+                    </div>
+                
+
+            
+
+            
+            
+
+    
+    
+</div>
+
+</div>
+
+
+    
+
+    <div class="layout">
+
+      
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title"> hacking my kindle pt.2 </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    <p><strong>Some information i have found while researching:</strong></p>
+<p>Kernel drivers loaded in linux:</p>
+<pre><code>g_mass_storage          4203  0
+usb_f_ecm              10309  0
+usb_f_rndis            27251  0
+u_ether                14348  2 usb_f_ecm,usb_f_rndis
+bcmdhd                669190  0
+usb_f_mass_storage     51007  2 g_mass_storage
+libcomposite           49114  4 g_mass_storage,usb_f_ecm,usb_f_rndis,usb_f_mass_storage
+configfs               26493  5 usb_f_ecm,usb_f_rndis,usb_f_mass_storage,libcomposite
+cyttsp5_i2c             2569  0
+cyttsp5                90300  2 cyttsp5_i2c
+falcon                 21319  0 [permanent]
+mxc_epdc_v2_fb         99289  3
+</code></pre>
+<p>SPI drivers showing up on <code>/sys/bus/spi/drivers</code>:</p>
+<pre><code>74x164         m25p80         mtd_dataflash
+at25           mc13xxx        sst25l
+</code></pre>
+<p>No devices showing up on <code>/sys/bus/spi/devices</code></p>
+
+  </div>
+</div>
+
+    </div>
+
+
+
+    <!-- Current page: /garden/wiki/cyberdeck/hacking my kindle pt.2/ -->
+  </body>
+
+  <div class="footer"></div>
+
+</html>
