@@ -3,6 +3,7 @@
      src :  url( "/fonts/over_there.ttf" );
 }
 
+
 img.center-post {
   display: inline-block;
   margin-left: auto;
@@ -14,7 +15,15 @@ body {
   background-color: #000002;
   background: url(/img/poolside-fm-martini-picnic.png) !important;
   background-size: 120% !important;
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.window {
+  width: 80%;
+}
+
+.title {
+  overflow: hidden;
 }
 
 .mdcenter {
@@ -27,25 +36,32 @@ body {
 }
 
 #projects {
-  max-width: 920px;
-  min-width: 65%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
 
 #projects .window {
-  height: 150px;
   flex: 1 0 auto;
-  margin-top: 0.5rem;
-  margin-right: 0.5rem;
+  margin: 0;
+  gap: 1rem;
+
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
   width: 25%;
   min-width: 0px;
 }
 
+#projects .window:first-of-type {
+  margin-left: 0;
+}
+
+#projects .window:last-child {
+  margin-right: 0;
+}
+
 #scroller {
-/*  width: 100%;*/
   flex-grow: 1;
 }
 
@@ -100,8 +116,13 @@ a {
   text-align: left;
   font-weight: 700;
   cursor: pointer;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+#scroller marquee {
   font-family: 'Chicago', sans-serif;
 }
+
 
 .sidebar a {
   color: white;
@@ -124,14 +145,14 @@ div#subhead {
   display: flex;
   align-items: center;
   background-color: #222;
-  height: 0.8em;
+  height: 1.4em;
   margin-top: 0.6em;
 }
 
 a#subtitle {
   color: #FFFFFF;
   font-size: 20px;
-  font-family: 'Chicago', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   position: relative;
   float: left;
   text-decoration: none;
@@ -140,33 +161,23 @@ a#subtitle {
 a#title {
   color: #fc6a5d;
   font-size: 27px;
-  font-family: "over_there";
+  font-family: 'IBM Plex Sans', sans-serif;
   position: relative;
   float: left;
   text-decoration: none;
 }
 
 a#scroller {
-/*  background-color: #222;*/
   color: white;
 }
 
 .sidebar a:hover:not(#title):not(.divider) {
-  /*color: #f1bc71;*/
   color: #222;
   background-color: white;
-  /*
-  text-decoration: underline;
-  text-decoration-color: #f1bc71;
-  text-decoration-thickness: 4px; */
 }
 
 .sidebar a:not(#title):not(.divider) {
-/*  color: #f1bc71; yellowwww*/
   background-color: #222/*
-  text-decoration: underline;
-  text-decoration-color: #f1bc71;
-  text-decoration-thickness: 4px; */
 }
 
 .sidebar a.divider {
@@ -186,44 +197,16 @@ div.window {
   margin-left: 8em;
   margin-right: 8em;
   min-width: 65%;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+
 /*  overflow-y: visible;*/
 }
 
 div.window-pane {
   overflow-y: visible;
+  font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
-
-/*body.in {
-  overflow-y: scroll;
-}
-
-.garden.in {
-  animation-duration: 0.4s;
-  animation-name: window-in;
-  animation-fill-mode: forwards;
-  visibility: inherit;
-}
-
-@keyframes window-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-.out {
-  overflow-y: hidden;
-}
-
-.garden.out {
-  animation-duration: 0.4s;
-  animation-name: window-out;
-  animation-fill-mode: forwards;
-  visibility: inherit;
-}
-
-@keyframes window-out {
-  0% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
-}*/
 
 .footer {
   position: fixed;
@@ -232,14 +215,11 @@ div.window-pane {
   width: 100%;
   height : 300px ;
 
-/*  background-image: url("https://66.media.tumblr.com/34fae0950c3da10a34678a5ba44566f7/tumblr_o5wp4xjtN71qf2dg2o1_500.gifv");*/
   background-repeat : no-repeat ;
   background-size: 160px;
 
   z-index: -99;
 }
-
-/*menos de 600, centrar titulo, quitar scroller*/
 
 @media screen and (max-width: 600px) {
 
@@ -264,13 +244,16 @@ div.window-pane {
     margin-left: 0%;
     text-align: center;
   }
+
   .sidebar a {
     display: inline-block;
     cursor: inherit;
   }
-  div.content {margin-right: 0;}
+
+/*  div.content {margin-right: 0;}*/
+
   div.window {
-    margin-right: 0;
+/*    margin-right: 0;*/
     margin: 24px;
     margin-top: 48px;
   }

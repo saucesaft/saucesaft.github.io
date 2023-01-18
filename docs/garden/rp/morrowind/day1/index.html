@@ -7,8 +7,6 @@
     <meta name="description" content="">
     <meta name="generator" content="Eleventy v1.0.1">
 
-    
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,6 +21,37 @@
   </head>
   <body>
 
+    <script type="text/javascript">
+      
+      function isElementOverflowing(element) {
+        var h = element.clientHeight;
+
+        var lh = parseFloat(getComputedStyle(element).lineHeight)
+
+        return h >= lh;
+      }
+
+      function wrapContentsInMarquee(element) {
+        var marquee = document.createElement('marquee'),
+          contents = element.innerText;
+
+        marquee.innerText = contents;
+        element.innerHTML = '';
+        element.appendChild(marquee);
+      }
+
+      document.addEventListener("DOMContentLoaded", function(e) {
+        let titles = document.getElementsByClassName("title");
+
+        for (let i = 0; i < titles.length; i++) {
+          if (isElementOverflowing(titles[i])) {
+            wrapContentsInMarquee(titles[i]);
+          }
+        }
+      });
+
+    </script>
+
     <div class="sidebar_layout">
 
 
@@ -30,7 +59,7 @@
 
 
 <div id="head">
-    <a id="title" href="/">&lt;hair on the circuits&gt;</a>
+    <a id="title" href="/">hair on the circuits</a>
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
             daft punk is playing at my house
@@ -61,7 +90,7 @@
                     
                     
                         
-                            <a href="/about/"> abouut </a>
+                            <a href="/about/"> about </a>
                         
                     
                     
@@ -186,7 +215,6 @@
 </div>
 
 
-    
 
     <div class="layout">
 

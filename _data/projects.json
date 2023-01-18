@@ -1,5 +1,14 @@
-[
-	{"title": "cyberdeck"},
-	{"title": "buoy recognition"},
-	{"title": "auxn"}
-]
+{
+    "list" : [
+        {
+            "title": "vanttec",
+            "description": "computer vision algoritms for the roboboat competition in which my university's team competes.",
+            "media": "/img/projects/vanttec.png"
+        },
+        {
+            "title": "auxn", 
+            "description": "an emulator for the uxn virtual machine running as an audio plugin (VST3, CLAP).",
+            "media": "/img/projects/auxn.png"
+        }
+    ]
+}

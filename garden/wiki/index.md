@@ -7,5 +7,5 @@ eleventyNavigation:
   parent: garden
 ---
 
-general knowledge, i also talk about my projects
+general knowledge, i also talk about my projects in here
 

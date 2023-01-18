@@ -3,11 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index</title>
+    <title>hello</title>
     <meta name="description" content="">
     <meta name="generator" content="Eleventy v1.0.1">
-
-    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +21,37 @@
   </head>
   <body>
 
+    <script type="text/javascript">
+      
+      function isElementOverflowing(element) {
+        var h = element.clientHeight;
+
+        var lh = parseFloat(getComputedStyle(element).lineHeight)
+
+        return h >= lh;
+      }
+
+      function wrapContentsInMarquee(element) {
+        var marquee = document.createElement('marquee'),
+          contents = element.innerText;
+
+        marquee.innerText = contents;
+        element.innerHTML = '';
+        element.appendChild(marquee);
+      }
+
+      document.addEventListener("DOMContentLoaded", function(e) {
+        let titles = document.getElementsByClassName("title");
+
+        for (let i = 0; i < titles.length; i++) {
+          if (isElementOverflowing(titles[i])) {
+            wrapContentsInMarquee(titles[i]);
+          }
+        }
+      });
+
+    </script>
+
     <div class="sidebar_layout">
 
 
@@ -30,7 +59,7 @@
 
 
 <div id="head">
-    <a id="title" href="/">&lt;hair on the circuits&gt;</a>
+    <a id="title" href="/">hair on the circuits</a>
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
             enjoy your stay :)
@@ -61,7 +90,7 @@
                     
                     
                         
-                            <a href="/about/"> abouut </a>
+                            <a href="/about/"> about </a>
                         
                     
                     
@@ -91,7 +120,6 @@
 </div>
 
 
-    
 
     <div class="layout">
 
@@ -99,43 +127,35 @@
 <div class="window">
   <div class="title-bar">
     <button aria-label="Close" class="close"></button>
-    <h1 class="title"> index </h1>
+    <h1 class="title"> hello </h1>
     <button aria-label="Resize" class="resize"></button>
   </div>
   <div class="separator"></div>
 
   <div class="window-pane">
-    <p>hello</p>
-<p>i try to write useful, fun and interesting things</p>
-<p>below are some projects i'm working on</p>
+    <p>my name is eduardo hernández, but i go by saucesaft on the internet.</p>
+<p>i try to write useful, fun and interesting things about embedded programming, rust, c++, creative coding, ai, computer vision, books, writing, music, etc.</p>
+<p>you can go ahead and read my cv, my blog posts, or check out some projects im working on below:</p>
 
   </div>
 </div>
 
 <div id="projects">
+  
   <div class="window">
       <div class="title-bar">
         <button aria-label="Close" class="close"></button>
-        <h1 class="title"> cyberdeck </h1>
+        <h1 class="title"> vanttec </h1>
         <button aria-label="Resize" class="resize"></button>
       </div>
       <div class="separator"></div>
 
-      <div class="window-pane">
-        hello world!
-      </div>
-    </div>
-  <div class="window">
-      <div class="title-bar">
-        <button aria-label="Close" class="close"></button>
-        <h1 class="title"> buoy recognition </h1>
-        <button aria-label="Resize" class="resize"></button>
-      </div>
-      <div class="separator"></div>
+      <img style="max-width:100%;" src=/img/projects/vanttec.png />
 
       <div class="window-pane">
-        hello world!
+        computer vision algoritms for the roboboat competition in which my university&#39;s team competes.
       </div>
+
     </div>
   <div class="window">
       <div class="title-bar">
@@ -145,9 +165,12 @@
       </div>
       <div class="separator"></div>
 
+      <img style="max-width:100%;" src=/img/projects/auxn.png />
+
       <div class="window-pane">
-        hello world!
+        an emulator for the uxn virtual machine running as an audio plugin (VST3, CLAP).
       </div>
+
     </div>
   
 </div>

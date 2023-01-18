@@ -7,8 +7,6 @@
     <meta name="description" content="{{ description or metadata.description }}">
     <meta name="generator" content="{{ eleventy.generator }}">
 
-    {# <link rel="stylesheet" href="https://unpkg.com/98.css" /> #}
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,8 +21,38 @@
   </head>
   <body>
 
+    <script type="text/javascript">
+      
+      function isElementOverflowing(element) {
+        var h = element.clientHeight;
+
+        var lh = parseFloat(getComputedStyle(element).lineHeight)
+
+        return h >= lh;
+      }
+
+      function wrapContentsInMarquee(element) {
+        var marquee = document.createElement('marquee'),
+          contents = element.innerText;
+
+        marquee.innerText = contents;
+        element.innerHTML = '';
+        element.appendChild(marquee);
+      }
+
+      document.addEventListener("DOMContentLoaded", function(e) {
+        let titles = document.getElementsByClassName("title");
+
+        for (let i = 0; i < titles.length; i++) {
+          if (isElementOverflowing(titles[i])) {
+            wrapContentsInMarquee(titles[i]);
+          }
+        }
+      });
+
+    </script>
+
     {% include "layouts/sidebar.njk" %}
-    {# {% include "layouts/header.njk" %} #}
 
     <div class="layout">
 

@@ -17,7 +17,8 @@ templateClass: tmpl-home
 </div>
 
 <div id="projects">
-  {% for project in projects -%}
+  
+  {% for project in projects.list -%}
     <div class="window">
       <div class="title-bar">
         <button aria-label="Close" class="close"></button>
@@ -26,9 +27,12 @@ templateClass: tmpl-home
       </div>
       <div class="separator"></div>
 
+      <img style="max-width:100%;" src={{ project.media }} />
+
       <div class="window-pane">
-        hello world!
+        {{ project.description }}
       </div>
+
     </div>
   {% endfor %}
 </div>

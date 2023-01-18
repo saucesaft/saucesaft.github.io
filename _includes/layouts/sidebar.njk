@@ -1,13 +1,13 @@
 <div class="sidebar_layout">
 
-{% if (title == "index") %}
+{% if (title == "hello") %}
     {% set phrase = phrases[0] %}
 {% else %}
     {% set phrase = phrases | getRandom %}
 {% endif %}
 
 <div id="head">
-    <a id="title" href="/">&lt;hair on the circuits&gt;</a>
+    <a id="title" href="/">hair on the circuits</a>
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
             {{ phrase }}
