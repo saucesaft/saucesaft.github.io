@@ -32,20 +32,22 @@
 
             {% set lpix = loop.index0 %}
             {% if loop.index % n == 1%}
-                <div class="sidebar">
+
+                <div class="breaking">
                   {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
                     {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n)) %}
                         {% if entry.title != "home" %}
-                            <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
+                            <div class="sidebar">
+                                <a href="{{ entry.url | url }}"> {{ entry.title }}</a>                             
+                            </div>                                
                         {% endif %}
                     {% endif %}
                   {%- endfor %}
                 </div>
 
-
                 {% if (loop.last == false or navPagesLength != 0) %}
-                    <div class="sidebar">
-                        <a class="divider">></a>
+                    <div class="sidebar divider">
+                        <a class="divider">~</a>
                     </div>
                 {% endif %}
 
@@ -59,11 +61,13 @@
     {%- for entry in navPages %}
         {% if loop.index % n == 1 %}
             {% set lpix = loop.index0 %}
-            <div class="sidebar">
+            <div class="breaking">
             {%- for entry in navPages %}
+                <div class="sidebar">
                 {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n))  %}
                     <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
                 {% endif %}
+                </div>
             {%- endfor %}
             </div>
         {% endif %}

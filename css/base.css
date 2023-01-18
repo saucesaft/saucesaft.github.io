@@ -14,12 +14,8 @@ body {
   margin: 0;
   background-color: #000002;
   background: url(/img/poolside-fm-martini-picnic.png) !important;
-  background-size: 120% !important;
+  background-size: 340% !important;
   font-family: 'IBM Plex Sans', sans-serif;
-}
-
-.window {
-  width: 80%;
 }
 
 .title {
@@ -39,7 +35,7 @@ body {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: start;
 }
 
 #projects .window {
@@ -47,18 +43,10 @@ body {
   margin: 0;
   gap: 1rem;
 
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin: 0.5rem;
+/*  margin-right: 0.5rem;*/
   width: 25%;
   min-width: 0px;
-}
-
-#projects .window:first-of-type {
-  margin-left: 0;
-}
-
-#projects .window:last-child {
-  margin-right: 0;
 }
 
 #scroller {
@@ -97,19 +85,23 @@ h1 {
 }
 
 .sidebar {
-  margin: 0;
-  margin-top: 1em;
+  margin: 0.2em;
   padding: 0;
   height: 100%;
   scrollbar-color: #3d3d3a #292927;
   position: relative;
   float: left;
-  display: inline-block;
+/*  display: inline-block;*/
+  display: flex;
+  align-items: center;
+}
+
+.sidebar:first-of-type {
+  margin-left: 0;
 }
 
 a {
   font-size: 15px;
-  display: block;
   color: white;
   padding: 8px;
   text-decoration: none !important;
@@ -127,9 +119,26 @@ a {
 .sidebar a {
   color: white;
 }
+
+.sidebar {
+  height: 1.4em;  
+}
  
 div#menu {
+  margin-top: 0.6em;
   flex-basis: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+}
+
+#menu::-webkit-scrollbar {
+  display: none;
+/*  all:unset;*/
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 div#head {
@@ -141,7 +150,9 @@ div#head {
 }
 
 div#subhead {
-  width: fit-content;
+  justify-content: left;
+
+  width: 100%;
   display: flex;
   align-items: center;
   background-color: #222;
@@ -149,9 +160,14 @@ div#subhead {
   margin-top: 0.6em;
 }
 
+div.breaking {
+  display: flex;
+  flex-direction: column;
+}
+
 a#subtitle {
   color: #FFFFFF;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'IBM Plex Sans', sans-serif;
   position: relative;
   float: left;
@@ -169,38 +185,29 @@ a#title {
 
 a#scroller {
   color: white;
+  display: none;
 }
 
-.sidebar a:hover:not(#title):not(.divider) {
-  color: #222;
+.sidebar:hover:not(#title):not(.divider) {
   background-color: white;
 }
 
-.sidebar a:not(#title):not(.divider) {
-  background-color: #222/*
+
+.sidebar a:hover:not(#title):not(.divider) {
+  color: #222;
 }
 
-.sidebar a.divider {
+.sidebar:not(#title):not(.divider) {
+  background-color: #222
+}
+
+.sidebar.divider {
+  margin-inline: 1em;
+  background-color: #222;
+}
+
+.sidebar.divider a {
   cursor: default;
-  font-size: 1.5em;
-}
-
-div.content {
-  margin-right: 200px;
-  padding: 1px 16px;
-  height: 100%;
-}
-
-div.window { 
-  border-radius: 10px;
-  margin: 2em;
-  margin-left: 8em;
-  margin-right: 8em;
-  min-width: 65%;
-
-  font-family: 'IBM Plex Sans', sans-serif;
-
-/*  overflow-y: visible;*/
 }
 
 div.window-pane {
@@ -221,45 +228,42 @@ div.window-pane {
   z-index: -99;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 600px) {
 
-  div#head {
-    justify-content: center;
+  a {
+    display: block;
+  }
+
+  a#subtitle {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    position: relative;
+    float: left;
+    text-decoration: none;
   }
 
   a#scroller {
-    display: none;
+    display: block;
   }
 
+  div#subhead {
+    width: fit-content;
+    justify-content: center;
+  }
+
+  body {
+    background-size: 220% !important;
+  }
 }
 
-@media screen and (max-width: 700px) {
-  .sidebar {
-    cursor: grab;
-    overflow-x: scroll;
-    white-space: nowrap;
-    width: 100%;
-    height: auto;
-    position: absolute;
-    margin-left: 0%;
-    text-align: center;
+@media screen and (min-width: 800px) {
+  div.breaking {
+    display: blox;
+    flex-direction: unset;
   }
 
-  .sidebar a {
-    display: inline-block;
-    cursor: inherit;
+  body {
+    background-size: 120% !important;
   }
-
-/*  div.content {margin-right: 0;}*/
-
-  div.window {
-/*    margin-right: 0;*/
-    margin: 24px;
-    margin-top: 48px;
-  }
-
-  .finder{
-    width: 90%;
-  }
-
 }
