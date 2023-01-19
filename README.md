@@ -1,8 +1,4 @@
-# hair on the circuits
-
-## blog's sourcecode
-
----
+# hair on the circuits **(source code)**
 
 i've spent some time fine tuning every aspect of this website and here it is.
 
