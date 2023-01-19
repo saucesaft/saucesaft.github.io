@@ -1,6 +1,6 @@
 <div class="sidebar_layout">
 
-{% if (title == "hello") %}
+{% if (title == "home") %}
     {% set phrase = phrases[0] %}
 {% else %}
     {% set phrase = phrases | getRandom %}
@@ -20,80 +20,72 @@
 </div>
 
 <div id="menu">
-    {% set n = 4 %}
+    <div class="breaking">
 
-    {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %}
-
-    {% set navPages = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, { includeSelf: true }) %}
-    {%- for entry in navPages %}
-        {% set highLoop = loop %}
-        {# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
-        {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
-
-            {% set lpix = loop.index0 %}
-            {% if loop.index % n == 1%}
-
-                <div class="breaking">
-                  {%- for entry in collections.all | eleventyNavigation(entry.parent) %}
-                    {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n)) %}
-                        {% if entry.title != "home" %}
-                            <div class="sidebar">
-                                <a href="{{ entry.url | url }}"> {{ entry.title }}</a>                             
-                            </div>                                
-                        {% endif %}
-                    {% endif %}
-                  {%- endfor %}
-                </div>
-
-                {% if (loop.last == false or navPagesLength != 0) %}
-                    <div class="sidebar divider">
-                        <a class="divider">~</a>
-                    </div>
-                {% endif %}
-
-            {% endif %}
-
-        {%- endfor  %}
-    {%- endfor %}
-
-    {# {% set navPagesLength = collections.all | eleventyNavigation(eleventyNavigation.key) | length %} #}
-    {% set navPages = collections.all | eleventyNavigation(eleventyNavigation.key) %}
-    {%- for entry in navPages %}
-        {% if loop.index % n == 1 %}
-            {% set lpix = loop.index0 %}
-            <div class="breaking">
-            {%- for entry in navPages %}
-                <div class="sidebar">
-                {% if (loop.index0 >= lpix) and (loop.index0 < (lpix+n))  %}
-                    <a href="{{ entry.url | url }}"> {{ entry.title }} </a>
-                {% endif %}
-                </div>
-            {%- endfor %}
+        {# if ancestors is empty, show nothing  DONE #}
+        {% set pagination = page.filePathStem | ancestors %}
+        {%- for entry in pagination %}
+            <div class="sidebar">
+                <a href="{{ entry.url | url }}"> {{ entry.data.title }}</a>                         
             </div>
+
+            <div class="sidebar divider">
+                <a class="divider">/</a>
+            </div>
+
+        {%- endfor %}
+
+        {# if children is empty, show self  DONE #}
+
+        {% set children = page.filePathStem | children | sorted('data.index') %}
+        {% set childrenlen = page.filePathStem | children | length%}
+
+        {# check if we actually have children #}
+        {% if children | length != 0 %}
+
+            {%- for entry in children %}
+                {# we only want to show folders on the menu,
+                so for that, we check if the entry has tags,
+                which a folder shouldn't #}
+                {% if entry.data.tags | length == 0 %}
+
+                    <div class="sidebar">
+                        <a href="{{ entry.url | url }}"> {{ entry.data.title }}</a>                           
+                    </div>
+
+                {% else %}
+
+                    {# hacks to show the current folder also,
+                    in this case we do have children but
+                    all of them are posts, not folders #}
+                    {% if loop.index == 1 %}
+                        <div class="sidebar">
+                            <a> {{ title }} </a>                   
+                        </div>
+
+                        <div class="sidebar divider">
+                            <a class="divider">/</a>
+                        </div>
+                    {% endif %}
+
+                {% endif %}
+            {%- endfor %}
+
+        {% else %}
+
+            {# show the current folder #}
+            <div class="sidebar">
+                <a> {{ title }} </a>                           
+            </div>
+
+            <div class="sidebar divider">
+                <a class="divider">/</a>
+            </div>
+
         {% endif %}
-    {%- endfor %}
-</div>
+
+    </div>
 
 </div>
 
-{# <script type="text/javascript">
-    function show_garden() {
-        let g = document.getElementsByClassName('garden')[0];
-            g.classList.add('in');
-            g.classList.remove('out');
-
-            g = document.body;
-            g.classList.add('in');
-            g.classList.remove('out');
-    }
-
-    function hide_garden() {
-        let g = document.getElementsByClassName('garden')[0];
-            g.classList.add('out');
-            g.classList.remove('in');
-            
-            g = document.body;
-            g.classList.add('out');
-            g.classList.remove('in');
-    }
-</script> #}
+</div>

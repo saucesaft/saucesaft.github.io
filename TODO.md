@@ -7,9 +7,10 @@
 	-[ ] fix marquee when overflowing
 
 -[ ] post-related
+	-[ ] new order (brain, wiki, about)
 	-[ ] markdown-related
-		-[ ] render code
-		-[ ] render correct links
+		-[X] render code
+		-[X] render correct links
 		-[ ] render math
 		-[ ] render tikz diagrams
 	-[ ] obsidian front matter

@@ -26,11 +26,6 @@ body {
   text-align: center;
 }
 
-.finder{
-  margin-top: 80px;
-  width: 72%;
-}
-
 #projects {
   width: 80%;
   display: flex;
@@ -64,18 +59,37 @@ body {
   flex-wrap: wrap;
 }
 
-a:link {
-  color: #fc6a5d;
+.window-pane a:link:hover {
+  color: #222;
+  background-color: white;
+  text-decoration-color: #222;
 }
+
+.window-pane a:link {
+  color: #f2e5bc;
+  background-color: #222;
+  text-decoration-color: #f2e5bc;
+}
+
+.window-pane a:visited:hover {
+  color: #222;
+  background-color: white;
+  text-decoration-color: #222;
+}
+
+.window-pane a:visited {
+  color: #8a642d;
+}
+
 
 div.window-body {
   font-size: 14px;
 }
 
-h1 {
+/*h1 {
   font-size: 18px;
   color: black;
-}
+}*/
 
 .sidebar_layout {
   display: flex;
@@ -100,7 +114,7 @@ h1 {
   margin-left: 0;
 }
 
-a {
+.sidebar_layout a {
   font-size: 15px;
   color: white;
   padding: 8px;
@@ -137,10 +151,6 @@ div#menu {
 /*  all:unset;*/
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
-
 div#head {
   width: 100%;
   display: flex;
@@ -175,7 +185,8 @@ a#subtitle {
 }
 
 a#title {
-  color: #fc6a5d;
+/*  color: #fc6a5d;*/
+  color: #f2e5bc;
   font-size: 27px;
   font-family: 'IBM Plex Sans', sans-serif;
   position: relative;
@@ -202,7 +213,7 @@ a#scroller {
 }
 
 .sidebar.divider {
-  margin-inline: 1em;
+/*  margin-inline: 1em;*/
   background-color: #222;
 }
 
@@ -211,6 +222,7 @@ a#scroller {
 }
 
 div.window-pane {
+/*  all: initial !important;*/
   overflow-y: visible;
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
@@ -229,10 +241,6 @@ div.window-pane {
 }
 
 @media screen and (min-width: 600px) {
-
-  a {
-    display: block;
-  }
 
   a#subtitle {
     color: #FFFFFF;
@@ -259,7 +267,7 @@ div.window-pane {
 
 @media screen and (min-width: 800px) {
   div.breaking {
-    display: blox;
+    display: block;
     flex-direction: unset;
   }
 

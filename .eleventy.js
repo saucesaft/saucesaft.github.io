@@ -1,4 +1,6 @@
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginAncestry = require("@tigersway/eleventy-plugin-ancestry");
+
 const markdownIt = require('markdown-it');
 const markdownItOptions = {
     html: true,
@@ -8,14 +10,15 @@ const inspect = require("node:util").inspect;
 
 module.exports = function(eleventyConfig) {
 
-  eleventyConfig.addPassthroughCopy('css')
-  eleventyConfig.addPassthroughCopy('fonts')
-  eleventyConfig.addPassthroughCopy('img')
-  eleventyConfig.addPassthroughCopy('garden/**/img/*')
-
+  // custom markdown-it instance
   const md = markdownIt(markdownItOptions)
-  .use(require('markdown-it-attrs'));
+    .use(require('markdown-it-attrs'));
 
+  // inline code syntax highlighting
+  md.renderer.rules.code_inline = (tokens, idx, { langPrefix = '' }) => {
+    const token = tokens[idx];
+    return `<code class="${langPrefix}">${token.content}</code>`;
+  };
 
   // filter to adapt obsidian's image url's into eleventy compatible ones
   eleventyConfig.addFilter("wikimage", string => {
@@ -27,27 +30,45 @@ module.exports = function(eleventyConfig) {
     return string
   })
 
+  // generate randomnes as a filter for the phrases on top
   eleventyConfig.addFilter("getRandom", function(items) {
     let selected = items[Math.floor(Math.random() * items.length)];
     return selected;
   });
 
+  // inspecting js elements, required when debugging
   eleventyConfig.addFilter("inspect", function (obj = {}) {
     return inspect(obj, {sorted: true});
   });
 
-  eleventyConfig.setLibrary('md', md);
+  // filter to have all content inside of another folder, not on root,
+  // read content/content.json to see when it is used
+  eleventyConfig.addFilter("dropContentFolder", function (path) {
+    const pathToDrop = "/content"
+    if (path.indexOf(pathToDrop) !== 0) {
+      return path
+    }
+    return path.slice(pathToDrop.length)
+  });
 
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  // folders of things we want in the final output
+  eleventyConfig.addPassthroughCopy('css')
+  eleventyConfig.addPassthroughCopy('fonts')
+  eleventyConfig.addPassthroughCopy('img')
+  eleventyConfig.addPassthroughCopy('content/**/img/*')
+
+  // add extra plugins
+  eleventyConfig.setLibrary('md', md);
+  eleventyConfig.addPlugin(pluginAncestry);
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   return {
     passthroughFileCopy: true,
     dir: {
-	input: ".",
-	includes: "_includes",
-	data: "_data",
-	output: "docs"
-	}
+    	input: ".",
+    	includes: "_includes",
+    	data: "_data",
+    	output: "docs"
+    }
   }
-
 }
