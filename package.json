@@ -3,11 +3,13 @@
     "@11ty/eleventy": "^1.0.1",
     "@ibm/plex": "^6.1.1",
     "@tigersway/eleventy-plugin-ancestry": "^1.0.3",
+    "jsdom": "^21.0.0",
     "markdown-it": "^13.0.1",
     "markdown-it-attrs": "^4.1.4",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-replace-link": "^1.1.0",
-    "markdown-it-replacements": "^1.0.2"
+    "markdown-it-replacements": "^1.0.2",
+    "tmp": "^0.2.1"
   },
   "devDependencies": {
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0"

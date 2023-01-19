@@ -1,38 +1,234 @@
-<p>im reading the book <em>crafting a compiler with c</em> by <em>Charles N. Fischer</em>. here are some notes from the book. quotation marks signify a direct text-grab from the book. i hope this notes could later become someting useful for me or someone else. All credit goes to him, im publishing this as notes, no a &quot;direct copy&quot; of the book. Graphs and everything are based on the ones included on the book. Please go buy the book if these notes were useful to you.</p>
-<p>&quot;A compiler must perform two major tasks: analysis of the source program being compiled and synthesis of a machine-language program that when executed will correctly perform the activities described by that source program.&quot; - Fischer</p>
-<pre><code>\usetikzlibrary{shapes.geometric, arrows}
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compiter notes</title>
+    <meta name="description" content="">
+    <meta name="generator" content="Eleventy v1.0.1">
 
-\tikzstyle{rect} = [rectangle, minimum width=3cm, minimum height=2cm,text centered, draw=black]
-\tikzstyle{arrow} = [thick,-&gt;,&gt;=stealth]
-\tikzstyle{darrow} = [dashed,thick,-&gt;,&gt;=stealth]
+    
+    
+    
 
-\begin{document}
-\begin{tikzpicture}[]
+    <link rel="stylesheet" href="/css/code.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/system.css">
+    
 
-\node (scanner) [rect] {Scanner};
-\node (parser) [rect, xshift=5cm] {Parser};
-\node (semantic routines) [rect, xshift=10cm] {Semantic Routines};
-\node (optimizer) [rect, xshift=10cm, yshift=-5cm] {Optimizer};
-\node (code generator) [rect, xshift=10cm, yshift=-10cm] {Code Generator};
+    <link rel="alternate" href="." type="application/atom+xml" title="">
+    <link rel="alternate" href="." type="application/json" title="">
+  </head>
+  <body>
 
-\node (tables) [rect, yshift=-5cm, align=center] {Symbol and \\ Attribute \\ Tables};
+    <script type="text/javascript">
+      
+      function isElementOverflowing(element) {
+        var h = element.clientHeight;
 
-\node[text width=3cm] (sex) [yshift=-6.5cm, align=center] { (Used by all phases of the compiler) };
+        var lh = parseFloat(getComputedStyle(element).lineHeight)
 
-\node[text width=3cm] (target) [xshift=10cm , yshift=-13.5cm, align=center] { Target Machine \\ Code };
+        return h >= lh;
+      }
 
-\draw [arrow, align=left] (scanner) -- node {Tokens \\} (parser);
-\draw [arrow, align=left] (parser) -- node[anchor=south] {Syntactic \\ Structure} (semantic routines);
-\draw [arrow, align=left] (semantic routines) -- node[anchor=east] {Intermediate \\ Representation} (optimizer) coordinate[midway] (aux1){};
-\draw [arrow] (optimizer) -- (code generator) coordinate[midway] (aux2){};
-\draw [arrow] (code generator) -- (target);
-\draw [arrow, align=center] (-5cm,0cm) -- node {Source Program \\\\ (Character Stream)} (scanner);
-\draw [darrow] (aux1) -- ([xshift=2cm]aux1.south) -- ([xshift=2cm]aux2.south) -- (aux2);
+      function wrapContentsInMarquee(element) {
+        var marquee = document.createElement('marquee'),
+          contents = element.innerText;
 
-\end{tikzpicture}
-\end{document}
-</code></pre>
+        marquee.innerText = contents;
+        element.innerHTML = '';
+        element.appendChild(marquee);
+      }
+
+      document.addEventListener("DOMContentLoaded", function(e) {
+        let titles = document.getElementsByClassName("title");
+
+        for (let i = 0; i < titles.length; i++) {
+          if (isElementOverflowing(titles[i])) {
+            wrapContentsInMarquee(titles[i]);
+          }
+        }
+      });
+
+    </script>
+
+    <div class="sidebar_layout">
+
+
+    
+
+
+<div id="head">
+    <a id="title" href="/">hair on the circuits</a>
+    <a id="scroller">
+        <marquee loop="infinite" behavior="scroll" direction="left">
+            daft punk is playing at my house
+        </marquee>
+    </a>
+</div>
+
+<div id="subhead">
+    <a id="subtitle">a blog by eduardo hdz - saucesaft</a>
+</div>
+
+<div id="menu">
+    <div class="breaking">
+
+        
+        
+            <div class="sidebar">
+                <a href="/"> home</a>                         
+            </div>
+
+            <div class="sidebar divider">
+                <a class="divider">/</a>
+            </div>
+            <div class="sidebar">
+                <a href="/wiki/"> wiki</a>                         
+            </div>
+
+            <div class="sidebar divider">
+                <a class="divider">/</a>
+            </div>
+            <div class="sidebar">
+                <a href="/wiki/compiler/"> compiler</a>                         
+            </div>
+
+            <div class="sidebar divider">
+                <a class="divider">/</a>
+            </div>
+
+        
+
+        
+        
+
+        
+        
+
+            
+            <div class="sidebar">
+                <a> compiter notes </a>                           
+            </div>
+
+            <div class="sidebar divider">
+                <a class="divider">/</a>
+            </div>
+
+        
+
+    </div>
+
+</div>
+
+</div>
+
+    <div class="layout">
+
+      
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title"> compiter notes </h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    <p>im reading the book <em>crafting a compiler with c</em> by <em>Charles N. Fischer</em>. here are some notes from the book. quotation marks signify a direct text-grab from the book. i hope this notes could later become someting useful for me or someone else. All credit goes to him, im publishing this as notes, no a "direct copy" of the book. Graphs and everything are based on the ones included on the book. Please go buy the book if these notes were useful to you.</p>
+<p>"A compiler must perform two major tasks: analysis of the source program being compiled and synthesis of a machine-language program that when executed will correctly perform the activities described by that source program." - Fischer</p>
+<pre class=""><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="482.69101pt" height="420.664208pt" viewBox="-71.999705 -72.00005 482.69101 420.664208">
+<defs>
+<font id="cmr10" horiz-adv-x="0">
+<font-face font-family="cmr10" units-per-em="1000" ascent="750" descent="250"></font-face>
+<glyph unicode="(" horiz-adv-x="388" vert-adv-y="388" glyph-name="parenleft" d="M331-240C331-237 331-235 314-218C189-92 157 97 157 250C157 424 195 598 318 723C331 735 331 737 331 740C331 747 327 750 321 750C311 750 221 682 162 555C111 445 99 334 99 250C99 172 110 51 165-62C225-185 311-250 321-250C327-250 331-247 331-240Z"></glyph>
+<glyph unicode=")" horiz-adv-x="388" vert-adv-y="388" glyph-name="parenright" d="M289 250C289 328 278 449 223 562C163 685 77 750 67 750C61 750 57 746 57 740C57 737 57 735 76 717C174 618 231 459 231 250C231 79 194-97 70-223C57-235 57-237 57-240C57-246 61-250 67-250C77-250 167-182 226-55C277 55 289 166 289 250Z"></glyph>
+<glyph unicode="A" horiz-adv-x="750" vert-adv-y="750" glyph-name="A" d="M398 696C393 709 391 716 375 716S356 710 351 696L144 98C126 47 86 32 32 31V0C55 1 98 3 134 3C165 3 217 1 249 0V31C199 31 174 56 174 82C174 85 175 95 176 97L222 228H469L522 75C523 71 525 65 525 61C525 31 469 31 442 31V0C478 3 548 3 586 3C629 3 675 2 717 0V31H699C639 31 625 38 614 71L398 696ZM345 584L458 259H233L345 584Z"></glyph>
+<glyph unicode="C" horiz-adv-x="722" vert-adv-y="722" glyph-name="C" d="M56 342C56 135 218-22 404-22C567-22 665 117 665 233C665 243 665 250 652 250C641 250 641 244 640 234C632 91 525 9 416 9C355 9 159 43 159 341C159 640 354 674 415 674C524 674 613 583 633 437C635 423 635 420 649 420C665 420 665 423 665 444V681C665 698 665 705 654 705C650 705 646 705 638 693L588 619C551 655 500 705 404 705C217 705 56 546 56 342Z"></glyph>
+<glyph unicode="G" horiz-adv-x="784" vert-adv-y="784" glyph-name="G" d="M593 63C606 41 646 1 657 1C666 1 666 9 666 24V198C666 237 670 242 735 242V273C698 272 643 270 613 270C573 270 488 270 452 273V242H484C574 242 577 231 577 194V130C577 18 450 9 422 9C357 9 159 44 159 342C159 641 356 674 416 674C523 674 614 584 634 437C636 423 636 420 650 420C666 420 666 423 666 444V681C666 698 666 705 655 705C651 705 647 705 639 693L589 619C557 651 503 705 404 705C218 705 56 547 56 342S216-22 406-22C479-22 559 4 593 63Z"></glyph>
+<glyph unicode="I" horiz-adv-x="361" vert-adv-y="361" glyph-name="I" d="M225 605C225 641 228 652 307 652H333V683C298 680 219 680 181 680C142 680 63 680 28 683V652H54C133 652 136 641 136 605V78C136 42 133 31 54 31H28V0C63 3 142 3 180 3C219 3 298 3 333 0V31H307C228 31 225 42 225 78V605Z"></glyph>
+<glyph unicode="M" horiz-adv-x="916" vert-adv-y="916" glyph-name="M" d="M241 661C232 683 229 683 206 683H37V652H61C138 652 140 641 140 605V105C140 78 140 31 37 31V0C72 1 121 3 154 3S236 1 271 0V31C168 31 168 78 168 105V644H169L410 22C415 9 420 0 430 0C441 0 444 8 448 19L694 652H695V78C695 42 693 31 616 31H592V0C629 3 697 3 736 3S842 3 879 0V31H855C778 31 776 42 776 78V605C776 641 778 652 855 652H879V683H710C684 683 684 682 677 664L458 101L241 661Z"></glyph>
+<glyph unicode="O" horiz-adv-x="777" vert-adv-y="777" glyph-name="O" d="M721 339C721 543 570 705 388 705C209 705 56 545 56 339C56 134 210-22 388-22C570-22 721 137 721 339ZM389 4C293 4 159 92 159 353C159 612 305 680 388 680C475 680 618 609 618 353C618 88 481 4 389 4Z"></glyph>
+<glyph unicode="P" horiz-adv-x="680" vert-adv-y="680" glyph-name="P" d="M227 316H396C516 316 624 397 624 497C624 595 525 683 388 683H35V652H59C136 652 138 641 138 605V78C138 42 136 31 59 31H35V0C70 3 144 3 182 3S295 3 330 0V31H306C229 31 227 42 227 78V316ZM224 342V612C224 645 226 652 273 652H362C521 652 521 546 521 497C521 450 521 342 362 342H224Z"></glyph>
+<glyph unicode="R" horiz-adv-x="736" vert-adv-y="736" glyph-name="R" d="M224 353V612C224 635 224 647 246 650C256 652 285 652 305 652C395 652 507 648 507 503C507 434 483 353 335 353H224ZM435 340C532 364 610 425 610 503C610 599 496 683 349 683H35V652H59C136 652 138 641 138 605V78C138 42 136 31 59 31H35V0C71 3 142 3 181 3S291 3 327 0V31H303C226 31 224 42 224 78V331H339C355 331 397 331 432 297C470 261 470 230 470 163C470 98 470 58 511 20C552-16 607-22 637-22C715-22 732 60 732 88C732 94 732 105 719 105C708 105 708 96 707 89C701 18 666 0 641 0C592 0 584 51 570 144L557 224C539 288 490 321 435 340Z"></glyph>
+<glyph unicode="S" horiz-adv-x="555" vert-adv-y="555" glyph-name="S" d="M349 388L221 419C159 434 120 488 120 546C120 616 174 677 252 677C419 677 441 513 447 468C448 462 448 456 459 456C472 456 472 461 472 480V681C472 698 472 705 461 705C454 705 453 704 446 692L411 635C381 664 340 705 251 705C140 705 56 617 56 511C56 428 109 355 187 328C198 324 249 312 319 295C346 288 376 281 404 244C425 218 435 185 435 152C435 81 385 9 301 9C272 9 196 14 143 63C85 117 82 181 81 217C80 227 72 227 69 227C56 227 56 220 56 202V2C56-15 56-22 67-22C74-22 75-20 82-9C82-8 85-5 118 48C149 14 213-22 302-22C419-22 499 76 499 186C499 286 433 368 349 388Z"></glyph>
+<glyph unicode="T" horiz-adv-x="722" vert-adv-y="722" glyph-name="T" d="M666 677H55L36 452H61C75 613 90 646 241 646C259 646 285 646 295 644C316 640 316 629 316 606V79C316 45 316 31 211 31H171V0C212 3 314 3 360 3S509 3 550 0V31H510C405 31 405 45 405 79V606C405 626 405 640 423 644C434 646 461 646 480 646C631 646 646 613 660 452H685L666 677Z"></glyph>
+<glyph unicode="U" horiz-adv-x="750" vert-adv-y="750" glyph-name="U" d="M582 231C582 89 485 9 390 9C343 9 225 34 225 224V605C225 641 227 652 304 652H328V683C293 680 219 680 181 680S68 680 33 683V652H57C134 652 136 641 136 605V228C136 87 252-22 388-22C503-22 593 71 610 185C613 205 613 214 613 254V574C613 607 613 652 716 652V683C680 682 632 680 598 680C563 680 515 682 479 683V652C582 652 582 605 582 578V231Z"></glyph>
+<glyph unicode="a" horiz-adv-x="500" vert-adv-y="500" glyph-name="a" d="M333 76C337 36 364-6 411-6C432-6 493 8 493 89V145H468V89C468 31 443 25 432 25C399 25 395 70 395 75V275C395 317 395 356 359 393C320 432 270 448 222 448C140 448 71 401 71 335C71 305 91 288 117 288C145 288 163 308 163 334C163 346 158 379 112 380C139 415 188 426 220 426C269 426 326 387 326 298V261C275 258 205 255 142 225C67 191 42 139 42 95C42 14 139-11 202-11C268-11 314 29 333 76ZM326 240V140C326 45 254 11 209 11C160 11 119 46 119 96C119 151 161 234 326 240Z"></glyph>
+<glyph unicode="b" horiz-adv-x="555" vert-adv-y="555" glyph-name="b" d="M172 377V694L28 683V652C98 652 106 645 106 596V0H131C132 1 140 15 167 62C182 39 224-11 298-11C417-11 521 87 521 216C521 343 423 442 309 442C231 442 188 395 172 377ZM175 114V320C175 339 175 340 186 356C225 412 280 420 304 420C349 420 385 394 409 356C435 315 438 258 438 217C438 180 436 120 407 75C386 44 348 11 294 11C249 11 213 35 189 72C175 93 175 96 175 114Z"></glyph>
+<glyph unicode="c" horiz-adv-x="444" vert-adv-y="444" glyph-name="c" d="M117 218C117 381 199 423 252 423C261 423 324 422 359 386C318 383 312 353 312 340C312 314 330 294 358 294C384 294 404 311 404 341C404 409 328 448 251 448C126 448 34 340 34 216C34 88 133-11 249-11C383-11 415 109 415 119S405 129 402 129C393 129 391 125 389 119C360 26 295 14 258 14C205 14 117 57 117 218Z"></glyph>
+<glyph unicode="d" horiz-adv-x="555" vert-adv-y="555" glyph-name="d" d="M380 55V-11L527 0V31C457 31 449 38 449 87V694L305 683V652C375 652 383 645 383 596V380C354 416 311 442 257 442C139 442 34 344 34 215C34 88 132-11 246-11C310-11 355 23 380 55ZM380 323V118C380 100 380 98 369 81C339 33 294 11 251 11C206 11 170 37 146 75C120 116 117 173 117 214C117 251 119 311 148 356C169 387 207 420 261 420C296 420 338 405 369 360C380 343 380 341 380 323Z"></glyph>
+<glyph unicode="e" horiz-adv-x="444" vert-adv-y="444" glyph-name="e" d="M112 252C118 401 202 426 236 426C339 426 349 291 349 252H112ZM111 231H390C412 231 415 231 415 252C415 351 361 448 236 448C120 448 28 345 28 220C28 86 133-11 248-11C370-11 415 100 415 119C415 129 407 131 402 131C393 131 391 125 389 117C354 14 264 14 254 14C204 14 164 44 141 81C111 129 111 195 111 231Z"></glyph>
+<glyph unicode="f" horiz-adv-x="305" vert-adv-y="305" glyph-name="f" d="M175 431V547C175 635 223 683 267 683C270 683 285 683 300 676C288 672 270 659 270 634C270 611 286 591 313 591C342 591 357 611 357 635C357 672 320 705 267 705C197 705 112 652 112 546V431H33V400H112V76C112 31 101 31 34 31V0C73 1 120 3 148 3C188 3 235 3 275 0V31H254C180 31 178 42 178 78V400H292V431H175Z"></glyph>
+<glyph unicode="g" horiz-adv-x="500" vert-adv-y="500" glyph-name="g" d="M222 172C135 172 135 272 135 295C135 322 136 354 151 379C159 391 182 419 222 419C309 419 309 319 309 296C309 269 308 237 293 212C285 200 262 172 222 172ZM106 133C106 137 106 160 123 180C162 152 203 149 222 149C315 149 384 218 384 295C384 332 368 369 343 392C379 426 415 431 433 431C435 431 440 431 443 430C432 426 427 415 427 403C427 386 440 374 456 374C466 374 485 381 485 404C485 421 473 453 434 453C414 453 370 447 328 406C286 439 244 442 222 442C129 442 60 373 60 296C60 252 82 214 107 193C94 178 76 145 76 110C76 79 89 41 120 21C60 4 28-39 28-79C28-151 127-206 249-206C367-206 471-155 471-77C471-42 457 9 406 37C353 65 295 65 234 65C209 65 166 65 159 66C127 70 106 101 106 133ZM250-183C149-183 80-132 80-79C80-33 118 4 162 7H221C307 7 419 7 419-79C419-133 348-183 250-183Z"></glyph>
+<glyph unicode="h" horiz-adv-x="555" vert-adv-y="555" glyph-name="h" d="M110 76C110 31 99 31 32 31V0C67 1 118 3 145 3C171 3 223 1 257 0V31C190 31 179 31 179 76V260C179 364 250 420 314 420C377 420 388 366 388 309V76C388 31 377 31 310 31V0C345 1 396 3 423 3C449 3 501 1 535 0V31C483 31 458 31 457 61V252C457 338 457 369 426 405C412 422 379 442 321 442C237 442 193 382 176 344V694L32 683V652C102 652 110 645 110 596V76Z"></glyph>
+<glyph unicode="i" horiz-adv-x="277" vert-adv-y="277" glyph-name="i" d="M177 442L37 431V400C102 400 111 394 111 345V76C111 31 100 31 33 31V0C65 1 119 3 143 3C178 3 213 1 247 0V31C181 31 177 36 177 75V442ZM181 616C181 648 156 669 128 669C97 669 75 642 75 616C75 589 97 563 128 563C156 563 181 584 181 616Z"></glyph>
+<glyph unicode="k" horiz-adv-x="527" vert-adv-y="527" glyph-name="k" d="M106 76C106 31 95 31 28 31V0C61 1 108 3 137 3C167 3 207 2 247 0V31C180 31 169 31 169 76V179L233 234C310 128 352 72 352 54C352 35 335 31 316 31V0C344 1 403 3 424 3C453 3 482 2 511 0V31C474 31 452 31 414 84L287 263C286 265 281 271 281 274C281 278 352 338 362 346C425 397 467 399 488 400V431C459 428 446 428 418 428C382 428 320 430 306 431V400C325 399 335 388 335 375C335 355 321 343 313 336L172 214V694L28 683V652C98 652 106 645 106 596V76Z"></glyph>
+<glyph unicode="l" horiz-adv-x="277" vert-adv-y="277" glyph-name="l" d="M177 694L33 683V652C103 652 111 645 111 596V76C111 31 100 31 33 31V0C66 1 119 3 144 3S218 1 255 0V31C188 31 177 31 177 76V694Z"></glyph>
+<glyph unicode="m" horiz-adv-x="833" vert-adv-y="833" glyph-name="m" d="M110 344V76C110 31 99 31 32 31V0C67 1 118 3 145 3C171 3 223 1 257 0V31C190 31 179 31 179 76V260C179 364 250 420 314 420C377 420 388 366 388 309V76C388 31 377 31 310 31V0C345 1 396 3 423 3C449 3 501 1 535 0V31C468 31 457 31 457 76V260C457 364 528 420 592 420C655 420 666 366 666 309V76C666 31 655 31 588 31V0C623 1 674 3 701 3C727 3 779 1 813 0V31C761 31 736 31 735 61V252C735 338 735 369 704 405C690 422 657 442 599 442C515 442 471 382 454 344C440 431 366 442 321 442C248 442 201 399 173 337V442L32 431V400C102 400 110 393 110 344Z"></glyph>
+<glyph unicode="n" horiz-adv-x="555" vert-adv-y="555" glyph-name="n" d="M110 344V76C110 31 99 31 32 31V0C67 1 118 3 145 3C171 3 223 1 257 0V31C190 31 179 31 179 76V260C179 364 250 420 314 420C377 420 388 366 388 309V76C388 31 377 31 310 31V0C345 1 396 3 423 3C449 3 501 1 535 0V31C483 31 458 31 457 61V252C457 338 457 369 426 405C412 422 379 442 321 442C248 442 201 399 173 337V442L32 431V400C102 400 110 393 110 344Z"></glyph>
+<glyph unicode="o" horiz-adv-x="500" vert-adv-y="500" glyph-name="o" d="M471 214C471 342 371 448 250 448C125 448 28 339 28 214C28 85 132-11 249-11C370-11 471 87 471 214ZM250 14C207 14 163 35 136 81C111 125 111 186 111 222C111 261 111 315 135 359C162 405 209 426 249 426C293 426 336 404 362 361S388 260 388 222C388 186 388 132 366 88C344 43 300 14 250 14Z"></glyph>
+<glyph unicode="p" horiz-adv-x="555" vert-adv-y="555" glyph-name="p" d="M172 376V442L28 431V400C99 400 106 394 106 350V-118C106-163 95-163 28-163V-194C62-193 114-191 140-191C167-191 218-193 253-194V-163C186-163 175-163 175-118V50V59C180 43 222-11 298-11C417-11 521 87 521 216C521 343 424 442 312 442C234 442 192 398 172 376ZM175 114V337C204 388 253 417 304 417C377 417 438 329 438 216C438 95 368 11 294 11C254 11 216 31 189 72C175 93 175 94 175 114Z"></glyph>
+<glyph unicode="r" horiz-adv-x="391" vert-adv-y="391" glyph-name="r" d="M167 332V442L28 431V400C98 400 106 393 106 344V76C106 31 95 31 28 31V0C67 1 114 3 142 3C182 3 229 3 269 0V31H248C174 31 172 42 172 78V232C172 331 214 420 290 420C297 420 299 420 301 419C298 418 278 406 278 380C278 352 299 337 321 337C339 337 364 349 364 381S333 442 290 442C217 442 181 375 167 332Z"></glyph>
+<glyph unicode="s" horiz-adv-x="394" vert-adv-y="394" glyph-name="s" d="M208 194C230 190 312 174 312 102C312 51 277 11 199 11C115 11 79 68 60 153C57 166 56 170 46 170C33 170 33 163 33 145V13C33-4 33-11 44-11C49-11 50-10 69 9C71 11 71 13 89 32C133-10 178-11 199-11C314-11 360 56 360 128C360 181 330 211 318 223C285 255 246 263 204 271C148 282 81 295 81 353C81 388 107 429 193 429C303 429 308 339 310 308C311 299 320 299 322 299C335 299 335 304 335 323V424C335 441 335 448 324 448C319 448 317 448 304 436C301 432 291 423 287 420C249 448 208 448 193 448C71 448 33 381 33 325C33 290 49 262 76 240C108 214 136 208 208 194Z"></glyph>
+<glyph unicode="t" horiz-adv-x="388" vert-adv-y="388" glyph-name="t" d="M173 400H316V431H173V615H148C147 533 117 426 19 422V400H104V124C104 1 197-11 233-11C304-11 332 60 332 124V181H307V126C307 52 277 14 240 14C173 14 173 105 173 122V400Z"></glyph>
+<glyph unicode="u" horiz-adv-x="555" vert-adv-y="555" glyph-name="u" d="M391 79V-11L535 0V31C465 31 457 38 457 87V442L310 431V400C380 400 388 393 388 344V166C388 79 340 11 267 11C183 11 179 58 179 110V442L32 431V400C110 400 110 397 110 308V158C110 80 110-11 262-11C318-11 362 17 391 79Z"></glyph>
+<glyph unicode="y" horiz-adv-x="527" vert-adv-y="527" glyph-name="y" d="M415 336C441 399 492 400 508 400V431C485 429 456 428 433 428C415 428 368 430 346 431V400C377 399 393 382 393 357C393 347 392 345 387 333L286 87L175 356C171 366 169 370 169 374C169 400 206 400 225 400V431C199 430 133 428 116 428C89 428 49 429 19 431V400C67 400 86 400 100 365L250 0C245-13 231-46 225-59C203-114 175-183 111-183C106-183 83-183 64-165C95-161 103-139 103-123C103-97 84-81 61-81C41-81 19-94 19-124C19-169 61-205 111-205C174-205 215-148 239-91L415 336Z"></glyph>
+<glyph unicode="z" horiz-adv-x="444" vert-adv-y="444" glyph-name="z" d="M390 401C399 412 399 414 399 418C399 431 391 431 373 431H53L42 270H67C73 372 92 409 202 409H316L37 32C28 21 28 19 28 14C28 0 35 0 54 0H384L401 187H376C367 69 346 25 230 25H112L390 401Z"></glyph>
+</font>
+</defs>
+<style type="text/css">
+text.f0 {font-family:cmr10;font-size:9.96264px}
+
+</style>
+<g id="page1">
+<path d="M27.6094-15.1094H112.6523V-71.8008H27.6094Z" stroke="#000" fill="none" stroke-width=".3985"></path>
+<text class="f0" x="70.130778" y="-43.45431" transform="matrix(1 0 0 1 -17.172 3.4039)">Scanner</text>
+<path d="M169.3438-15.1094H254.3868V-71.8008H169.3438Z" stroke="#000" fill="none" stroke-width=".3985" stroke-miterlimit="10"></path>
+<text class="f0" x="70.130778" y="-43.45431" transform="matrix(1 0 0 1 127.9112 3.4039)">P<tspan x="76.634176">arser</tspan></text>
+<path d="M309.6368-15.1094H397.5588V-71.8008H309.6368Z" stroke="#000" fill="none" stroke-width=".3985" stroke-miterlimit="10"></path>
+<text class="f0" x="70.130778" y="-43.45431" transform="matrix(1 0 0 1 242.8282 3.4039)">Seman<tspan x="98.635079">tic</tspan><tspan x="113.025588">Routines</tspan></text>
+<path d="M311.0778 126.6247H396.1208V69.9337H311.0778Z" stroke="#000" fill="none" stroke-width=".3985" stroke-miterlimit="10"></path>
+<text class="f0" x="70.130778" y="-43.45431" transform="matrix(1 0 0 1 261.5912 144.1693)">Optimizer</text>
+<path d="M311.0778 268.3597H396.1208V211.6677H311.0778Z" stroke="#000" fill="none" stroke-width=".3985" stroke-miterlimit="10"></path>
+<text class="f0" x="70.130778" y="-43.45431" transform="matrix(1 0 0 1 248.6742 286.9273)">Co<tspan x="82.584126">de</tspan><tspan x="95.867669">Generator</tspan></text>
+<path d="M27.6094 126.6247H112.6523V69.9337H27.6094Z" stroke="#000" fill="none" stroke-width=".3985" stroke-miterlimit="10"></path>
+<text class="f0" x="70.130778" y="-67.364646" transform="matrix(1 0 0 1 -25.8756 157.1483)">Sym<tspan x="88.949159">b</tspan><tspan x="94.760725">ol</tspan><tspan x="105.830347">and</tspan><tspan x="75.51341" y="-55.409478">A</tspan><tspan x="82.70866">ttribute</tspan><tspan x="82.00299" y="-43.45431">T</tspan><tspan x="88.36802">ables</tspan></text>
+<text class="f0" x="70.365053" y="-43.45431" transform="matrix(1 0 0 1 -42.5202 180.7673)">(Used<tspan x="98.924337">b</tspan><tspan x="104.182406">y</tspan><tspan x="112.761018">all</tspan><tspan x="126.5977">phases</tspan><tspan x="77.906034" y="-31.499142">of</tspan><tspan x="89.252055">the</tspan><tspan x="106.409623">compiler)</tspan></text>
+<text class="f0" x="78.459363" y="-43.45431" transform="matrix(1 0 0 1 240.9482 380.1633)">T<tspan x="84.824393">arget</tspan><tspan x="110.311873">Mac</tspan><tspan x="128.576757">hine</tspan><tspan x="101.442467" y="-31.499142">Co</tspan><tspan x="113.895814">de</tspan></text>
+<path d="M112.8516-43.453125H166.5547" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10"></path>
+<path d="M169.14437-43.453125L164.99984-45.52734L166.554527-43.453125L164.99984-41.38281"></path>
+<text class="f0" x="70.130778" y="-55.409478" transform="matrix(1 0 0 1 55.7572 9.4369)">T<tspan x="76.495808">ok</tspan><tspan x="86.458486">ens</tspan></text>
+<path d="M254.5858-43.453125H306.8478" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10"></path>
+<path d="M309.43744-43.453125L305.29681-45.52734L306.847596-43.453125L305.29681-41.38281"></path>
+<text class="f0" x="70.130778" y="-55.409478" transform="matrix(1 0 0 1 191.3742 -3.7191)">Syn<tspan x="86.181751">tactic</tspan><tspan x="70.130778" y="-43.45431">Structure</tspan></text>
+<path d="M353.5978-14.9102V67.1447" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10"></path>
+<path d="M353.597627 69.7344L355.67185 65.58987L353.597627 67.144553L351.52731 65.58987"></path>
+<text class="f0" x="70.130778" y="-55.409478" transform="matrix(1 0 0 1 214.4932 79.3354)">In<tspan x="78.986472">termediate</tspan><tspan x="70.130778" y="-43.45431">Represen</tspan><tspan x="109.372611">tation</tspan></text>
+<path d="M353.5978 126.8247V208.8787" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10"></path>
+<path d="M353.597627 211.46917L355.67185 207.32464L353.597627 208.879328L351.52731 207.32464"></path>
+<path d="M353.5978 268.5587V323.6797" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10"></path>
+<path d="M353.597627 326.26975L355.67185 322.12521L353.597627 323.679901L351.52731 322.12521"></path>
+<path d="M-71.6012-43.453125H24.8203" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10"></path>
+<path d="M27.4102-43.453125L23.26566-45.52734L24.820352-43.453125L23.26566-41.38281"></path>
+<text class="f0" x="77.810323" y="-67.364646" transform="matrix(1 0 0 1 -134.8869 14.1139)">Source<tspan x="109.939925">Program</tspan><tspan x="70.130778" y="-43.45431">(Character</tspan><tspan x="120.55296">Stream)</tspan></text>
+<path d="M353.5978 27.4141H410.2928V169.1487H356.1878" stroke="#000" fill="none" stroke-width=".79701" stroke-miterlimit="10" stroke-dasharray="2.98883 2.98883"></path>
+<path d="M353.59739 169.148587L357.74192 171.2189L356.18723 169.148587L357.74192 167.07437"></path>
+</g>
+</svg></pre>
 <p>(Figure 1.3)</p>
 <p><em>Scanner</em> - Reads the input and generates tokens
 <em>Parser</em> - Builds a syntax tree to drive semantic processing
 <em>Semantic Routines</em> - Check semantics (correct variable types, etc) and generate IR code after.</p>
+
+  </div>
+</div>
+
+    </div>
+
+
+
+    <!-- Current page: /wiki/compiler/compiler notes.html -->
+  
+
+  <div class="footer"></div>
+
+</body></html>

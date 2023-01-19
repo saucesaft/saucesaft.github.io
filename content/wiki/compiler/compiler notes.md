@@ -1,9 +1,17 @@
+---
+title: compiter notes
+layout: layouts/windowpage.njk
+tags:
+  - compiler
+---
+
+
 im reading the book *crafting a compiler with c* by *Charles N. Fischer*. here are some notes from the book. quotation marks signify a direct text-grab from the book. i hope this notes could later become someting useful for me or someone else. All credit goes to him, im publishing this as notes, no a "direct copy" of the book. Graphs and everything are based on the ones included on the book. Please go buy the book if these notes were useful to you.
 
 "A compiler must perform two major tasks: analysis of the source program being compiled and synthesis of a machine-language program that when executed will correctly perform the activities described by that source program." - Fischer
 
 
-```
+```tikz
 \usetikzlibrary{shapes.geometric, arrows}
 
 \tikzstyle{rect} = [rectangle, minimum width=3cm, minimum height=2cm,text centered, draw=black]
@@ -11,6 +19,7 @@ im reading the book *crafting a compiler with c* by *Charles N. Fischer*. here a
 \tikzstyle{darrow} = [dashed,thick,->,>=stealth]
 
 \begin{document}
+
 \begin{tikzpicture}[]
 
 \node (scanner) [rect] {Scanner};
