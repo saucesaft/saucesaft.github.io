@@ -12,7 +12,7 @@
 		-[X] render code
 		-[X] render correct links
 		-[ ] render math
-		-[ ] render tikz diagrams
+		-[X] render tikz diagrams
 	-[ ] obsidian front matter
 	-[ ] project writeup
 	-[ ] recent posts list in home page
