@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "name": "brain",
+      "url": "/brain/"
+    },
+    {
+      "name": "wiki",
+      "url": "/wiki/"
+    },
+    {
+      "name": "about",
+      "url": "/about/"
+    }
+  ]
+}

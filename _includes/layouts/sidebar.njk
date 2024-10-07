@@ -1,5 +1,6 @@
 <div class="sidebar_layout">
 
+{# show the first phrase always on the home apge #}
 {% if (title == "home") %}
     {% set phrase = phrases[0] %}
 {% else %}
@@ -7,7 +8,11 @@
 {% endif %}
 
 <div id="head">
+
+    {# show the website title #}
     <a id="title" href="/">hair on the circuits</a>
+
+    {# scroller with quotes #}
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
             {{ phrase }}
@@ -15,74 +20,26 @@
     </a>
 </div>
 
+{# subtitle with my name #}
 <div id="subhead">
     <a id="subtitle">a blog by eduardo hdz - saucesaft</a>
 </div>
 
+{# navigation menu #}
 <div id="menu">
     <div class="breaking">
 
-        {# if ancestors is empty, show nothing  DONE #}
-        {% set pagination = page.filePathStem | ancestors %}
-        {%- for entry in pagination %}
-            <div class="sidebar">
-                <a href="{{ entry.url | url }}"> {{ entry.data.title }}</a>                         
-            </div>
+            {% for item in navigation.menu %}
 
-            <div class="sidebar divider">
-                <a class="divider">/</a>
-            </div>
-
-        {%- endfor %}
-
-        {# if children is empty, show self  DONE #}
-
-        {% set children = page.filePathStem | children | sorted('data.index') %}
-        {% set childrenlen = page.filePathStem | children | length%}
-
-        {# check if we actually have children #}
-        {% if children | length != 0 %}
-
-            {%- for entry in children %}
-                {# we only want to show folders on the menu,
-                so for that, we check if the entry has tags,
-                which a folder shouldn't #}
-                {% if entry.data.tags | length == 0 %}
-
-                    <div class="sidebar">
-                        <a href="{{ entry.url | url }}"> {{ entry.data.title }}</a>                           
-                    </div>
-
-                {% else %}
-
-                    {# hacks to show the current folder also,
-                    in this case we do have children but
-                    all of them are posts, not folders #}
-                    {% if loop.index == 1 %}
-                        <div class="sidebar">
-                            <a> {{ title }} </a>                   
-                        </div>
-
-                        <div class="sidebar divider">
-                            <a class="divider">/</a>
-                        </div>
+                <div class="sidebar">
+                    {% if title == item.name %}
+                        <a id="selected" href={{ item.url }} > {{ item.name }} </a>
+                    {% else %}
+                        <a href={{ item.url }} > {{ item.name }} </a>
                     {% endif %}
+                </div>
 
-                {% endif %}
-            {%- endfor %}
-
-        {% else %}
-
-            {# show the current folder #}
-            <div class="sidebar">
-                <a> {{ title }} </a>                           
-            </div>
-
-            <div class="sidebar divider">
-                <a class="divider">/</a>
-            </div>
-
-        {% endif %}
+            {% endfor %}
 
     </div>
 

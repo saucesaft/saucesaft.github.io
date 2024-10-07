@@ -125,6 +125,10 @@ div.window-body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+a#selected {
+  text-decoration: underline !important;
+}
+
 #scroller marquee {
   font-family: 'Chicago', sans-serif;
 }
