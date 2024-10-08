@@ -3,7 +3,7 @@ title: I want to create a game
 date: 2022-07-05
 tags:
   - brainstorm
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 ---
 So i want to create a 3D game, i'll update this page with some ideas i have.
 

@@ -2,7 +2,7 @@
 title: markdown
 tags:
   - markdown
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 ---
 
 # h1 Heading 8-)

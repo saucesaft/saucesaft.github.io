@@ -3,7 +3,7 @@ title: AI-Generated Content
 date: 2022-06-16
 tags:
   - AI
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 ---
 
 Even today, 2022, AI-generated content is slowly starting to break into mainstream culture. Lets take Dalle as an example, people are going crazy by the posibility of entering random word sequences that turn into an image.

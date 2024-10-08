@@ -1,6 +1,6 @@
 ---
 title: hacking my kindle pt.2
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 tags:
   - cyberdeck
   - hacking

@@ -1,3 +1,7 @@
+---
+title: computer vision notes
+layout: layouts/post.njk
+---
 **goal:** learn to analize and detect buoys and limiters in a pool
 
 **requirements:**

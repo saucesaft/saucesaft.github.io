@@ -7,7 +7,7 @@
 	-[ ] fix marquee when overflowing
 
 -[ ] post-related
-	-[ ] new order (brain, wiki, about)
+	-[X] new order (brain, wiki, about)
 	-[ ] markdown-related
 		-[X] render code
 		-[X] render correct links

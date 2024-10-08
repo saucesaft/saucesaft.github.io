@@ -3,7 +3,7 @@ title: Hypercontent
 date: 2022-11-27
 tags:
   - AI
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 ---
 lets talk again about [[aicontent]], but now way more in the future.
 

@@ -1,6 +1,6 @@
 ---
 title: compiter notes
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 tags:
   - compiler
 ---

@@ -4,7 +4,7 @@ date: 2022-06-22
 tags:
   - roleplaying
   - alone among the stars
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 ---
 
 -- Planet A -- Day 1 Log -- {.mdcenter}

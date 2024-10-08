@@ -3,7 +3,7 @@ title: AI-Generated Content
 date: 2022-06-16
 tags:
   - AI
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 eleventyNavigation:
   key: testcontent.md
   parent: secondbrain

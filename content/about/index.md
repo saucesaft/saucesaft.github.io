@@ -1,6 +1,6 @@
 ---
 title: about
-layout: layouts/windowpage.njk
+layout: layouts/post.njk
 index: 3
 ---
 

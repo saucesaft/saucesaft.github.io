@@ -1,7 +1,7 @@
 ---
-title: cyberdeck
+title: computer vision
 layout: layouts/postswindow.njk
 root: true
 show_folders: false
 ---
-trying to create a cyberdeck, for now just ideas
+computer vision research and work i've done

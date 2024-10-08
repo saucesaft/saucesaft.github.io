@@ -8,7 +8,10 @@ const pluginAncestry = require("@tigersway/eleventy-plugin-ancestry");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const tmp = require('tmp');
+
 var fs = require('fs');
+const path = require('path');
+
 const { spawnSync } = require('child_process');
 
 const markdownIt = require('markdown-it');
@@ -50,6 +53,24 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("inspect", function (obj = {}) {
     return inspect(obj, {sorted: true});
   });
+
+
+  const wikiFolder = './content/wiki';
+
+  // Read all directories inside the wiki folder
+  const subfolders = fs.readdirSync(wikiFolder).filter(file => {
+    return fs.statSync(path.join(wikiFolder, file)).isDirectory();
+  });
+
+  // Create a collection for each subfolder in wiki
+  subfolders.forEach(folder => {
+    eleventyConfig.addCollection(folder, function(collection) {
+      return collection.getAllSorted()
+        .filter(item => item.inputPath.startsWith(`${wikiFolder}/${folder}/`))
+        .sort((a, b) => a.data.position - b.data.position);
+    });
+  });
+
 
   // filter to have all content inside of another folder, not on root,
   // read content/content.json to see when it is used
