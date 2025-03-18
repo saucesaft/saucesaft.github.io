@@ -1,0 +1,27 @@
+---
+permalink: /tags/
+layout: layouts/base.njk
+---
+
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title">all tags</h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
+
+  <div class="window-pane">
+    <div class="tag-cloud">
+      {% for tag in collections.tagList %}
+        <div class="sidebar">
+          <a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div style="margin-top: 1.5rem;">
+      <a href="/brain/" class="btn">← Back to Brain</a>
+    </div>
+  </div>
+</div>

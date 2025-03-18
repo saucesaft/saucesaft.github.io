@@ -16,6 +16,8 @@ hello my name is Eduardo, people call me Lalo, but im better know as saucesaft o
 
 [linkedin](https://www.linkedin.com/in/eduardo-hern%C3%A1ndez-valdez-112ba1254/) = profesional things
 
+eduarch42 at protonmail dot com = mail
+
 ---
 
 **Q&A**
@@ -24,13 +26,10 @@ hello my name is Eduardo, people call me Lalo, but im better know as saucesaft o
 - sauce [in english] = thick _liquid_ served with food, usually savory dishes, to add moistness and flavor.
 - saft [in german] = the _liquid_ obtained from or present in fruit or vegetables.
 
-i mixed the words because i thought funny, thats it lol
+i mixed the words because i thought funny, thats it.
 
 #### is the source code for this website available?
-yes, free as in freedom. LINK GOES HERE
-
-#### contact?
-eduarch42 at protonmail dot com
+[yes](https://github.com/saucesaft/saucesaft.github.io)
 
 #### freelancing?
 send me a mail ^

@@ -82,6 +82,70 @@ module.exports = function(eleventyConfig) {
     return path.slice(pathToDrop.length)
   });
 
+  /* tag filters */
+  // get unique values from an array
+  eleventyConfig.addFilter("unique", function(array) {
+    return [...new Set(array)];
+  });
+
+  // slice an array
+  eleventyConfig.addFilter("slice", function(array, start, end) {
+    return array.slice(start, end);
+  });
+
+  // filter collection items by a specific property path
+  eleventyConfig.addFilter("filterCollectionItems", function(collection, property, value) {
+    return collection.filter(item => {
+      const propertyValue = property.split('.').reduce((obj, prop) => 
+        obj && obj[prop] !== undefined ? obj[prop] : undefined, item);
+      return propertyValue && propertyValue.includes(value);
+    });
+  });
+
+  // filter by tag
+  eleventyConfig.addFilter("filterByTag", function(collection, tag) {
+    return collection.filter(item => {
+      return item.data.tags && item.data.tags.includes(tag);
+    });
+  });
+
+  // date display filter
+  eleventyConfig.addFilter("dateDisplay", function(date) {
+    return date ? new Date(date).toLocaleDateString("en-US", {
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric'
+    }) : '';
+  });
+
+  // slugify a string for use in URLs
+  eleventyConfig.addFilter("slugify", function(str) {
+    return str
+      .toString()
+      .toLowerCase()
+      .replace(/\s+/g, '-')     // replace spaces with -
+      .replace(/[^\w\-]+/g, '') // remove all non-word chars
+      .replace(/\-\-+/g, '-')   // replace multiple - with single -
+      .replace(/^-+/, '')       // trim - from start of text
+      .replace(/-+$/, '');      // trim - from end of text
+  });
+
+  // create a collection with all tags from brain posts
+  eleventyConfig.addCollection("tagList", function(collection) {
+    // get all unique tags from brain posts
+    const tagsSet = new Set();
+    
+    collection.getAll().forEach(item => {
+      if (!item.data.tags || !item.filePathStem.startsWith('/content/brain/')) return;
+      
+      item.data.tags
+        .filter(tag => !["posts", "all", "brain"].includes(tag))
+        .forEach(tag => tagsSet.add(tag));
+    });
+    
+    return [...tagsSet].sort();
+  });
+
   // folders of things we want in the final output
   eleventyConfig.addPassthroughCopy('css')
   eleventyConfig.addPassthroughCopy('fonts')

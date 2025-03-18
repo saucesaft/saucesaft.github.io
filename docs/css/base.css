@@ -272,3 +272,79 @@ a#scroller {
     flex-direction: unset;
   }
 }
+
+/* wikilinks */
+/* Add this to your base.css or create a new CSS file and include it */
+
+/* Base style for all wiki links */
+.wikilink {
+  text-decoration: none;
+  padding: 0 2px;
+  transition: background-color 0.2s, border-bottom 0.2s;
+}
+
+/* Wiki section links */
+.wikilink-wiki {
+  color: #0064c1;
+  background-color: rgba(0, 100, 193, 0.05);
+  border-bottom: 1px dashed rgba(0, 100, 193, 0.5);
+}
+
+.wikilink-wiki:hover {
+  background-color: rgba(48, 0, 193, 0.1);
+  border-bottom: 1px solid rgba(48, 0, 193, 0.8);
+  color: #3000c1;
+}
+
+/* Brain section links */
+.wikilink-brain {
+  color: #008080;
+  background-color: rgba(0, 128, 128, 0.05);
+  border-bottom: 1px dashed rgba(0, 128, 128, 0.5);
+}
+
+.wikilink-brain:hover {
+  background-color: rgba(0, 128, 128, 0.1);
+  border-bottom: 1px solid rgba(0, 128, 128, 0.8);
+  color: #006666;
+}
+
+/* for wikilinks that point to non-existent pages */
+.wikilink.not-found {
+  color: #c14600;
+  border-bottom: 1px dashed rgba(193, 70, 0, 0.5);
+  background-color: rgba(193, 70, 0, 0.05);
+}
+
+.wikilink.not-found:hover {
+  background-color: rgba(193, 70, 0, 0.1);
+  border-bottom: 1px solid rgba(193, 70, 0, 0.8);
+}
+
+/* styling for brain section */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.tag-cloud .sidebar {
+  margin: 0.2rem;
+  height: auto;
+  min-height: 1.4em;
+}
+
+.tag-cloud .sidebar a {
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+.window-pane .alert-box + .alert-box {
+  margin-top: 1rem;
+}
+
+.tmpl-brain .window {
+  width: 100%;
+  max-width: 800px;
+}

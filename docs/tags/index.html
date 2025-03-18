@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>compiter notes</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="generator" content="Eleventy v1.0.1">
 
@@ -135,20 +135,35 @@
 <div class="window">
   <div class="title-bar">
     <button aria-label="Close" class="close"></button>
-    <h1 class="title"> compiter notes </h1>
+    <h1 class="title">all tags</h1>
     <button aria-label="Resize" class="resize"></button>
   </div>
   <div class="separator"></div>
 
   <div class="window-pane">
-    <p>I'm reading the book <em>crafting a compiler with c</em> by <em>Charles N. Fischer</em>. here are some notes from the book. quotation marks signify a direct text-grab from the book. i hope this notes could later become someting useful for me or someone else. All credit goes to him, im publishing this as notes, no a &quot;direct copy&quot; of the book. Graphs and everything are based on the ones included on the book. Please go buy the book if these notes were useful to you.</p>
-<p>&quot;A compiler must perform two major tasks: analysis of the source program being compiled and synthesis of a machine-language program that when executed will correctly perform the activities described by that source program.&quot; - Fischer</p>
-<pre class="language-tikz"><code class="language-tikz">\usetikzlibrary{shapes.geometric, arrows}<br><br>\tikzstyle{rect} = [rectangle, minimum width=3cm, minimum height=2cm,text centered, draw=black]<br>\tikzstyle{arrow} = [thick,->,>=stealth]<br>\tikzstyle{darrow} = [dashed,thick,->,>=stealth]<br><br>\begin{document}<br><br>\begin{tikzpicture}[]<br><br>\node (scanner) [rect] {Scanner};<br>\node (parser) [rect, xshift=5cm] {Parser};<br>\node (semantic routines) [rect, xshift=10cm] {Semantic Routines};<br>\node (optimizer) [rect, xshift=10cm, yshift=-5cm] {Optimizer};<br>\node (code generator) [rect, xshift=10cm, yshift=-10cm] {Code Generator};<br><br>\node (tables) [rect, yshift=-5cm, align=center] {Symbol and \\ Attribute \\ Tables};<br><br>\node[text width=3cm] (sex) [yshift=-6.5cm, align=center] { (Used by all phases of the compiler) };<br><br>\node[text width=3cm] (target) [xshift=10cm , yshift=-13.5cm, align=center] { Target Machine \\ Code };<br><br>\draw [arrow, align=left] (scanner) -- node {Tokens \\} (parser);<br>\draw [arrow, align=left] (parser) -- node[anchor=south] {Syntactic \\ Structure} (semantic routines);<br>\draw [arrow, align=left] (semantic routines) -- node[anchor=east] {Intermediate \\ Representation} (optimizer) coordinate[midway] (aux1){};<br>\draw [arrow] (optimizer) -- (code generator) coordinate[midway] (aux2){};<br>\draw [arrow] (code generator) -- (target);<br>\draw [arrow, align=center] (-5cm,0cm) -- node {Source Program \\\\ (Character Stream)} (scanner);<br>\draw [darrow] (aux1) -- ([xshift=2cm]aux1.south) -- ([xshift=2cm]aux2.south) -- (aux2);<br><br>\end{tikzpicture}<br>\end{document}</code></pre>
-<p>(Figure 1.3)</p>
-<p><em>Scanner</em> - Reads the input and generates tokens
-<em>Parser</em> - Builds a syntax tree to drive semantic processing
-<em>Semantic Routines</em> - Check semantics (correct variable types, etc) and generate IR code after.</p>
-
+    <div class="tag-cloud">
+      
+        <div class="sidebar">
+          <a href="/tags/ai/">AI</a>
+        </div>
+      
+        <div class="sidebar">
+          <a href="/tags/alone-among-the-stars/">alone among the stars</a>
+        </div>
+      
+        <div class="sidebar">
+          <a href="/tags/brainstorm/">brainstorm</a>
+        </div>
+      
+        <div class="sidebar">
+          <a href="/tags/roleplaying/">roleplaying</a>
+        </div>
+      
+    </div>
+    
+    <div style="margin-top: 1.5rem;">
+      <a href="/brain/" class="btn">← Back to Brain</a>
+    </div>
   </div>
 </div>
 
@@ -156,7 +171,7 @@
 
 
 
-    <!-- Current page: /wiki/compiler/compiler notes.html -->
+    <!-- Current page: /tags/ -->
   </body>
 
   <div class="footer"></div>
