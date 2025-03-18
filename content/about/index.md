@@ -6,6 +6,18 @@ index: 3
 
 hello my name is Eduardo, people call me Lalo, but im better know as saucesaft on the internet. Im from the north of México so that's why i'll try to keep the languages balanced depending on the kind of post.
 
+### find me in other places
+
+[twiterr](https://twitter.com/saucesaft) = get in contact with me
+
+[last.fm](https://www.last.fm/user/saucesaft) = music i hear
+
+[sndcloud](https://soundcloud.com/saucesaft) = music i make
+
+[linkedin](https://www.linkedin.com/in/eduardo-hern%C3%A1ndez-valdez-112ba1254/) = profesional things
+
+---
+
 **Q&A**
 
 #### why saucesaft?
@@ -21,12 +33,4 @@ yes, free as in freedom. LINK GOES HERE
 eduarch42 at protonmail dot com
 
 #### freelancing?
-yes, send me a mail ^
-
-### find me in other places
-
-[twiterr](https://twitter.com/saucesaft) = get in contact with me
-[last.fm](https://www.last.fm/user/saucesaft) = music i hear
-[sndcloud](https://soundcloud.com/saucesaft) = music i make
-[linkedin](https://www.linkedin.com/in/eduardo-hern%C3%A1ndez-valdez-112ba1254/) = profesional things
-
+send me a mail ^

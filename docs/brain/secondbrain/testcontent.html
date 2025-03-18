@@ -16,8 +16,6 @@
     <link rel="stylesheet" href="/css/code.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/system.css">
-    
-    
 
     <link rel="alternate" href="." type="application/atom+xml" title="">
     <link rel="alternate" href="." type="application/json" title="">
@@ -27,16 +25,19 @@
     <script type="text/javascript">
       
       function isElementOverflowing(element) {
-        var h = element.clientHeight;
-
-        var lh = parseFloat(getComputedStyle(element).lineHeight)
-
-        return h >= lh;
+        
+        // get the width of the element
+        var width = element.clientWidth;
+        // get the scroll width (the full content width)
+        var scrollWidth = element.scrollWidth;
+        
+        // if the scroll width is greater than the visible width, it's overflowing
+        return scrollWidth > width;
       }
 
       function wrapContentsInMarquee(element) {
-        var marquee = document.createElement('marquee'),
-          contents = element.innerText;
+        var marquee = document.createElement('marquee');
+        var contents = element.innerText;
 
         marquee.innerText = contents;
         element.innerHTML = '';
@@ -70,7 +71,7 @@
     
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
-            daft punk is playing at my house
+            free as in freedom!
         </marquee>
     </a>
 </div>

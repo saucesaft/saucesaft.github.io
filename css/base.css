@@ -1,12 +1,6 @@
-@font-face  {
-     font-family :  "over_there" ;
-     src :  url( "/fonts/over_there.ttf" );
-}
-
-img.center-post {
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
+@font-face {
+  font-family: "over_there";
+  src: url("/fonts/over_there.ttf");
 }
 
 body {
@@ -17,14 +11,86 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.title {
-  overflow: hidden;
+.layout {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8em;
+  flex-wrap: wrap;
+}
+
+img.center-post {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mdcenter {
   text-align: center;
 }
 
+/* Window Styles */
+.window {
+  max-width: 800px;
+  margin: 1rem auto;
+  flex: 0 1 auto;
+}
+
+.title {
+  overflow: hidden;
+}
+
+.window-pane {
+  overflow-y: auto;
+  font-family: 'PT Serif', Georgia, serif;
+  line-height: 1.5;
+  letter-spacing: normal;
+  font-size: 16px;
+  padding: 1.5rem 2rem;
+}
+
+.window-pane p {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+
+.window-pane pre {
+  margin: 1em 0;
+  padding: 1em;
+  overflow-x: auto;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.window-pane h1, 
+.window-pane h2, 
+.window-pane h3, 
+.window-pane h4, 
+.window-pane h5, 
+.window-pane h6 {
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+/* Link Styles */
+.window-pane a:link {
+  text-decoration: underline;
+  color: #0064c1;
+  background-color: transparent;
+}
+
+.window-pane a:visited {
+  color: #8a642d;
+  background-color: transparent;
+}
+
+.window-pane a:hover {
+  color: #3000c1;
+  background-color: transparent;
+}
+
+/* Projects Section */
 #projects {
   width: 80%;
   display: flex;
@@ -34,62 +100,13 @@ body {
 
 #projects .window {
   flex: 1 0 auto;
-  margin: 0;
-  gap: 1rem;
-
   margin: 0.5rem;
-/*  margin-right: 0.5rem;*/
   width: 25%;
   min-width: 0px;
+  gap: 1rem;
 }
 
-#scroller {
-  flex-grow: 1;
-}
-
-.body {
-  padding: 1em;
-}
-
-.layout {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 8em;
-  flex-wrap: wrap;
-}
-
-.window-pane a:link:hover {
-  color: #222;
-  background-color: white;
-  text-decoration-color: #222;
-}
-
-.window-pane a:link {
-  color: #f2e5bc;
-  background-color: #222;
-  text-decoration-color: #f2e5bc;
-}
-
-.window-pane a:visited:hover {
-  color: #222;
-  background-color: white;
-  text-decoration-color: #222;
-}
-
-.window-pane a:visited {
-  color: #8a642d;
-}
-
-
-div.window-body {
-  font-size: 14px;
-}
-
-/*h1 {
-  font-size: 18px;
-  color: black;
-}*/
-
+/* Header & Navigation */
 .sidebar_layout {
   display: flex;
   flex-flow: wrap;
@@ -100,11 +117,10 @@ div.window-body {
 .sidebar {
   margin: 0.2em;
   padding: 0;
-  height: 100%;
+  height: 1.4em;
   scrollbar-color: #3d3d3a #292927;
   position: relative;
   float: left;
-/*  display: inline-block;*/
   display: flex;
   align-items: center;
 }
@@ -124,34 +140,32 @@ div.window-body {
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
-a#selected {
-  text-decoration: underline !important;
-}
-
-#scroller marquee {
-  font-family: 'Chicago', sans-serif;
-}
-
-
 .sidebar a {
   color: white;
 }
 
-.sidebar {
-  height: 1.4em;  
-}
- 
-div#menu {
-  margin-top: 0.6em;
-  flex-basis: 100%;
-  overflow-x: auto;
-  white-space: nowrap;
-  display: flex;
+.sidebar:not(#title):not(.divider) {
+  background-color: #222;
 }
 
-#menu::-webkit-scrollbar {
-  display: none;
-/*  all:unset;*/
+.sidebar:hover:not(#title):not(.divider) {
+  background-color: white;
+}
+
+.sidebar a:hover:not(#title):not(.divider) {
+  color: #222;
+}
+
+.sidebar.divider {
+  background-color: #222;
+}
+
+.sidebar.divider a {
+  cursor: default;
+}
+
+a#selected {
+  text-decoration: underline !important;
 }
 
 div#head {
@@ -164,7 +178,6 @@ div#head {
 
 div#subhead {
   justify-content: left;
-
   width: 100%;
   display: flex;
   align-items: center;
@@ -173,9 +186,30 @@ div#subhead {
   margin-top: 0.6em;
 }
 
+div#menu {
+  margin-top: 0.6em;
+  flex-basis: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+}
+
+#menu::-webkit-scrollbar {
+  display: none;
+}
+
 div.breaking {
   display: flex;
   flex-direction: column;
+}
+
+a#title {
+  color: #f2e5bc;
+  font-size: 27px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  position: relative;
+  float: left;
+  text-decoration: none;
 }
 
 a#subtitle {
@@ -187,47 +221,14 @@ a#subtitle {
   text-decoration: none;
 }
 
-a#title {
-/*  color: #fc6a5d;*/
-  color: #f2e5bc;
-  font-size: 27px;
-  font-family: 'IBM Plex Sans', sans-serif;
-  position: relative;
-  float: left;
-  text-decoration: none;
-}
-
 a#scroller {
   color: white;
   display: none;
+  flex-grow: 1;
 }
 
-.sidebar:hover:not(#title):not(.divider) {
-  background-color: white;
-}
-
-
-.sidebar a:hover:not(#title):not(.divider) {
-  color: #222;
-}
-
-.sidebar:not(#title):not(.divider) {
-  background-color: #222
-}
-
-.sidebar.divider {
-/*  margin-inline: 1em;*/
-  background-color: #222;
-}
-
-.sidebar.divider a {
-  cursor: default;
-}
-
-div.window-pane {
-/*  all: initial !important;*/
-  overflow-y: visible;
-  font-family: 'IBM Plex Sans Condensed', sans-serif;
+#scroller marquee {
+  font-family: 'Chicago', sans-serif;
 }
 
 .footer {
@@ -235,46 +236,39 @@ div.window-pane {
   right: 0;
   top: 0;
   width: 100%;
-  height : 300px ;
-
-  background-repeat : no-repeat ;
+  height: 300px;
+  background-repeat: no-repeat;
   background-size: 160px;
-
   z-index: -99;
 }
 
+/* Media Queries */
 @media screen and (min-width: 600px) {
-
-  a#subtitle {
-    color: #FFFFFF;
-    font-size: 20px;
-    font-family: 'IBM Plex Sans', sans-serif;
-    position: relative;
-    float: left;
-    text-decoration: none;
+  body {
+    background-size: 220% !important;
   }
-
+  
+  a#subtitle {
+    font-size: 20px;
+  }
+  
   a#scroller {
     display: block;
   }
-
+  
   div#subhead {
     width: fit-content;
     justify-content: center;
   }
-
-  body {
-    background-size: 220% !important;
-  }
 }
 
 @media screen and (min-width: 800px) {
+  body {
+    background-size: 120% !important;
+  }
+  
   div.breaking {
     display: block;
     flex-direction: unset;
-  }
-
-  body {
-    background-size: 120% !important;
   }
 }
