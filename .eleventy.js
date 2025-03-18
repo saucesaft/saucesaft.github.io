@@ -5,6 +5,8 @@ const pluginAncestry = require("@tigersway/eleventy-plugin-ancestry");
 // require("prismjs/plugins/filter-highlight-all/prism-filter-highlight-all.min");
 // require('prismjs/plugins/keep-markup/prism-keep-markup.js');
 
+const wikiModule = require('./.wiki.js');
+
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const tmp = require('tmp');
@@ -33,16 +35,6 @@ module.exports = function(eleventyConfig) {
     return `<code class="${langPrefix}">${token.content}</code>`;
   };
 
-  // filter to adapt obsidian's image url's into eleventy compatible ones
-  eleventyConfig.addFilter("wikimage", string => {
-    string = string.replaceAll(/!\[\[(?!.+?:)([^\]\[]+)\]\]/gm, function(s) {
-      const parts = s.slice(3,-2).split("|");
-
-      return md.renderInline(`![${parts[1]}](../img/${parts[0].trim()}){.center-post}`)
-    })
-    return string
-  })
-
   // generate randomnes as a filter for the phrases on top
   eleventyConfig.addFilter("getRandom", function(items) {
     let selected = items[Math.floor(Math.random() * items.length)];
@@ -61,9 +53,11 @@ module.exports = function(eleventyConfig) {
       excerpt_separator: "<!-- more -->",
   });
 
-  const wikiFolder = './content/wiki';
+  // apply wiki functionality from the imported module
+  wikiModule(eleventyConfig, md);
 
   // Read all directories inside the wiki folder
+  const wikiFolder = './content/wiki';
   const subfolders = fs.readdirSync(wikiFolder).filter(file => {
     return fs.statSync(path.join(wikiFolder, file)).isDirectory();
   });

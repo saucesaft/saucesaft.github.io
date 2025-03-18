@@ -18,8 +18,8 @@
 	-[ ] recent posts list in home page
 	-[ ] tag system for keywords
 
--[ ] project roundup
+-[ ] portfolio
 -[ ] better markdown formatting
-	-[ ] "enter" is not too big
-	-[ ] more centered and small text column
+	-[X] "enter" is not too big
+	-[X] more centered and small text column
 	-[ ] code format
