@@ -16,10 +16,44 @@
 	-[ ] obsidian front matter
 	-[ ] project writeup
 	-[ ] recent posts list in home page
-	-[ ] tag system for keywords
+	-[X] tag system for keywords
 
--[ ] portfolio
+-[ ] style
+	-[ ] change code syntax
+	-[ ] buttons on tags
+	-[ ] font on wiki project
+	-[ ] render math
+
+-[ ] wiki
+	-[ ] front matter image
+	-[ ] have an introduction paragraph for each project
+
+-[ ] brain
+	-[ ] dont include self on brain tags
+
 -[ ] better markdown formatting
 	-[X] "enter" is not too big
 	-[X] more centered and small text column
-	-[ ] code format
+	-[X] code format
+
+-[ ] home portfolio
+	-[ ] titlebar links to all posts relating to it
+	-[ ] attach CV
+		-[ ] render to html or something
+
+	-[ ] (project) hardware PID
+	-[ ] (project) software PID
+	-[ ] (project) MRL Camera Calibration
+	-[ ] (project) SDV
+		-[ ] PCBs
+		-[ ] braking system
+		-[ ] steering system
+	-[ ] (project) USV
+		-[ ] ZED visionsystemx
+	-[ ] (project) ML classes
+		-[ ] link to PDF
+	-[ ] (project) tensorgba
+	-[ ] (project) Xignux Challenge
+	-[ ] (project) Pendulum Robot
+	-[ ] (project) Waypoint Car
+	-[ ] (project) C-Space Planner
