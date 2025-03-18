@@ -32,11 +32,13 @@
             {% for item in navigation.menu %}
 
                 <div class="sidebar">
-                    {% if title == item.name %}
-                        <a id="selected" href={{ item.url }} > {{ item.name }} </a>
-                    {% else %}
-                        <a href={{ item.url }} > {{ item.name }} </a>
-                    {% endif %}
+                    
+                        <a href={{ item.url }}
+
+                        {% if title == item.name %} id = "selected" {% endif %}
+                        
+                        > {{ item.name }} </a>
+                    
                 </div>
 
             {% endfor %}

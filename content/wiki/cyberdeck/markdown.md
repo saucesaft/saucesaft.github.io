@@ -2,6 +2,7 @@
 title: markdown
 tags:
   - markdown
+  - cyberdeck
 layout: layouts/post.njk
 ---
 

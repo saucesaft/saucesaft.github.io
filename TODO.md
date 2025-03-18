@@ -17,3 +17,9 @@
 	-[ ] project writeup
 	-[ ] recent posts list in home page
 	-[ ] tag system for keywords
+
+-[ ] project roundup
+-[ ] better markdown formatting
+	-[ ] "enter" is not too big
+	-[ ] more centered and small text column
+	-[ ] code format

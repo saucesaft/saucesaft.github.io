@@ -54,6 +54,12 @@ module.exports = function(eleventyConfig) {
     return inspect(obj, {sorted: true});
   });
 
+  // set the exceprt cut tag
+  // TODO make it automatic
+  eleventyConfig.setFrontMatterParsingOptions({
+      excerpt: true,
+      excerpt_separator: "<!-- more -->",
+  });
 
   const wikiFolder = './content/wiki';
 

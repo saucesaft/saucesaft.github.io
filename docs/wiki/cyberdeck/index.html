@@ -11,9 +11,12 @@
     
     
 
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/code.css">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/system.css">
+    
     
 
     <link rel="alternate" href="." type="application/atom+xml" title="">
@@ -67,7 +70,7 @@
     
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
-            where are your friends tonight?
+            daft punk is playing at my house
         </marquee>
     </a>
 </div>
@@ -85,7 +88,11 @@
 
                 <div class="sidebar">
                     
-                        <a href=/brain/ > brain </a>
+                        <a href=/brain/
+
+                        
+                        
+                        > brain </a>
                     
                 </div>
 
@@ -93,7 +100,11 @@
 
                 <div class="sidebar">
                     
-                        <a href=/wiki/ > wiki </a>
+                        <a href=/wiki/
+
+                        
+                        
+                        > wiki </a>
                     
                 </div>
 
@@ -101,7 +112,11 @@
 
                 <div class="sidebar">
                     
-                        <a href=/about/ > about </a>
+                        <a href=/about/
+
+                        
+                        
+                        > about </a>
                     
                 </div>
 
@@ -129,358 +144,102 @@
   <div class="separator"></div>
 
   <div class="window-pane">
+
   
   
+
       
-      
+        
+        
           <div class="alert-box outer-border scale-down"  style="width:30rem;">
-          <div class="inner-border">
-            <div class="alert-contents">
-              <section class="field-row" style="justify-content: flex-start">
-                <b style="padding-left:10px;"> hacking my kindle pt.1 </b>
-              </section>
-              <section>
-                <p class="alert-text"> <p>this is not a guide, just my process, although if you have any question, feel free to contact me</p>
-<h3>things i want to achieve with my kindle</h3>
-<ul>
-<li>spi interface to expand storage</li>
-<li>remove amazon's gui frontend but leave the kernel intact</li>
-</ul>
-<p>(i could also apply the theseus boat approach and hack around some drivers based on <a href="https://github.com/vroland/epdiy">epdiy</a> and a raspberry pi pico but where's the fun in that?)</p>
-<h3>storage expansion</h3>
-<p>so i have made some investigation about this, my kindle model does not have an internal sd card port, just an emmc chip :( taking this into account, i have these options</p>
-<ul>
-<li>resolder the emmc chip for a &quot;larger&quot; one
-<ul>
-<li>this is not an option, i have no experience soldering BGA and although it has been done with other kindles, my model is relatively new so there are no documented cases of people doing it. (also it may simply not work because of firmware)</li>
-</ul>
-</li>
-<li>internal usb port
-<ul>
-<li>not following this approach because these ports are rarely available and only on models with included 3G modems inside (mine does not)</li>
-</ul>
-</li>
-<li>SPI SD Card (this is the one)
-<ul>
-<li>The imx6 sololite (cpu of my kindle) has 4 SPI ports, the <a href="https://fccid.io/2ARGY-5237/Internal-Photos/EP-internal-4208082.pdf">board</a> has a ton of exposed of test points, one of them could be a pair of them could be exposing SPI right? (i wish it does)</li>
-</ul>
-</li>
-</ul>
-<p><strong>more on this approach:</strong>
-i need to find 1 SPI port on the PCB of my kindle, which i think could be easy? using an oscilloscope and searching for the CLK pad and assuming that MISO and MOSI are close to it.</p>
-<p>now, on the software side, the linux kernel on the kindle was only compiled for kernelmode SPI access, no usermode. this is easy to solve, just recompile and flash. but just before i did that, i became aware of a particular file on the source of the linux kernel.</p>
-<p><code class="language-">mmc_spi.c</code></p>
-<p>this file implements a driver in a device tree fashion which needs to be compiled into a blob and acts like a &quot;plugin&quot; to the kernel and handling all the SPi -&gt; SD communication all by itself that it even mounts it to the filesystem. neat huh ;)
-(<a href="https://ralimtek.com/posts/2016/2016-12-10-raspberry_pi_secondary_sd_card/">this site</a> uses the exact same approach but for a rpi)</p>
-<p>the device-tree-compiler needed to actually load this driver was not installed on my kindle but a simple package unpackaging from debian's armel repos worked great.</p>
-<p>this approach sounds very straight forward but for the moment i have no acess to an oscilloscope so until my next kindle hacking post, bye</p>
-</p>
-              </section>
-              <section class="field-row" style="justify-content: flex-end">
-                <a class="btn" href="/wiki/cyberdeck/hacking my kindle pt.1.html" style="width:95px;">read</a>
-              </section>
+            <div class="inner-border">
+              <div class="alert-contents">
+                <section class="field-row" style="justify-content: flex-start">
+                  <b style="padding-left:10px;"> hacking my kindle pt.1 </b>
+                </section>
+                <section>
+                  <p class="alert-text"> </p>
+                </section>
+                <section class="field-row" style="justify-content: flex-end">
+                  <a class="btn" href="/wiki/cyberdeck/hacking my kindle pt.1.html" style="width:95px;">read</a>
+                </section>
+
+              </div>
 
             </div>
-
           </div>
-        </div>
-            
+        
       
+        
+        
           <div class="alert-box outer-border scale-down"  style="width:30rem;">
-          <div class="inner-border">
-            <div class="alert-contents">
-              <section class="field-row" style="justify-content: flex-start">
-                <b style="padding-left:10px;"> hacking my kindle pt.2 </b>
-              </section>
-              <section>
-                <p class="alert-text"> <p><strong>Some information i have found while researching:</strong></p>
-<p>Kernel drivers loaded in linux:</p>
-<pre><code>g_mass_storage          4203  0
-usb_f_ecm              10309  0
-usb_f_rndis            27251  0
-u_ether                14348  2 usb_f_ecm,usb_f_rndis
-bcmdhd                669190  0
-usb_f_mass_storage     51007  2 g_mass_storage
-libcomposite           49114  4 g_mass_storage,usb_f_ecm,usb_f_rndis,usb_f_mass_storage
-configfs               26493  5 usb_f_ecm,usb_f_rndis,usb_f_mass_storage,libcomposite
-cyttsp5_i2c             2569  0
-cyttsp5                90300  2 cyttsp5_i2c
-falcon                 21319  0 [permanent]
-mxc_epdc_v2_fb         99289  3
-</code></pre>
-<p>SPI drivers showing up on <code class="language-">/sys/bus/spi/drivers</code>:</p>
-<pre><code>74x164         m25p80         mtd_dataflash
-at25           mc13xxx        sst25l
-</code></pre>
-<p>No devices showing up on <code class="language-">/sys/bus/spi/devices</code></p>
-</p>
-              </section>
-              <section class="field-row" style="justify-content: flex-end">
-                <a class="btn" href="/wiki/cyberdeck/hacking my kindle pt.2.html" style="width:95px;">read</a>
-              </section>
+            <div class="inner-border">
+              <div class="alert-contents">
+                <section class="field-row" style="justify-content: flex-start">
+                  <b style="padding-left:10px;"> hacking my kindle pt.2 </b>
+                </section>
+                <section>
+                  <p class="alert-text"> </p>
+                </section>
+                <section class="field-row" style="justify-content: flex-end">
+                  <a class="btn" href="/wiki/cyberdeck/hacking my kindle pt.2.html" style="width:95px;">read</a>
+                </section>
+
+              </div>
 
             </div>
-
           </div>
-        </div>
-            
+        
       
+        
+        
           <div class="alert-box outer-border scale-down"  style="width:30rem;">
-          <div class="inner-border">
-            <div class="alert-contents">
-              <section class="field-row" style="justify-content: flex-start">
-                <b style="padding-left:10px;"> braindump </b>
-              </section>
-              <section>
-                <p class="alert-text"> <p>brain dump of the ideas i have</p>
-<p>use an actual kindle (KT4 model) as the screen
-replace battery with something bigger
-model a new case to fit this battery (and remove amazon's logo)
-add a keyboard (mechanical?)
-very mucho storage</p>
-<p>^^ these are my ideas for it, my main inspiration it the <em>actual</em> &quot;Hitchiker's Guide to the Galaxy&quot; no the <em>book</em>. filling it with a wikipedia dump, the whole gutenberg library and what ever else fits.</p>
-<p>[when i make an actual sketch of this device it will be in here, for the moment just imagine a cool looking cyberdeck]</p>
+            <div class="inner-border">
+              <div class="alert-contents">
+                <section class="field-row" style="justify-content: flex-start">
+                  <b style="padding-left:10px;"> braindump </b>
+                </section>
+                <section>
+                  <p class="alert-text"> 
+brain dump of the ideas i have
+
 </p>
-              </section>
-              <section class="field-row" style="justify-content: flex-end">
-                <a class="btn" href="/wiki/cyberdeck/imaginating my cyberdeck.html" style="width:95px;">read</a>
-              </section>
+                </section>
+                <section class="field-row" style="justify-content: flex-end">
+                  <a class="btn" href="/wiki/cyberdeck/imaginating my cyberdeck.html" style="width:95px;">read</a>
+                </section>
+
+              </div>
 
             </div>
-
           </div>
-        </div>
-            
+        
       
+        
+        
+      
+        
+        
           <div class="alert-box outer-border scale-down"  style="width:30rem;">
-          <div class="inner-border">
-            <div class="alert-contents">
-              <section class="field-row" style="justify-content: flex-start">
-                <b style="padding-left:10px;"> cyberdeck </b>
-              </section>
-              <section>
-                <p class="alert-text"> <p>trying to create a cyberdeck, for now just ideas</p>
-</p>
-              </section>
-              <section class="field-row" style="justify-content: flex-end">
-                <a class="btn" href="/wiki/cyberdeck/" style="width:95px;">read</a>
-              </section>
+            <div class="inner-border">
+              <div class="alert-contents">
+                <section class="field-row" style="justify-content: flex-start">
+                  <b style="padding-left:10px;"> markdown </b>
+                </section>
+                <section>
+                  <p class="alert-text"> </p>
+                </section>
+                <section class="field-row" style="justify-content: flex-end">
+                  <a class="btn" href="/wiki/cyberdeck/markdown.html" style="width:95px;">read</a>
+                </section>
+
+              </div>
 
             </div>
-
           </div>
-        </div>
-            
+        
       
-          <div class="alert-box outer-border scale-down"  style="width:30rem;">
-          <div class="inner-border">
-            <div class="alert-contents">
-              <section class="field-row" style="justify-content: flex-start">
-                <b style="padding-left:10px;"> markdown </b>
-              </section>
-              <section>
-                <p class="alert-text"> <h1>h1 Heading 8-)</h1>
-<h2>h2 Heading</h2>
-<h3>h3 Heading</h3>
-<h4>h4 Heading</h4>
-<h5>h5 Heading</h5>
-<h6>h6 Heading</h6>
-<h2>Horizontal Rules</h2>
-<hr>
-<hr>
-<hr>
-<h2>Typographic replacements</h2>
-<p>Enable typographer option to see result.</p>
-<p>(c) (C) (r) (R) (tm) (TM) (p) (P) +-</p>
-<p>test.. test... test..... test?..... test!....</p>
-<p>!!!!!! ???? ,,  -- ---</p>
-<p>&quot;Smartypants, double quotes&quot; and 'single quotes'</p>
-<h2>Emphasis</h2>
-<p><strong>This is bold text</strong></p>
-<p><strong>This is bold text</strong></p>
-<p><em>This is italic text</em></p>
-<p><em>This is italic text</em></p>
-<p><s>Strikethrough</s></p>
-<h2>Blockquotes</h2>
-<blockquote>
-<p>Blockquotes can also be nested...</p>
-<blockquote>
-<p>...by using additional greater-than signs right next to each other...</p>
-<blockquote>
-<p>...or with spaces between arrows.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2>Lists</h2>
-<p>Unordered</p>
-<ul>
-<li>Create a list by starting a line with <code class="language-">+</code>, <code class="language-">-</code>, or <code class="language-">*</code></li>
-<li>Sub-lists are made by indenting 2 spaces:
-<ul>
-<li>Marker character change forces new list start:
-<ul>
-<li>Ac tristique libero volutpat at</li>
-</ul>
-<ul>
-<li>Facilisis in pretium nisl aliquet</li>
-</ul>
-<ul>
-<li>Nulla volutpat aliquam velit</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Very easy!</li>
-</ul>
-<p>Ordered</p>
-<ol>
-<li>
-<p>Lorem ipsum dolor sit amet</p>
-</li>
-<li>
-<p>Consectetur adipiscing elit</p>
-</li>
-<li>
-<p>Integer molestie lorem at massa</p>
-</li>
-<li>
-<p>You can use sequential numbers...</p>
-</li>
-<li>
-<p>...or keep all the numbers as <code class="language-">1.</code></p>
-</li>
-</ol>
-<p>Start numbering with offset:</p>
-<ol start="57">
-<li>foo</li>
-<li>bar</li>
-</ol>
-<h2>Code</h2>
-<p>Inline <code class="language-">print("hello world")</code></p>
-<p>Indented code</p>
-<pre class="language-lua"><code class="language-lua"><span class="token operator">//</span> Some comments<br>line <span class="token number">1</span> of code<br>line <span class="token number">2</span> of code<br>line <span class="token number">3</span> of code</code></pre>
-<p>Syntax highlighting</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">var</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">bar</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> bar<span class="token operator">++</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">;</span><br><br>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">foo</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span><br>  <span class="token property">"firstName"</span><span class="token operator">:</span> <span class="token string">"John"</span><span class="token punctuation">,</span><br>  <span class="token property">"lastName"</span><span class="token operator">:</span> <span class="token string">"Smith"</span><span class="token punctuation">,</span><br>  <span class="token property">"age"</span><span class="token operator">:</span> <span class="token number">25</span><br><span class="token punctuation">}</span></code></pre>
-<h2>Tables</h2>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>data</td>
-<td>path to data files to supply the data that will be passed into templates.</td>
-</tr>
-<tr>
-<td>engine</td>
-<td>engine to be used for processing templates. Handlebars is the default.</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>extension to be used for dest files.</td>
-</tr>
-</tbody>
-</table>
-<p>Right aligned columns</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right">Option</th>
-<th style="text-align:right">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right">data</td>
-<td style="text-align:right">path to data files to supply the data that will be passed into templates.</td>
-</tr>
-<tr>
-<td style="text-align:right">engine</td>
-<td style="text-align:right">engine to be used for processing templates. Handlebars is the default.</td>
-</tr>
-<tr>
-<td style="text-align:right">ext</td>
-<td style="text-align:right">extension to be used for dest files.</td>
-</tr>
-</tbody>
-</table>
-<h2>Links</h2>
-<p><a href="http://dev.nodeca.com">link text</a></p>
-<p><a href="http://nodeca.github.io/pica/demo/" title="title text!">link with title</a></p>
-<p>Autoconverted link <a href="https://github.com/nodeca/pica">https://github.com/nodeca/pica</a> (enable linkify to see)</p>
-<h2>Images</h2>
-<p><img src="https://octodex.github.com/images/minion.png" alt="Minion">
-<img src="https://octodex.github.com/images/stormtroopocat.jpg" alt="Stormtroopocat" title="The Stormtroopocat"></p>
-<p>Like links, Images also have a footnote style syntax</p>
-<p><img src="https://octodex.github.com/images/dojocat.jpg" alt="Alt text" title="The Dojocat"></p>
-<p>With a reference later in the document defining the URL location:</p>
-<h2>Plugins</h2>
-<p>The killer feature of <code class="language-">markdown-it</code> is very effective support of
-<a href="https://www.npmjs.org/browse/keyword/markdown-it-plugin">syntax plugins</a>.</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-emoji">Emojies</a></h3>
-<blockquote>
-<p>Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:</p>
-<p>Shortcuts (emoticons): :-) :-( 8-) ;)</p>
-</blockquote>
-<p>see <a href="https://github.com/markdown-it/markdown-it-emoji#change-output">how to change output</a> with twemoji.</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-sub">Subscript</a> / <a href="https://github.com/markdown-it/markdown-it-sup">Superscript</a></h3>
-<ul>
-<li>19^th^</li>
-<li>H~2~O</li>
-</ul>
-<h3><a href="https://github.com/markdown-it/markdown-it-ins">&lt;ins&gt;</a></h3>
-<p>++Inserted text++</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-mark">&lt;mark&gt;</a></h3>
-<p>==Marked text==</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-footnote">Footnotes</a></h3>
-<p>Footnote 1 link[^first].</p>
-<p>Footnote 2 link[^second].</p>
-<p>Inline footnote^[Text of inline footnote] definition.</p>
-<p>Duplicated footnote reference[^second].</p>
-<p>[^first]: Footnote <strong>can have markup</strong></p>
-<pre><code>and multiple paragraphs.
-</code></pre>
-<p>[^second]: Footnote text.</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-deflist">Definition lists</a></h3>
-<p>Term 1</p>
-<p>:   Definition 1
-with lazy continuation.</p>
-<p>Term 2 with <em>inline markup</em></p>
-<p>:   Definition 2</p>
-<pre><code>    { some code, part of Definition 2 }
 
-Third paragraph of definition 2.
-</code></pre>
-<p><em>Compact style:</em></p>
-<p>Term 1
-~ Definition 1</p>
-<p>Term 2
-~ Definition 2a
-~ Definition 2b</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-abbr">Abbreviations</a></h3>
-<p>This is HTML abbreviation example.</p>
-<p>It converts &quot;HTML&quot;, but keep intact partial entries like &quot;xxxHTMLyyy&quot; and so on.</p>
-<p>*[HTML]: Hyper Text Markup Language</p>
-<h3><a href="https://github.com/markdown-it/markdown-it-container">Custom containers</a></h3>
-<p>::: warning
-<em>here be dragons</em>
-:::</p>
-</p>
-              </section>
-              <section class="field-row" style="justify-content: flex-end">
-                <a class="btn" href="/wiki/cyberdeck/markdown.html" style="width:95px;">read</a>
-              </section>
-
-            </div>
-
-          </div>
-        </div>
-            
-      
     
   </div>
 </div>

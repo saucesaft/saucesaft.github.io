@@ -25,8 +25,8 @@ yes, send me a mail ^
 
 ### find me in other places
 
-[twiterr](https://twitter.com/saucesaft) = mostly for memes
+[twiterr](https://twitter.com/saucesaft) = get in contact with me
 [last.fm](https://www.last.fm/user/saucesaft) = music i hear
 [sndcloud](https://soundcloud.com/saucesaft) = music i make
-[linkedin](https://www.linkedin.com/in/eduardo-hern%C3%A1ndez-valdez-112ba1254/) = Profesional Things. lol
+[linkedin](https://www.linkedin.com/in/eduardo-hern%C3%A1ndez-valdez-112ba1254/) = profesional things
 

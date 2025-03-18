@@ -12,6 +12,12 @@
     "tmp": "^0.2.1"
   },
   "devDependencies": {
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0"
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@types/bun": "latest"
+  },
+  "name": "blog",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
   }
 }

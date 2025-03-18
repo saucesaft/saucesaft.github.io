@@ -10,6 +10,8 @@ tags:
 
 brain dump of the ideas i have
 
+<!-- more -->
+
 use an actual kindle (KT4 model) as the screen
 replace battery with something bigger
 model a new case to fit this battery (and remove amazon's logo)

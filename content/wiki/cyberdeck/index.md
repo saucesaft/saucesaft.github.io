@@ -1,7 +1,7 @@
 ---
 title: cyberdeck
 layout: layouts/postswindow.njk
-root: true
+project_root: true
 show_folders: false
 ---
 trying to create a cyberdeck, for now just ideas
