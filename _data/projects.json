@@ -6,16 +6,6 @@
             "media": "/img/projects/vision.mp4"
         },
         {
-            "title": "auxn", 
-            "description": "An emulator for the uxn virtual machine running as an audio plugin (VST3, CLAP).",
-            "media": "/img/projects/auxn.mp4"
-        },
-        {
-            "title": "ADAS electronics", 
-            "description": "PCB development for braking, steering and throttle in a autonomous vehicle.",
-            "media": "/img/projects/pcb.png"
-        },
-        {
             "title": "ADAS programming", 
             "description": "FreeRTOS based system @ STM32 platform for controlling an autonomous vehicle.",
             "media": "/img/projects/adasprog.mp4"
@@ -26,6 +16,11 @@
             "media": "/img/projects/tensorgba.mp4"
         },
         {
+            "title": "ADAS electronics", 
+            "description": "PCB development for braking, steering and throttle in a autonomous vehicle.",
+            "media": "/img/projects/pcb.png"
+        },
+        {
             "title": "waypoint following car", 
             "description": "IMU + Radio + Wheel Encoders + Dual Core STM32 + Perfboard Circuit + Simulink Controller exported to C",
             "media": "/img/projects/waypoint.jpg"
@@ -34,6 +29,11 @@
             "title": "machine learning coursework", 
             "description": "Developed courses for teaching Machine Learning and Computer Vision.",
             "media": "/img/projects/coursework.mp4"
+        },
+        {
+            "title": "auxn", 
+            "description": "An emulator for the uxn virtual machine running as an audio plugin (VST3, CLAP).",
+            "media": "/img/projects/auxn.mp4"
         },
         {
             "title": "hands-on PID system", 
