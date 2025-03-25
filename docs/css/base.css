@@ -89,7 +89,6 @@ img.center-post {
   background-color: transparent;
 }
 
-/* Projects Section */
 #projects {
   width: 90%;
   margin: 0 auto;
@@ -98,35 +97,101 @@ img.center-post {
 }
 
 #projects .window {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: -0.5rem;
   break-inside: avoid;
+  margin-bottom: 1rem;
+  display: block;
+  width: 100%;
+  margin-left: 0;
 }
 
 /* Make the layout responsive */
 @media screen and (max-width: 1200px) {
   #projects {
+    column-count: 3;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #projects {
     column-count: 2;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 735px) {
   #projects {
     column-count: 1;
   }
+}
 
-  .window {
-    margin: 1rem auto;
+/* Project media styling */
+.project-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Video-specific styling */
+video.project-media {
+  background-color: #000;
+}
+
+/* Fix window styling for columns */
+.window {
+  max-width: none;
+  margin: 0;
+}
+
+/* Ensure projects fill their container properly */
+#projects .window-pane {
+  overflow-y: visible;
+  height: auto;
+}
+
+/* Order preservation using column-reverse trick */
+@media (min-width: 735px) {
+  #projects {
+    display: flex;
+    flex-wrap: wrap;
+    column-count: unset;
+  }
+  
+  #projects .column {
+    width: calc(33.333% - 1rem);
+    display: flex;
+    flex-direction: column;
+    /* margin-right: 1rem; */
+  }
+  
+  @media (max-width: 1200px) {
+    #projects .column {
+      width: calc(50% - 1rem);
+    }
   }
 }
 
-/* Header & Navigation */
-.sidebar_layout {
+
+/* Project media (images and videos) */
+.project-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Video-specific styling */
+video.project-media {
+  background-color: #000;
+}
+
+/* Optional: Allow items to grow to fill their natural height */
+.window {
   display: flex;
-  flex-flow: wrap;
-  margin: 1%;
-  margin-top: 1em;
+  flex-direction: column;
+}
+
+.window-pane {
+  flex: 1;
 }
 
 .sidebar {
@@ -142,6 +207,10 @@ img.center-post {
 
 .sidebar:first-of-type {
   margin-left: 0;
+}
+
+.sidebar_layout {
+  margin: 1rem;
 }
 
 .sidebar_layout a {
@@ -258,7 +327,7 @@ a#scroller {
 }
 
 /* Media Queries */
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 735px) {
   body {
     background-size: 220% !important;
   }
@@ -372,12 +441,6 @@ a#scroller {
   object-fit: cover;
 }
 
-/* Video-specific styling */
 video.project-media {
   background-color: #000;
-}
-
-/* Optional hover effect for videos */
-video.project-media:hover {
-  filter: brightness(1.1);
 }

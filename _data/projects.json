@@ -2,8 +2,8 @@
     "list" : [
         {
             "title": "visionsystemx",
-            "description": "Computer vision suite in ROS2 for competing @ Roboboat.",
-            "media": "/img/projects/construction.jpg"
+            "description": "Object detection and sensor fusion suite in ROS2, object for competing @ Roboboat.",
+            "media": "/img/projects/vision.mp4"
         },
         {
             "title": "auxn", 
@@ -27,8 +27,8 @@
         },
         {
             "title": "waypoint following car", 
-            "description": "",
-            "media": "/img/projects/construction.jpg"
+            "description": "IMU + Radio + Wheel Encoders + Dual Core STM32 + Perfboard Circuit + Simulink Controller exported to C",
+            "media": "/img/projects/waypoint.jpg"
         },
         {
             "title": "machine learning coursework", 

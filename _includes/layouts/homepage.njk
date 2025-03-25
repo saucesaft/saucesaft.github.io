@@ -17,38 +17,119 @@ templateClass: tmpl-home
 </div>
 
 <div id="projects">
-  {% for project in projects.list -%}
-    <div class="window">
-      <div class="title-bar">
-        <button aria-label="Close" class="close"></button>
-        <h1 class="title"> {{ project.title }} </h1>
-        <button aria-label="Resize" class="resize"></button>
-      </div>
-      <div class="separator"></div>
+  {% set projectsPerColumn = (projects.list | length / 3) | round %}
+  
+  <div class="column column-1">
+    {% for project in projects.list %}
+      {% if loop.index0 % 3 == 0 %}
+        <div class="window">
+          <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title"> {{ project.title }} </h1>
+            <button aria-label="Resize" class="resize"></button>
+          </div>
+          <div class="separator"></div>
 
-      {% if project.media | lower | endsWith(".mp4") %}
+          {% if project.media | lower | endsWith(".mp4") %}
+            <video 
+              style="max-width:100%;" 
+              src="{{ project.media }}" 
+              autoplay 
+              loop 
+              muted 
+              playsinline
+              class="project-media"
+            ></video>
+          {% else %}
+            <img 
+              style="max-width:100%;" 
+              src="{{ project.media }}" 
+              alt="{{ project.title }}"
+              class="project-media" 
+            />
+          {% endif %}
 
-        <video 
-          style="max-width:100%;" 
-          src="{{ project.media }}" 
-          autoplay 
-          loop 
-          muted 
-          playsinline
-          class="project-media"
-        ></video>
-      {% else %}
-        <img 
-          style="max-width:100%;" 
-          src="{{ project.media }}" 
-          alt="{{ project.title }}"
-          class="project-media" 
-        />
+          <div class="window-pane">
+            {{ project.description }}
+          </div>
+        </div>
       {% endif %}
+    {% endfor %}
+  </div>
+  
+  <div class="column column-2">
+    {% for project in projects.list %}
+      {% if loop.index0 % 3 == 1 %}
+        <div class="window">
+          <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title"> {{ project.title }} </h1>
+            <button aria-label="Resize" class="resize"></button>
+          </div>
+          <div class="separator"></div>
 
-      <div class="window-pane">
-        {{ project.description }}
-      </div>
-    </div>
-  {% endfor %}
+          {% if project.media | lower | endsWith(".mp4") %}
+            <video 
+              style="max-width:100%;" 
+              src="{{ project.media }}" 
+              autoplay 
+              loop 
+              muted 
+              playsinline
+              class="project-media"
+            ></video>
+          {% else %}
+            <img 
+              style="max-width:100%;" 
+              src="{{ project.media }}" 
+              alt="{{ project.title }}"
+              class="project-media" 
+            />
+          {% endif %}
+
+          <div class="window-pane">
+            {{ project.description }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <div class="column column-3">
+    {% for project in projects.list %}
+      {% if loop.index0 % 3 == 2 %}
+        <div class="window">
+          <div class="title-bar">
+            <button aria-label="Close" class="close"></button>
+            <h1 class="title"> {{ project.title }} </h1>
+            <button aria-label="Resize" class="resize"></button>
+          </div>
+          <div class="separator"></div>
+
+          {% if project.media | lower | endsWith(".mp4") %}
+            <video 
+              style="max-width:100%;" 
+              src="{{ project.media }}" 
+              autoplay 
+              loop 
+              muted 
+              playsinline
+              class="project-media"
+            ></video>
+          {% else %}
+            <img 
+              style="max-width:100%;" 
+              src="{{ project.media }}" 
+              alt="{{ project.title }}"
+              class="project-media" 
+            />
+          {% endif %}
+
+          <div class="window-pane">
+            {{ project.description }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
