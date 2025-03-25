@@ -31,7 +31,6 @@ img.center-post {
 /* Window Styles */
 .window {
   max-width: 800px;
-  margin: 1rem auto;
   flex: 0 1 auto;
 }
 
@@ -92,18 +91,34 @@ img.center-post {
 
 /* Projects Section */
 #projects {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: start;
+  width: 90%;
+  margin: 0 auto;
+  column-count: 3;
+  column-gap: 1rem;
 }
 
 #projects .window {
-  flex: 1 0 auto;
-  margin: 0.5rem;
-  width: 25%;
-  min-width: 0px;
-  gap: 1rem;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: -0.5rem;
+  break-inside: avoid;
+}
+
+/* Make the layout responsive */
+@media screen and (max-width: 1200px) {
+  #projects {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #projects {
+    column-count: 1;
+  }
+
+  .window {
+    margin: 1rem auto;
+  }
 }
 
 /* Header & Navigation */
@@ -347,4 +362,22 @@ a#scroller {
 .tmpl-brain .window {
   width: 100%;
   max-width: 800px;
+}
+
+/* Project media styling */
+.project-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Video-specific styling */
+video.project-media {
+  background-color: #000;
+}
+
+/* Optional hover effect for videos */
+video.project-media:hover {
+  filter: brightness(1.1);
 }

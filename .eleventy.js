@@ -1,10 +1,6 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginAncestry = require("@tigersway/eleventy-plugin-ancestry");
 
-// var prism = require('prismjs');
-// require("prismjs/plugins/filter-highlight-all/prism-filter-highlight-all.min");
-// require('prismjs/plugins/keep-markup/prism-keep-markup.js');
-
 const wikiModule = require('./.wiki.js');
 
 const jsdom = require("jsdom");
@@ -144,6 +140,11 @@ module.exports = function(eleventyConfig) {
     });
     
     return [...tagsSet].sort();
+  });
+
+  eleventyConfig.addFilter("endsWith", function(str, suffix) {
+    if (!str) return false;
+    return str.endsWith(suffix);
   });
 
   // folders of things we want in the final output

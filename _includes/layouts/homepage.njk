@@ -26,12 +26,29 @@ templateClass: tmpl-home
       </div>
       <div class="separator"></div>
 
-      <img style="max-width:100%;" src={{ project.media }} />
+      {% if project.media | lower | endsWith(".mp4") %}
+
+        <video 
+          style="max-width:100%;" 
+          src="{{ project.media }}" 
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          class="project-media"
+        ></video>
+      {% else %}
+        <img 
+          style="max-width:100%;" 
+          src="{{ project.media }}" 
+          alt="{{ project.title }}"
+          class="project-media" 
+        />
+      {% endif %}
 
       <div class="window-pane">
         {{ project.description }}
       </div>
-
     </div>
   {% endfor %}
 </div>
