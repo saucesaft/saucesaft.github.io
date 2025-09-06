@@ -1,14 +1,44 @@
 {
     "list" : [
         {
+            "title": "humanoids research intern @ AIST",
+            "description": "Working at the Joint Robotics Laboratory @ Tsukuba, Japan",
+            "media": "/img/projects/JRL.jpg"
+        },
+        {
             "title": "visionsystemx",
-            "description": "Object detection and sensor fusion suite in ROS2, object for competing @ Roboboat.",
+            "description": "Object detection and sensor fusion suite in ROS2, objective for competing @ Roboboat.",
             "media": "/img/projects/vision.mp4"
         },
         {
+            "title": "ICRA 2025",
+            "description": "Research poster about trajectory generation using Continuous Normalizing Flows and LiDAR data.",
+            "media": "/img/projects/ICRA2025.jpg"
+        },
+        {
             "title": "ADAS programming", 
-            "description": "FreeRTOS based system @ STM32 platform for controlling an autonomous vehicle.",
+            "description": "FreeRTOS based system on STM32 platform for controlling an autonomous vehicle.",
             "media": "/img/projects/adasprog.mp4"
+        },
+        {
+            "title": "FLOWMAS", 
+            "description": "Flow Matching trajectory generation for room scanning with Gaussian Splatting. Submitted to SII2026.",
+            "media": "/img/projects/FLOWMAS.png"
+        },
+        {
+            "title": "ADAS electronics", 
+            "description": "PCB development for braking, steering and throttle in an autonomous vehicle.",
+            "media": "/img/projects/pcb.png"
+        },
+        {
+            "title": "flow matching with pusht", 
+            "description": "ML practice for adapting the PushT environment to a flow matching unet model",
+            "media": "/img/projects/pusht.gif"
+        },
+        {
+            "title": "camera calibration for lab", 
+            "description": "CUDA accelerated extrinsic and intrinsic multi-camera calibration for video demonstrations.",
+            "media": "/img/projects/calib.jpg"
         },
         {
             "title": "tensorgba", 
@@ -16,9 +46,14 @@
             "media": "/img/projects/tensorgba.mp4"
         },
         {
-            "title": "ADAS electronics", 
-            "description": "PCB development for braking, steering and throttle in a autonomous vehicle.",
-            "media": "/img/projects/pcb.png"
+            "title": "robotics leadership", 
+            "description": "Led several robotics developments as a team & solo.",
+            "media": "/img/projects/team.jpg"
+        },
+        {
+            "title": "vision controlled car", 
+            "description": "Designed to recognize traffic signals, lane changes, intersections, etc.",
+            "media": "/img/projects/vcar.jpg"
         },
         {
             "title": "waypoint following car", 
@@ -37,13 +72,18 @@
         },
         {
             "title": "hands-on PID system", 
-            "description": "Discrete and Continous PID system for position control.",
+            "description": "Discrete and Continuous PID system for position control.",
             "media": "/img/projects/pid.mp4"
         },
         {
-            "title": "roboboat",
-            "description": "Participation in roboboat 2024 & 2025",
+            "title": "roboboat 2024",
+            "description": "Participation in roboboat 2024",
             "media": "/img/projects/roboboat.jpeg"
+        },
+        {
+            "title": "roboboat 2025",
+            "description": "Participation in roboboat 2025",
+            "media": "/img/projects/roboboat2.jpg"
         },
         {
             "title": "back from the dead",
@@ -57,7 +97,7 @@
         },
         {
             "title": "fpga + godot",
-            "description": "Developed a game in Godot and it's controller in an FPGA.",
+            "description": "Developed a game in Godot and its controller in an FPGA.",
             "media": "/img/projects/godot.mp4"
         },
         {

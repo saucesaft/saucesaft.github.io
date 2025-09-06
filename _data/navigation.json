@@ -11,6 +11,10 @@
     {
       "name": "about",
       "url": "/about/"
+    },
+    {
+      "name": "hire me",
+      "url": "/files/resume.pdf"
     }
   ]
 }

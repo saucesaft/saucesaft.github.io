@@ -2,6 +2,8 @@
 	-[ ] social media linking
 	-[ ] book section
 	-[ ] music section
+    -[X] CV
+    -[ ] gear
 
 -[ ] design-related
 	-[ ] fix marquee when overflowing
@@ -41,19 +43,30 @@
 	-[ ] attach CV
 		-[ ] render to html or something
 
-	-[ ] (project) hardware PID
-	-[ ] (project) software PID
-	-[ ] (project) MRL Camera Calibration
-	-[ ] (project) SDV
-		-[ ] PCBs
-		-[ ] braking system
-		-[ ] steering system
-	-[ ] (project) USV
-		-[ ] ZED visionsystemx
-	-[ ] (project) ML classes
+	-[X] (project) hardware PID
+	-[X] (project) software PID
+	-[X] (project) MRL Camera Calibration
+    -[X] (project) AIST CNRS JRL
+    -[ X (project) FLOWMAS
+    -[X] (project) Vision Controlled CAR - MCR
+    -[ ] (project) Simulator SLAM for food delivery
+    -[X] (project) ICRA2025 Poster
+    -[ ] (project) duck estimation from intrinsics
+    -[ ] (project) EKF drone
+    -[X] (project) PUSHT
+    -[X] (project) vanttec leadership
+    -[X] (project) roboboat 2025 
+    -[ ] (project) AMI ??
+	-[X] (project) SDV
+		-[X] PCBs
+		-[X] braking system
+		-[X] steering system
+	-[X] (project) USV
+		-[X] ZED visionsystemx
+	-[X] (project) ML classes
 		-[ ] link to PDF
-	-[ ] (project) tensorgba
+	-[X] (project) tensorgba
 	-[ ] (project) Xignux Challenge
 	-[ ] (project) Pendulum Robot
-	-[ ] (project) Waypoint Car
+	-[X] (project) Waypoint Car
 	-[ ] (project) C-Space Planner

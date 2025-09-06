@@ -151,6 +151,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('css')
   eleventyConfig.addPassthroughCopy('fonts')
   eleventyConfig.addPassthroughCopy('img')
+  eleventyConfig.addPassthroughCopy('files')
   eleventyConfig.addPassthroughCopy('content/**/img/*')
   eleventyConfig.addPassthroughCopy({
     CNAME: 'CNAME'
