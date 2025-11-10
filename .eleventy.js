@@ -15,7 +15,8 @@ const { spawnSync } = require('child_process');
 const markdownIt = require('markdown-it');
 const markdownItOptions = {
     html: true,
-    linkify: true
+    linkify: true,
+    breaks: true
 };
 const inspect = require("node:util").inspect;
 
