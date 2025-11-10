@@ -53,6 +53,67 @@
             wrapContentsInMarquee(titles[i]);
           }
         }
+
+        // Two-column masonry layout for tablets
+        const projectsContainer = document.getElementById('projects');
+        if (!projectsContainer) return;
+
+        // Store original column assignments
+        const originalColumns = new Map();
+        const allProjects = Array.from(projectsContainer.querySelectorAll('.project-item'));
+        allProjects.forEach(project => {
+          originalColumns.set(project, project.parentElement);
+        });
+
+        function redistributeProjects() {
+          const width = window.innerWidth;
+          const col1 = projectsContainer.querySelector('.column-1');
+          const col2 = projectsContainer.querySelector('.column-2');
+          const col3 = projectsContainer.querySelector('.column-3');
+
+          if (!col1 || !col2 || !col3) return;
+
+          // Tablet layout (736px - 1200px): Redistribute into 2 columns
+          if (width >= 736 && width <= 1200) {
+            // Get all projects and sort by data-index
+            const sorted = Array.from(allProjects).sort((a, b) => {
+              return parseInt(a.dataset.index) - parseInt(b.dataset.index);
+            });
+
+            // Clear columns
+            col1.innerHTML = '';
+            col2.innerHTML = '';
+            col3.innerHTML = '';
+            col3.style.display = 'none';
+
+            // Distribute: even indices to col1, odd to col2
+            sorted.forEach((project, idx) => {
+              if (idx % 2 === 0) {
+                col1.appendChild(project);
+              } else {
+                col2.appendChild(project);
+              }
+            });
+          }
+          // Desktop/Mobile: Restore original structure
+          else {
+            col3.style.display = '';
+            allProjects.forEach(project => {
+              const originalParent = originalColumns.get(project);
+              if (originalParent && project.parentElement !== originalParent) {
+                originalParent.appendChild(project);
+              }
+            });
+          }
+        }
+
+        // Run on load and resize
+        redistributeProjects();
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(redistributeProjects, 100);
+        });
       });
 
     </script>
@@ -155,10 +216,10 @@
 
   <div class="window-pane">
     <p>brain dump of the ideas i have</p>
-<p>use an actual kindle (KT4 model) as the screen
-replace battery with something bigger
-model a new case to fit this battery (and remove amazon's logo)
-add a keyboard (mechanical?)
+<p>use an actual kindle (KT4 model) as the screen<br>
+replace battery with something bigger<br>
+model a new case to fit this battery (and remove amazon's logo)<br>
+add a keyboard (mechanical?)<br>
 very mucho storage</p>
 <p>^^ these are my ideas for it, my main inspiration it the <em>actual</em> &quot;Hitchiker's Guide to the Galaxy&quot; no the <em>book</em>. filling it with a wikipedia dump, the whole gutenberg library and what ever else fits.</p>
 <p>[when i make an actual sketch of this device it will be in here, for the moment just imagine a cool looking cyberdeck]</p>

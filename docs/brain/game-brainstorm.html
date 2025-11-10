@@ -53,6 +53,67 @@
             wrapContentsInMarquee(titles[i]);
           }
         }
+
+        // Two-column masonry layout for tablets
+        const projectsContainer = document.getElementById('projects');
+        if (!projectsContainer) return;
+
+        // Store original column assignments
+        const originalColumns = new Map();
+        const allProjects = Array.from(projectsContainer.querySelectorAll('.project-item'));
+        allProjects.forEach(project => {
+          originalColumns.set(project, project.parentElement);
+        });
+
+        function redistributeProjects() {
+          const width = window.innerWidth;
+          const col1 = projectsContainer.querySelector('.column-1');
+          const col2 = projectsContainer.querySelector('.column-2');
+          const col3 = projectsContainer.querySelector('.column-3');
+
+          if (!col1 || !col2 || !col3) return;
+
+          // Tablet layout (736px - 1200px): Redistribute into 2 columns
+          if (width >= 736 && width <= 1200) {
+            // Get all projects and sort by data-index
+            const sorted = Array.from(allProjects).sort((a, b) => {
+              return parseInt(a.dataset.index) - parseInt(b.dataset.index);
+            });
+
+            // Clear columns
+            col1.innerHTML = '';
+            col2.innerHTML = '';
+            col3.innerHTML = '';
+            col3.style.display = 'none';
+
+            // Distribute: even indices to col1, odd to col2
+            sorted.forEach((project, idx) => {
+              if (idx % 2 === 0) {
+                col1.appendChild(project);
+              } else {
+                col2.appendChild(project);
+              }
+            });
+          }
+          // Desktop/Mobile: Restore original structure
+          else {
+            col3.style.display = '';
+            allProjects.forEach(project => {
+              const originalParent = originalColumns.get(project);
+              if (originalParent && project.parentElement !== originalParent) {
+                originalParent.appendChild(project);
+              }
+            });
+          }
+        }
+
+        // Run on load and resize
+        redistributeProjects();
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(redistributeProjects, 100);
+        });
       });
 
     </script>
@@ -72,7 +133,7 @@
     
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
-            also try terraria!
+            around the world      around the world
         </marquee>
     </a>
 </div>
@@ -155,26 +216,26 @@
 
   <div class="window-pane">
     <p>So i want to create a 3D game, i'll update this page with some ideas i have.</p>
-<p>Brutalist Architecture
-<img src="../img/brutalist-architecture.png" alt="brutalist-architecture.png" class="center-post">
-32-Bit kinda looking
-<a href="https://twitter.com/sunset_city_rpg/status/1477468508086849537?s=20">https://twitter.com/sunset_city_rpg/status/1477468508086849537?s=20</a>
-<a href="https://twitter.com/DavidKayConrad/status/1480942506061742082?s=20">https://twitter.com/DavidKayConrad/status/1480942506061742082?s=20</a>
+<p>Brutalist Architecture<br>
+<img src="../img/brutalist-architecture.png" alt="brutalist-architecture.png" class="center-post"><br>
+32-Bit kinda looking<br>
+<a href="https://twitter.com/sunset_city_rpg/status/1477468508086849537?s=20">https://twitter.com/sunset_city_rpg/status/1477468508086849537?s=20</a><br>
+<a href="https://twitter.com/DavidKayConrad/status/1480942506061742082?s=20">https://twitter.com/DavidKayConrad/status/1480942506061742082?s=20</a><br>
 keywords: psx</p>
-<p>Artstyle
-<a href="https://www.blendswap.com/blend/22459">https://www.blendswap.com/blend/22459</a>
-<a href="https://www.blendswap.com/blend/21543">https://www.blendswap.com/blend/21543</a>
+<p>Artstyle<br>
+<a href="https://www.blendswap.com/blend/22459">https://www.blendswap.com/blend/22459</a><br>
+<a href="https://www.blendswap.com/blend/21543">https://www.blendswap.com/blend/21543</a><br>
 keywords: wireframe, monochromatic, dithering, old macs</p>
-<p>What
+<p>What<br>
 <a href="https://en.wikipedia.org/wiki/Role-playing_video_game">https://en.wikipedia.org/wiki/Role-playing_video_game</a></p>
-<p>Where
-<a href="https://godotengine.org/">https://godotengine.org/</a>
+<p>Where<br>
+<a href="https://godotengine.org/">https://godotengine.org/</a><br>
 <a href="https://zdoom.org/wiki/SLADE">https://zdoom.org/wiki/SLADE</a></p>
-<p>Misc.
-<a href="https://github.com/Captain4LK/SoftLK-tools">https://github.com/Captain4LK/SoftLK-tools</a>
-<a href="https://lampysprites.itch.io/pribambase">https://lampysprites.itch.io/pribambase</a>
+<p>Misc.<br>
+<a href="https://github.com/Captain4LK/SoftLK-tools">https://github.com/Captain4LK/SoftLK-tools</a><br>
+<a href="https://lampysprites.itch.io/pribambase">https://lampysprites.itch.io/pribambase</a><br>
 <a href="https://github.com/LibreSprite/Dotto">https://github.com/LibreSprite/Dotto</a></p>
-<p>Colors
+<p>Colors<br>
 <a href="https://lospec.com/palette-list">https://lospec.com/palette-list</a></p>
 <p>Ideas</p>
 <ul>

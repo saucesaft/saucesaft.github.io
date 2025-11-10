@@ -53,6 +53,67 @@
             wrapContentsInMarquee(titles[i]);
           }
         }
+
+        // Two-column masonry layout for tablets
+        const projectsContainer = document.getElementById('projects');
+        if (!projectsContainer) return;
+
+        // Store original column assignments
+        const originalColumns = new Map();
+        const allProjects = Array.from(projectsContainer.querySelectorAll('.project-item'));
+        allProjects.forEach(project => {
+          originalColumns.set(project, project.parentElement);
+        });
+
+        function redistributeProjects() {
+          const width = window.innerWidth;
+          const col1 = projectsContainer.querySelector('.column-1');
+          const col2 = projectsContainer.querySelector('.column-2');
+          const col3 = projectsContainer.querySelector('.column-3');
+
+          if (!col1 || !col2 || !col3) return;
+
+          // Tablet layout (736px - 1200px): Redistribute into 2 columns
+          if (width >= 736 && width <= 1200) {
+            // Get all projects and sort by data-index
+            const sorted = Array.from(allProjects).sort((a, b) => {
+              return parseInt(a.dataset.index) - parseInt(b.dataset.index);
+            });
+
+            // Clear columns
+            col1.innerHTML = '';
+            col2.innerHTML = '';
+            col3.innerHTML = '';
+            col3.style.display = 'none';
+
+            // Distribute: even indices to col1, odd to col2
+            sorted.forEach((project, idx) => {
+              if (idx % 2 === 0) {
+                col1.appendChild(project);
+              } else {
+                col2.appendChild(project);
+              }
+            });
+          }
+          // Desktop/Mobile: Restore original structure
+          else {
+            col3.style.display = '';
+            allProjects.forEach(project => {
+              const originalParent = originalColumns.get(project);
+              if (originalParent && project.parentElement !== originalParent) {
+                originalParent.appendChild(project);
+              }
+            });
+          }
+        }
+
+        // Run on load and resize
+        redistributeProjects();
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(redistributeProjects, 100);
+        });
       });
 
     </script>
@@ -72,7 +133,7 @@
     
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
-            enjoy your stay :)
+            around the world      around the world
         </marquee>
     </a>
 </div>
@@ -180,11 +241,11 @@
 </ul>
 </li>
 </ul>
-<p><strong>more on this approach:</strong>
+<p><strong>more on this approach:</strong><br>
 i need to find 1 SPI port on the PCB of my kindle, which i think could be easy? using an oscilloscope and searching for the CLK pad and assuming that MISO and MOSI are close to it.</p>
 <p>now, on the software side, the linux kernel on the kindle was only compiled for kernelmode SPI access, no usermode. this is easy to solve, just recompile and flash. but just before i did that, i became aware of a particular file on the source of the linux kernel.</p>
 <p><code class="language-">mmc_spi.c</code></p>
-<p>this file implements a driver in a device tree fashion which needs to be compiled into a blob and acts like a &quot;plugin&quot; to the kernel and handling all the SPi -&gt; SD communication all by itself that it even mounts it to the filesystem. neat huh ;)
+<p>this file implements a driver in a device tree fashion which needs to be compiled into a blob and acts like a &quot;plugin&quot; to the kernel and handling all the SPi -&gt; SD communication all by itself that it even mounts it to the filesystem. neat huh ;)<br>
 (<a href="https://ralimtek.com/posts/2016/2016-12-10-raspberry_pi_secondary_sd_card/">this site</a> uses the exact same approach but for a rpi)</p>
 <p>the device-tree-compiler needed to actually load this driver was not installed on my kindle but a simple package unpackaging from debian's armel repos worked great.</p>
 <p>this approach sounds very straight forward but for the moment i have no acess to an oscilloscope so until my next kindle hacking post, bye</p>

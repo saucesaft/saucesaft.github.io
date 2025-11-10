@@ -53,6 +53,67 @@
             wrapContentsInMarquee(titles[i]);
           }
         }
+
+        // Two-column masonry layout for tablets
+        const projectsContainer = document.getElementById('projects');
+        if (!projectsContainer) return;
+
+        // Store original column assignments
+        const originalColumns = new Map();
+        const allProjects = Array.from(projectsContainer.querySelectorAll('.project-item'));
+        allProjects.forEach(project => {
+          originalColumns.set(project, project.parentElement);
+        });
+
+        function redistributeProjects() {
+          const width = window.innerWidth;
+          const col1 = projectsContainer.querySelector('.column-1');
+          const col2 = projectsContainer.querySelector('.column-2');
+          const col3 = projectsContainer.querySelector('.column-3');
+
+          if (!col1 || !col2 || !col3) return;
+
+          // Tablet layout (736px - 1200px): Redistribute into 2 columns
+          if (width >= 736 && width <= 1200) {
+            // Get all projects and sort by data-index
+            const sorted = Array.from(allProjects).sort((a, b) => {
+              return parseInt(a.dataset.index) - parseInt(b.dataset.index);
+            });
+
+            // Clear columns
+            col1.innerHTML = '';
+            col2.innerHTML = '';
+            col3.innerHTML = '';
+            col3.style.display = 'none';
+
+            // Distribute: even indices to col1, odd to col2
+            sorted.forEach((project, idx) => {
+              if (idx % 2 === 0) {
+                col1.appendChild(project);
+              } else {
+                col2.appendChild(project);
+              }
+            });
+          }
+          // Desktop/Mobile: Restore original structure
+          else {
+            col3.style.display = '';
+            allProjects.forEach(project => {
+              const originalParent = originalColumns.get(project);
+              if (originalParent && project.parentElement !== originalParent) {
+                originalParent.appendChild(project);
+              }
+            });
+          }
+        }
+
+        // Run on load and resize
+        redistributeProjects();
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(redistributeProjects, 100);
+        });
       });
 
     </script>
@@ -72,7 +133,7 @@
     
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
-            where are your friends tonight?
+            around the world      around the world
         </marquee>
     </a>
 </div>
@@ -158,8 +219,8 @@
 <p>&quot;A compiler must perform two major tasks: analysis of the source program being compiled and synthesis of a machine-language program that when executed will correctly perform the activities described by that source program.&quot; - Fischer</p>
 <pre class="language-tikz"><code class="language-tikz">\usetikzlibrary{shapes.geometric, arrows}<br><br>\tikzstyle{rect} = [rectangle, minimum width=3cm, minimum height=2cm,text centered, draw=black]<br>\tikzstyle{arrow} = [thick,->,>=stealth]<br>\tikzstyle{darrow} = [dashed,thick,->,>=stealth]<br><br>\begin{document}<br><br>\begin{tikzpicture}[]<br><br>\node (scanner) [rect] {Scanner};<br>\node (parser) [rect, xshift=5cm] {Parser};<br>\node (semantic routines) [rect, xshift=10cm] {Semantic Routines};<br>\node (optimizer) [rect, xshift=10cm, yshift=-5cm] {Optimizer};<br>\node (code generator) [rect, xshift=10cm, yshift=-10cm] {Code Generator};<br><br>\node (tables) [rect, yshift=-5cm, align=center] {Symbol and \\ Attribute \\ Tables};<br><br>\node[text width=3cm] (sex) [yshift=-6.5cm, align=center] { (Used by all phases of the compiler) };<br><br>\node[text width=3cm] (target) [xshift=10cm , yshift=-13.5cm, align=center] { Target Machine \\ Code };<br><br>\draw [arrow, align=left] (scanner) -- node {Tokens \\} (parser);<br>\draw [arrow, align=left] (parser) -- node[anchor=south] {Syntactic \\ Structure} (semantic routines);<br>\draw [arrow, align=left] (semantic routines) -- node[anchor=east] {Intermediate \\ Representation} (optimizer) coordinate[midway] (aux1){};<br>\draw [arrow] (optimizer) -- (code generator) coordinate[midway] (aux2){};<br>\draw [arrow] (code generator) -- (target);<br>\draw [arrow, align=center] (-5cm,0cm) -- node {Source Program \\\\ (Character Stream)} (scanner);<br>\draw [darrow] (aux1) -- ([xshift=2cm]aux1.south) -- ([xshift=2cm]aux2.south) -- (aux2);<br><br>\end{tikzpicture}<br>\end{document}</code></pre>
 <p>(Figure 1.3)</p>
-<p><em>Scanner</em> - Reads the input and generates tokens
-<em>Parser</em> - Builds a syntax tree to drive semantic processing
+<p><em>Scanner</em> - Reads the input and generates tokens<br>
+<em>Parser</em> - Builds a syntax tree to drive semantic processing<br>
 <em>Semantic Routines</em> - Check semantics (correct variable types, etc) and generate IR code after.</p>
 
   </div>

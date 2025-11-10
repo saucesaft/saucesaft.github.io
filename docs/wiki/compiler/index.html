@@ -53,6 +53,67 @@
             wrapContentsInMarquee(titles[i]);
           }
         }
+
+        // Two-column masonry layout for tablets
+        const projectsContainer = document.getElementById('projects');
+        if (!projectsContainer) return;
+
+        // Store original column assignments
+        const originalColumns = new Map();
+        const allProjects = Array.from(projectsContainer.querySelectorAll('.project-item'));
+        allProjects.forEach(project => {
+          originalColumns.set(project, project.parentElement);
+        });
+
+        function redistributeProjects() {
+          const width = window.innerWidth;
+          const col1 = projectsContainer.querySelector('.column-1');
+          const col2 = projectsContainer.querySelector('.column-2');
+          const col3 = projectsContainer.querySelector('.column-3');
+
+          if (!col1 || !col2 || !col3) return;
+
+          // Tablet layout (736px - 1200px): Redistribute into 2 columns
+          if (width >= 736 && width <= 1200) {
+            // Get all projects and sort by data-index
+            const sorted = Array.from(allProjects).sort((a, b) => {
+              return parseInt(a.dataset.index) - parseInt(b.dataset.index);
+            });
+
+            // Clear columns
+            col1.innerHTML = '';
+            col2.innerHTML = '';
+            col3.innerHTML = '';
+            col3.style.display = 'none';
+
+            // Distribute: even indices to col1, odd to col2
+            sorted.forEach((project, idx) => {
+              if (idx % 2 === 0) {
+                col1.appendChild(project);
+              } else {
+                col2.appendChild(project);
+              }
+            });
+          }
+          // Desktop/Mobile: Restore original structure
+          else {
+            col3.style.display = '';
+            allProjects.forEach(project => {
+              const originalParent = originalColumns.get(project);
+              if (originalParent && project.parentElement !== originalParent) {
+                originalParent.appendChild(project);
+              }
+            });
+          }
+        }
+
+        // Run on load and resize
+        redistributeProjects();
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(redistributeProjects, 100);
+        });
       });
 
     </script>
@@ -72,7 +133,7 @@
     
     <a id="scroller">
         <marquee loop="infinite" behavior="scroll" direction="left">
-            also try terraria!
+            where are your friends tonight?
         </marquee>
     </a>
 </div>
@@ -163,7 +224,12 @@
   
 
       
-        
+      
+
+      
+      
+
+      
         
           <div class="alert-box outer-border scale-down"  style="width:30rem;">
             <div class="inner-border">
@@ -174,7 +240,7 @@
                 <section>
                   <p class="alert-text"> 
 
-I&#39;m reading the book *crafting a compiler with c* by *Charles N. Fischer*. here are some notes from the book. quotation marks signify a direct text-grab from the book. i hope this notes could later become someting useful for me or someone else. All credit goes to him, im publishing this as notes, no a &quot;direct copy&quot; of the book. Graphs and everything are based on the ones included on the book. Please go buy the book if these notes were useful to you.
+I'm reading the book *crafting a compiler with c* by *Charles N. Fischer*. here are some notes from the book. quotation marks signify a direct text-grab from the book. i hope this notes could later become someting useful for me or someone else. All credit goes to him, im publishing this as notes, no a "direct copy" of the book. Graphs and everything are based on the ones included on the book. Please go buy the book if these notes were useful to you.
 
 </p>
                 </section>
@@ -188,7 +254,6 @@ I&#39;m reading the book *crafting a compiler with c* by *Charles N. Fischer*. h
           </div>
         
       
-        
         
       
 
