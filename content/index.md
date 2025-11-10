@@ -3,8 +3,9 @@ title: home
 layout: layouts/homepage.njk
 permalink: "index.html"
 ---
-My name is Eduardo Hernández, but i go by saucesaft on the internet.
+Hi! I'm Eduardo Hernández, i'm an undergradute student in **Robotics and Digital Systems** at **ITESM** expected to graduate in 2026.
 
-I try to write useful, fun and interesting things about robotics, machine learning, diffusion models, computer vision, embedded systems, creative coding, books, writing, music, etc.
+I'm currently a research intern at the Join Robot Laboratory at CNRS-AIST in Tsukuba, Japan.
+Currently working on [Differentiable Robotics], [Tactile-guided Dexterous Manipulation] & [Hardware-Software Co-design].
 
-Check out some projects im working on below:
+I try to write useful, fun and interesting things about robotics, machine learning, computer vision, embedded systems, music, etc.
