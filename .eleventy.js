@@ -148,6 +148,20 @@ module.exports = function(eleventyConfig) {
     return str.endsWith(suffix);
   });
 
+  // get all wiki posts with a specific tag
+  eleventyConfig.addFilter("getPostsByTag", function(collection, tag) {
+    if (!tag) return [];
+    return collection.filter(item => {
+      return item.data.tags && item.data.tags.includes(tag);
+    });
+  });
+
+  // get project from projects.json by tag
+  eleventyConfig.addFilter("getProjectByTag", function(projectsList, tag) {
+    if (!tag || !projectsList) return null;
+    return projectsList.find(project => project.tag === tag);
+  });
+
   // folders of things we want in the final output
   eleventyConfig.addPassthroughCopy('css')
   eleventyConfig.addPassthroughCopy('fonts')

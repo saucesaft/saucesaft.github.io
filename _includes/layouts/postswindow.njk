@@ -47,9 +47,14 @@ templateClass: tmpl-home
     {# show the posts inside of a folder #}
     {% else %}
 
-      {% for post in collections[title] %}
-        {# {% if title in post.data.tags %} #}
-        {% if (post.data.tags or []).indexOf(title) > -1 %}
+      {# Get the tag to filter by - either from frontmatter or use title #}
+      {% set filterTag = tag or title %}
+
+      {# Use collection if it exists, otherwise filter all posts by tag #}
+      {% set postsToShow = collections[title] or (collections.all | getPostsByTag(filterTag)) %}
+
+      {% for post in postsToShow %}
+        {% if (post.data.tags or []).indexOf(filterTag) > -1 %}
           <div class="alert-box outer-border scale-down"  style="width:30rem;">
             <div class="inner-border">
               <div class="alert-contents">
@@ -57,7 +62,7 @@ templateClass: tmpl-home
                   <b style="padding-left:10px;"> {{ post.data.title }} </b>
                 </section>
                 <section>
-                  <p class="alert-text"> {{ post.data.page.excerpt }}</p>
+                  <p class="alert-text"> {{ post.data.page.excerpt | safe }}</p>
                 </section>
                 <section class="field-row" style="justify-content: flex-end">
                   <a class="btn" href="{{ post.url }}" style="width:95px;">read</a>

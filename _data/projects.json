@@ -3,117 +3,142 @@
         {
             "title": "humanoids research intern @ AIST",
             "description": "Working at the Joint Robotics Laboratory @ Tsukuba, Japan",
-            "media": "/img/projects/JRL.jpg"
+            "media": "/img/projects/JRL.jpg",
+            "tag": "jrl",
+            "wikiPath": "/wiki/jrl/"
         },
         {
             "title": "visionsystemx",
             "description": "Object detection and sensor fusion suite in ROS2, objective for competing @ Roboboat.",
-            "media": "/img/projects/vision.mp4"
+            "media": "/img/projects/vision.mp4",
+            "tag": "visionsystemx",
+            "wikiPath": "/wiki/computer_vision/"
         },
         {
             "title": "ICRA 2025",
             "description": "Research poster about trajectory generation using Continuous Normalizing Flows and LiDAR data.",
-            "media": "/img/projects/ICRA2025.jpg"
+            "media": "/img/projects/ICRA2025.jpg",
+            "tag": "icra2025"
         },
         {
-            "title": "ADAS programming", 
+            "title": "ADAS programming",
             "description": "FreeRTOS based system on STM32 platform for controlling an autonomous vehicle.",
-            "media": "/img/projects/adasprog.mp4"
+            "media": "/img/projects/adasprog.mp4",
+            "tag": "adas"
         },
         {
-            "title": "FLOWMAS", 
+            "title": "FLOWMAS",
             "description": "Flow Matching trajectory generation for room scanning with Gaussian Splatting. Submitted to SII2026.",
-            "media": "/img/projects/FLOWMAS.png"
+            "media": "/img/projects/FLOWMAS.png",
+            "tag": "flowmas"
         },
         {
-            "title": "ADAS electronics", 
+            "title": "ADAS electronics",
             "description": "PCB development for braking, steering and throttle in an autonomous vehicle.",
-            "media": "/img/projects/pcb.png"
+            "media": "/img/projects/pcb.png",
+            "tag": "adas_electronics"
         },
         {
-            "title": "flow matching with pusht", 
+            "title": "flow matching with pusht",
             "description": "ML practice for adapting the PushT environment to a flow matching unet model",
-            "media": "/img/projects/pusht.gif"
+            "media": "/img/projects/pusht.gif",
+            "tag": "pusht"
         },
         {
-            "title": "camera calibration for lab", 
+            "title": "camera calibration for lab",
             "description": "CUDA accelerated extrinsic and intrinsic multi-camera calibration for video demonstrations.",
-            "media": "/img/projects/calib.jpg"
+            "media": "/img/projects/calib.jpg",
+            "tag": "calibration"
         },
         {
-            "title": "tensorgba", 
+            "title": "tensorgba",
             "description": "Interfacing Gameboy Advance games with Convolutional Neural Networks.",
-            "media": "/img/projects/tensorgba.mp4"
+            "media": "/img/projects/tensorgba.mp4",
+            "tag": "tensorgba"
         },
         {
-            "title": "robotics leadership", 
+            "title": "robotics leadership",
             "description": "Led several robotics developments as a team & solo.",
-            "media": "/img/projects/team.jpg"
+            "media": "/img/projects/team.jpg",
+            "tag": "vanttec"
         },
         {
-            "title": "vision controlled car", 
+            "title": "vision controlled car",
             "description": "Designed to recognize traffic signals, lane changes, intersections, etc.",
-            "media": "/img/projects/vcar.jpg"
+            "media": "/img/projects/vcar.jpg",
+            "tag": "vision_car"
         },
         {
-            "title": "waypoint following car", 
+            "title": "waypoint following car",
             "description": "IMU + Radio + Wheel Encoders + Dual Core STM32 + Perfboard Circuit + Simulink Controller exported to C",
-            "media": "/img/projects/waypoint.jpg"
+            "media": "/img/projects/waypoint.jpg",
+            "tag": "waypoint_car"
         },
         {
-            "title": "machine learning coursework", 
+            "title": "machine learning coursework",
             "description": "Developed courses for teaching Machine Learning and Computer Vision.",
-            "media": "/img/projects/coursework.mp4"
+            "media": "/img/projects/coursework.mp4",
+            "tag": "ml_teaching"
         },
         {
-            "title": "auxn", 
+            "title": "auxn",
             "description": "An emulator for the uxn virtual machine running as an audio plugin (VST3, CLAP).",
-            "media": "/img/projects/auxn.mp4"
+            "media": "/img/projects/auxn.mp4",
+            "tag": "auxn"
         },
         {
-            "title": "hands-on PID system", 
+            "title": "hands-on PID system",
             "description": "Discrete and Continuous PID system for position control.",
-            "media": "/img/projects/pid.mp4"
+            "media": "/img/projects/pid.mp4",
+            "tag": "pid"
         },
         {
             "title": "roboboat 2024",
             "description": "Participation in roboboat 2024",
-            "media": "/img/projects/roboboat.jpeg"
+            "media": "/img/projects/roboboat.jpeg",
+            "tag": "roboboat2024"
         },
         {
             "title": "roboboat 2025",
             "description": "Participation in roboboat 2025",
-            "media": "/img/projects/roboboat2.jpg"
+            "media": "/img/projects/roboboat2.jpg",
+            "tag": "roboboat2025"
         },
         {
             "title": "back from the dead",
             "description": "Reviving an old turtlebot!",
-            "media": "/img/projects/turtlebot.mp4"
+            "media": "/img/projects/turtlebot.mp4",
+            "tag": "turtlebot"
         },
         {
             "title": "synthetic blender",
             "description": "Synthetic data generation framework with blender's python scripting",
-            "media": "/img/projects/synthetic.mp4"
+            "media": "/img/projects/synthetic.mp4",
+            "tag": "synthetic"
         },
         {
             "title": "fpga + godot",
             "description": "Developed a game in Godot and its controller in an FPGA.",
-            "media": "/img/projects/godot.mp4"
+            "media": "/img/projects/godot.mp4",
+            "tag": "fpga_godot"
         },
         {
             "title": "dual-core π calculation",
             "description": "Implementation of an algorithm to approximate pi taking advantage of FreeRTOS and both cores of this STM32 development board.",
-            "media": "/img/projects/pi.mp4"
+            "media": "/img/projects/pi.mp4",
+            "tag": "pi_calc"
         },
         {
             "title": "tractor interface simulator",
             "description": "Simulink approximation of a tractor's engine running on an STM32 interfacing with sensors.",
-            "media": "/img/projects/tractor.jpg"
+            "media": "/img/projects/tractor.jpg",
+            "tag": "tractor"
         },
         {
             "title": "filter with opamps",
             "description": "Low-Pass 3rd order active filter implemented with opamps.",
-            "media": "/img/projects/opamps.png"
+            "media": "/img/projects/opamps.png",
+            "tag": "opamps"
         }
     ]
 }

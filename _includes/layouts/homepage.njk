@@ -21,31 +21,43 @@ templateClass: tmpl-home
     {% for project in projects.list %}
       {% if loop.index0 % 3 == 0 %}
         <div class="window project-item" data-index="{{ loop.index0 }}">
-          <div class="title-bar">
-            <button aria-label="Close" class="close"></button>
-            <h1 class="title"> {{ project.title }} </h1>
-            <button aria-label="Resize" class="resize"></button>
-          </div>
+          {% if project.wikiPath %}
+          <a href="{{ project.wikiPath }}" style="text-decoration: none; color: inherit; cursor: default;">
+          {% endif %}
+            <div class="title-bar">
+              <button aria-label="Close" class="close"></button>
+              <h1 class="title" {% if project.wikiPath %}style="text-decoration: underline; text-decoration-thickness: 2px; cursor: pointer;"{% endif %}> {{ project.title }} </h1>
+              <button aria-label="Resize" class="resize"></button>
+            </div>
+          {% if project.wikiPath %}
+          </a>
+          {% endif %}
           <div class="separator"></div>
 
           {% if project.media %}
-            {% if project.media | lower | endsWith(".mp4") %}
-              <video
-                style="max-width:100%;"
-                src="{{ project.media }}"
-                autoplay
-                loop
-                muted
-                playsinline
-                class="project-media"
-              ></video>
-            {% else %}
-              <img
-                style="max-width:100%;"
-                src="{{ project.media }}"
-                alt="{{ project.title }}"
-                class="project-media"
-              />
+            {% if project.wikiPath %}
+            <a href="{{ project.wikiPath }}" style="cursor: pointer;">
+            {% endif %}
+              {% if project.media | lower | endsWith(".mp4") %}
+                <video
+                  style="max-width:100%;"
+                  src="{{ project.media }}"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="project-media"
+                ></video>
+              {% else %}
+                <img
+                  style="max-width:100%;"
+                  src="{{ project.media }}"
+                  alt="{{ project.title }}"
+                  class="project-media"
+                />
+              {% endif %}
+            {% if project.wikiPath %}
+            </a>
             {% endif %}
           {% endif %}
 
@@ -65,31 +77,43 @@ templateClass: tmpl-home
     {% for project in projects.list %}
       {% if loop.index0 % 3 == 1 %}
         <div class="window project-item" data-index="{{ loop.index0 }}">
-          <div class="title-bar">
-            <button aria-label="Close" class="close"></button>
-            <h1 class="title"> {{ project.title }} </h1>
-            <button aria-label="Resize" class="resize"></button>
-          </div>
+          {% if project.wikiPath %}
+          <a href="{{ project.wikiPath }}" style="text-decoration: none; color: inherit; cursor: default;">
+          {% endif %}
+            <div class="title-bar">
+              <button aria-label="Close" class="close"></button>
+              <h1 class="title" {% if project.wikiPath %}style="text-decoration: underline; text-decoration-thickness: 2px; cursor: pointer;"{% endif %}> {{ project.title }} </h1>
+              <button aria-label="Resize" class="resize"></button>
+            </div>
+          {% if project.wikiPath %}
+          </a>
+          {% endif %}
           <div class="separator"></div>
 
           {% if project.media %}
-            {% if project.media | lower | endsWith(".mp4") %}
-              <video
-                style="max-width:100%;"
-                src="{{ project.media }}"
-                autoplay
-                loop
-                muted
-                playsinline
-                class="project-media"
-              ></video>
-            {% else %}
-              <img
-                style="max-width:100%;"
-                src="{{ project.media }}"
-                alt="{{ project.title }}"
-                class="project-media"
-              />
+            {% if project.wikiPath %}
+            <a href="{{ project.wikiPath }}" style="cursor: pointer;">
+            {% endif %}
+              {% if project.media | lower | endsWith(".mp4") %}
+                <video
+                  style="max-width:100%;"
+                  src="{{ project.media }}"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="project-media"
+                ></video>
+              {% else %}
+                <img
+                  style="max-width:100%;"
+                  src="{{ project.media }}"
+                  alt="{{ project.title }}"
+                  class="project-media"
+                />
+              {% endif %}
+            {% if project.wikiPath %}
+            </a>
             {% endif %}
           {% endif %}
 
@@ -109,31 +133,43 @@ templateClass: tmpl-home
     {% for project in projects.list %}
       {% if loop.index0 % 3 == 2 %}
         <div class="window project-item" data-index="{{ loop.index0 }}">
-          <div class="title-bar">
-            <button aria-label="Close" class="close"></button>
-            <h1 class="title"> {{ project.title }} </h1>
-            <button aria-label="Resize" class="resize"></button>
-          </div>
+          {% if project.wikiPath %}
+          <a href="{{ project.wikiPath }}" style="text-decoration: none; color: inherit; cursor: default;">
+          {% endif %}
+            <div class="title-bar">
+              <button aria-label="Close" class="close"></button>
+              <h1 class="title" {% if project.wikiPath %}style="text-decoration: underline; text-decoration-thickness: 2px; cursor: pointer;"{% endif %}> {{ project.title }} </h1>
+              <button aria-label="Resize" class="resize"></button>
+            </div>
+          {% if project.wikiPath %}
+          </a>
+          {% endif %}
           <div class="separator"></div>
 
           {% if project.media %}
-            {% if project.media | lower | endsWith(".mp4") %}
-              <video
-                style="max-width:100%;"
-                src="{{ project.media }}"
-                autoplay
-                loop
-                muted
-                playsinline
-                class="project-media"
-              ></video>
-            {% else %}
-              <img
-                style="max-width:100%;"
-                src="{{ project.media }}"
-                alt="{{ project.title }}"
-                class="project-media"
-              />
+            {% if project.wikiPath %}
+            <a href="{{ project.wikiPath }}" style="cursor: pointer;">
+            {% endif %}
+              {% if project.media | lower | endsWith(".mp4") %}
+                <video
+                  style="max-width:100%;"
+                  src="{{ project.media }}"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="project-media"
+                ></video>
+              {% else %}
+                <img
+                  style="max-width:100%;"
+                  src="{{ project.media }}"
+                  alt="{{ project.title }}"
+                  class="project-media"
+                />
+              {% endif %}
+            {% if project.wikiPath %}
+            </a>
             {% endif %}
           {% endif %}
 
