@@ -19,6 +19,8 @@ templateClass: tmpl-home
 
   <div class="window-pane">
 
+    {{ content | safe }}
+
   {# show the folders (project) and the description they have #}
   {% if show_folders == true %}
 

@@ -18,7 +18,8 @@
             "title": "ICRA 2025",
             "description": "Research poster about trajectory generation using Continuous Normalizing Flows and LiDAR data.",
             "media": "/img/projects/ICRA2025.jpg",
-            "tag": "icra2025"
+            "tag": "icra2025",
+            "wikiPath": "/wiki/ICRA2025"
         },
         {
             "title": "ADAS programming",
@@ -28,7 +29,7 @@
         },
         {
             "title": "FLOWMAS",
-            "description": "Flow Matching trajectory generation for room scanning with Gaussian Splatting. Submitted to SII2026.",
+            "description": "Flow Matching trajectory generation for room scanning with Gaussian Splatting.",
             "media": "/img/projects/FLOWMAS.png",
             "tag": "flowmas"
         },
