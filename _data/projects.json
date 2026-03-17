@@ -8,11 +8,18 @@
             "wikiPath": "/wiki/jrl/"
         },
         {
-            "title": "visionsystemx",
-            "description": "Object detection and sensor fusion suite in ROS2, objective for competing @ Roboboat.",
-            "media": "/img/projects/vision.mp4",
-            "tag": "visionsystemx",
-            "wikiPath": "/wiki/computer_vision/"
+            "title": "differentiable locomotion in MuJoCo MJX",
+            "description": "Open JAX/MJX replication of Schwarke et al. (CoRL 2025). Smoothed contacts, SHAC training, ANYmal walking from scratch",
+            "media": "/img/projects/anymal.mp4",
+            "tag": "diffsim",
+            "wikiPath": "https://github.com/saucesaft/differential_policies"
+        },
+        {
+            "title": "recurRL JAX",
+            "description": "Highly customizable (and fast) recurrent RL library for JAX/MJX.  Supports LSTM, GRU, and GTrXL (Gated Transformer-XL) sequence models with PPO and A2C.",
+            "media": "/img/projects/recurrl.mp4",
+            "tag": "recurrl_jax",
+            "wikiPath": "https://github.com/saucesaft/recurrl-jax"
         },
         {
             "title": "ICRA 2025",
@@ -20,6 +27,13 @@
             "media": "/img/projects/ICRA2025.jpg",
             "tag": "icra2025",
             "wikiPath": "/wiki/icra2025"
+        },
+        {
+            "title": "visionsystemx",
+            "description": "Object detection and sensor fusion suite in ROS2, objective for competing @ Roboboat.",
+            "media": "/img/projects/vision.mp4",
+            "tag": "visionsystemx",
+            "wikiPath": "/wiki/computer_vision/"
         },
         {
             "title": "ADAS programming",
