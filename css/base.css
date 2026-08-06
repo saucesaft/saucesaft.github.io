@@ -527,6 +527,32 @@ a#scroller {
   max-width: 760px;
 }
 
+.post-archive {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-archive li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
+}
+
+.post-archive li:first-child {
+  padding-top: 0;
+}
+
+.post-archive-date {
+  flex: 0 0 auto;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  font-size: 0.8rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
 /* Project media styling */
 .project-media {
   width: 100%;
