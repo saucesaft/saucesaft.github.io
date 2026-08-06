@@ -53,6 +53,16 @@ module.exports = function(eleventyConfig) {
     return (html || '').replace(/<span class="katex-mathml">[\s\S]*?<\/span>/g, '');
   });
 
+  // wrap Prism-highlighted code fences in a title-bar showing the language,
+  // matching the rest of the site's window chrome
+  eleventyConfig.addTransform("codeWindow", function (content, outputPath) {
+    if (!outputPath || !outputPath.endsWith('.html')) return content;
+    return content.replace(
+      /<pre class="language-([\w-]+)">([\s\S]*?)<\/pre>/g,
+      (match, lang) => `<div class="code-window"><div class="code-window-bar"><span class="code-window-lang">${lang}</span></div>${match}</div>`
+    );
+  });
+
   // set the exceprt cut tag
   // TODO make it automatic
   eleventyConfig.setFrontMatterParsingOptions({

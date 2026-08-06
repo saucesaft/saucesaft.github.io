@@ -68,6 +68,41 @@ img.center-post {
   line-height: 1.4;
 }
 
+/* code block chrome, mirrors the .title-bar look on regular windows */
+.code-window {
+  margin: 1em 0;
+  border: 0.1em solid var(--secondary);
+  box-shadow: var(--box-shadow) var(--secondary);
+}
+
+.code-window-bar {
+  display: flex;
+  align-items: center;
+  height: 1.5rem;
+  margin: 0.1rem 0;
+  padding: 0.2rem 0.1rem;
+  background: linear-gradient(var(--secondary) 50%, transparent 50%);
+  background-size: 6.6666666667% 13.3333333333%;
+  background-clip: content-box;
+}
+
+.code-window-lang {
+  margin-left: 0.5rem;
+  padding: 0.15em 0.6em;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1.3;
+  text-transform: uppercase;
+  background: var(--primary);
+  font-family: Chicago_12, monospace;
+  cursor: default;
+}
+
+.code-window pre[class*="language-"] {
+  margin: 0;
+  border-radius: 0;
+}
+
 .window-pane h1, 
 .window-pane h2, 
 .window-pane h3, 
