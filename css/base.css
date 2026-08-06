@@ -114,20 +114,42 @@ img.center-post {
   line-height: 1.2;
 }
 
-/* Link Styles */
-.window-pane a:link {
-  text-decoration: underline;
+/* Link Styles: blue for unvisited, purple for visited, everywhere */
+.window-pane a:link,
+.window-pane .btn:link,
+.window-pane .sidebar a:link {
   color: #0064c1;
-  background-color: transparent;
 }
 
+.window-pane a:visited,
+.window-pane .btn:visited,
+.window-pane .sidebar a:visited {
+  color: #6d28d9;
+}
+
+.window-pane a:hover,
+.window-pane .btn:hover,
+.window-pane .sidebar a:hover:not(#title):not(.divider) {
+  color: #3000c1;
+}
+
+/* .btn's border-image asset is missing, which was making the browser fall
+   back to a thick solid border in the (visited-purple) text color; give it
+   a deliberate flat border instead, matching the rest of the window chrome */
+.window-pane .btn:link,
+.window-pane .btn:visited,
+.window-pane .btn:hover {
+  border: 0.15em solid var(--secondary);
+  border-image: none;
+}
+
+.window-pane a:link,
 .window-pane a:visited {
-  color: #8a642d;
+  text-decoration: underline;
   background-color: transparent;
 }
 
 .window-pane a:hover {
-  color: #3000c1;
   background-color: transparent;
 }
 
@@ -461,30 +483,26 @@ a#scroller {
   transition: background-color 0.2s, border-bottom 0.2s;
 }
 
-/* Wiki section links */
-.wikilink-wiki {
+/* wiki + brain links: same blue/purple visited scheme as everything else */
+.wikilink-wiki:link,
+.wikilink-brain:link {
   color: #0064c1;
   background-color: rgba(0, 100, 193, 0.05);
   border-bottom: 1px dashed rgba(0, 100, 193, 0.5);
 }
 
-.wikilink-wiki:hover {
+.wikilink-wiki:visited,
+.wikilink-brain:visited {
+  color: #6d28d9;
+  background-color: rgba(109, 40, 217, 0.05);
+  border-bottom: 1px dashed rgba(109, 40, 217, 0.5);
+}
+
+.wikilink-wiki:hover,
+.wikilink-brain:hover {
   background-color: rgba(48, 0, 193, 0.1);
   border-bottom: 1px solid rgba(48, 0, 193, 0.8);
   color: #3000c1;
-}
-
-/* Brain section links */
-.wikilink-brain {
-  color: #008080;
-  background-color: rgba(0, 128, 128, 0.05);
-  border-bottom: 1px dashed rgba(0, 128, 128, 0.5);
-}
-
-.wikilink-brain:hover {
-  background-color: rgba(0, 128, 128, 0.1);
-  border-bottom: 1px solid rgba(0, 128, 128, 0.8);
-  color: #006666;
 }
 
 /* for wikilinks that point to non-existent pages */
