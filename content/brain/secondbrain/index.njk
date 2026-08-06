@@ -1,8 +1,31 @@
 ---
-title: brain
+title: second brain
 layout: layouts/base.njk
+templateClass: tmpl-brain
 ---
 
-{# {% include "layouts/tagbar.njk" %} #}
+<div class="window">
+  <div class="title-bar">
+    <button aria-label="Close" class="close"></button>
+    <h1 class="title">second brain</h1>
+    <button aria-label="Resize" class="resize"></button>
+  </div>
+  <div class="separator"></div>
 
-{# {% include "layouts/tagbar.njk" %} #}
+  <div class="window-pane">
+    <ul class="post-archive">
+      {% for post in collections.brainPosts | reverse %}
+        {% if post.inputPath.startsWith('./content/brain/secondbrain/') %}
+          <li>
+            <span class="post-archive-date">{{ post.date | dateDisplay }}</span>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    <div style="margin-top: 1.5rem;">
+      <a href="/brain/" class="btn">← Back to Brain</a>
+    </div>
+  </div>
+</div>

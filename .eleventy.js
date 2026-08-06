@@ -88,6 +88,13 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // real brain posts only (excludes category/archive .njk pages like
+  // brain/index.njk, brain/archive.njk, brain/galaxies/index.njk, etc.)
+  eleventyConfig.addCollection("brainPosts", function(collection) {
+    return collection.getAllSorted()
+      .filter(item => item.inputPath.startsWith('./content/brain/') && item.inputPath.endsWith('.md'));
+  });
+
 
   // filter to have all content inside of another folder, not on root,
   // read content/content.json to see when it is used

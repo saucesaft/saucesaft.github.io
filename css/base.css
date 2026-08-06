@@ -540,6 +540,27 @@ a#scroller {
   margin-top: 1rem;
 }
 
+.post-card-title {
+  font-family: 'PT Serif', Georgia, serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.window-pane h2.post-card-title {
+  margin: 0;
+}
+
+.window-pane p.alert-text {
+  margin-top: 0;
+}
+
+.post-card-date {
+  font-family: 'PT Serif', Georgia, serif;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
 .tmpl-brain .window {
   width: 100%;
   max-width: 760px;

@@ -13,7 +13,7 @@ templateClass: tmpl-brain
   <div class="separator"></div>
 
   <div class="window-pane">
-    {% set brainPosts = collections.all | filterCollectionItems('filePathStem', '/brain/') | reverse %}
+    {% set brainPosts = collections.brainPosts | reverse %}
     <ul class="post-archive">
       {% for post in brainPosts %}
         <li>
