@@ -12,7 +12,7 @@ templateClass: tmpl-home
   <div class="separator"></div>
 
   <div class="window-pane">
-    {{ content | wikimage | safe }}
+    {{ content | wikitransform(page, collections.all) | safe }}
   </div>
 </div>
 
@@ -63,9 +63,9 @@ templateClass: tmpl-home
 
           <div class="window-pane">
             {% if project.script %}
-              {{ project.script | safe }}
+              {{ project.script | wikitransform(page, collections.all) | safe }}
             {% else %}
-              {{ project.description }}
+              {{ project.description | wikitransform(page, collections.all) | safe }}
             {% endif %}
           </div>
         </div>
@@ -119,9 +119,9 @@ templateClass: tmpl-home
 
           <div class="window-pane">
             {% if project.script %}
-              {{ project.script | safe }}
+              {{ project.script | wikitransform(page, collections.all) | safe }}
             {% else %}
-              {{ project.description }}
+              {{ project.description | wikitransform(page, collections.all) | safe }}
             {% endif %}
           </div>
         </div>
@@ -175,9 +175,9 @@ templateClass: tmpl-home
 
           <div class="window-pane">
             {% if project.script %}
-              {{ project.script | safe }}
+              {{ project.script | wikitransform(page, collections.all) | safe }}
             {% else %}
-              {{ project.description }}
+              {{ project.description | wikitransform(page, collections.all) | safe }}
             {% endif %}
           </div>
         </div>

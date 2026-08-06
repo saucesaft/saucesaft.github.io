@@ -42,7 +42,6 @@
 	-[ ] titlebar links to all posts relating to it
 	-[ ] attach CV
 		-[ ] render to html or something
-
 	-[X] (project) hardware PID
 	-[X] (project) software PID
 	-[X] (project) MRL Camera Calibration

@@ -12,6 +12,6 @@ templateClass: tmpl-home
   <div class="separator"></div>
 
   <div class="window-pane">
-    {{ content | wikitransform(page) | safe }}
+    {{ content | wikitransform(page, collections.all) | safe }}
   </div>
 </div>
