@@ -8,7 +8,7 @@
  */
 
 :root {
-  --box-shadow: 2px 2px;
+  --box-shadow: 5px 5px;
 
   --element-spacing: 8px;
   --grouped-element-spacing: 6px;
@@ -175,6 +175,7 @@
   overflow: hidden;
   background-color: var(--primary);
   border: 0.1em solid var(--secondary);
+  box-shadow: var(--box-shadow) var(--secondary);
   font-family: "Inconsolata", Menlo, Chicago, Geneva;
 }
 .window-pane {

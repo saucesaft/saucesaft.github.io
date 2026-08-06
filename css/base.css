@@ -30,7 +30,7 @@ img.center-post {
 
 /* Window Styles */
 .window {
-  max-width: 800px;
+  max-width: 760px;
   flex: 0 1 auto;
 }
 
@@ -51,6 +51,7 @@ img.center-post {
   letter-spacing: normal;
   font-size: 16px;
   padding: 1.5rem 2rem;
+  color: #334155;
 }
 
 .window-pane p {
@@ -215,7 +216,7 @@ video.project-media {
 }
 
 /* Fix window styling for columns */
-.window {
+#projects .window {
   max-width: none;
   margin: 0;
 }
@@ -488,7 +489,7 @@ a#scroller {
 
 .tmpl-brain .window {
   width: 100%;
-  max-width: 800px;
+  max-width: 760px;
 }
 
 /* Project media styling */
