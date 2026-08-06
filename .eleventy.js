@@ -3,14 +3,8 @@ const pluginAncestry = require("@tigersway/eleventy-plugin-ancestry");
 
 const wikiModule = require('./.wiki.js');
 
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const tmp = require('tmp');
-
 var fs = require('fs');
 const path = require('path');
-
-const { spawnSync } = require('child_process');
 
 const markdownIt = require('markdown-it');
 const markdownItOptions = {
@@ -20,11 +14,19 @@ const markdownItOptions = {
 };
 const inspect = require("node:util").inspect;
 
+const texmath = require('markdown-it-texmath');
+const katex = require('katex');
+
 module.exports = function(eleventyConfig) {
 
   // custom markdown-it instance
   const md = markdownIt(markdownItOptions)
-    .use(require('markdown-it-attrs'));
+    .use(require('markdown-it-attrs'))
+    .use(texmath, {
+      engine: katex,
+      delimiters: 'dollars',
+      katexOptions: { throwOnError: false },
+    });
 
   // inline code syntax highlighting
   md.renderer.rules.code_inline = (tokens, idx, { langPrefix = '' }) => {
@@ -41,6 +43,14 @@ module.exports = function(eleventyConfig) {
   // inspecting js elements, required when debugging
   eleventyConfig.addFilter("inspect", function (obj = {}) {
     return inspect(obj, {sorted: true});
+  });
+
+  // KaTeX renders a hidden MathML mirror of every formula (for screen readers)
+  // alongside the visible HTML rendering. Plain-text excerpts need to drop that
+  // mirror first, otherwise stripping tags leaves the glyph and raw tex source
+  // concatenated (e.g. "λ\lambdaλ") instead of just "λ".
+  eleventyConfig.addFilter("stripKatexMathml", function (html) {
+    return (html || '').replace(/<span class="katex-mathml">[\s\S]*?<\/span>/g, '');
   });
 
   // set the exceprt cut tag
@@ -170,16 +180,16 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('content/**/img/*')
   eleventyConfig.addPassthroughCopy({
     CNAME: 'CNAME'
-  });  
+  });
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/katex/dist/katex.min.css': 'css/katex.min.css',
+    'node_modules/katex/dist/fonts': 'css/fonts',
+  });
 
   // add extra plugins
   eleventyConfig.setLibrary('md', md);
   eleventyConfig.addPlugin(pluginAncestry);
-  eleventyConfig.addPlugin(syntaxHighlight, {
-    init: function({ Prism }) {
-      Prism.languages.tikz = Prism.languages.markup;
-    },
-  });
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   return {
     passthroughFileCopy: true,

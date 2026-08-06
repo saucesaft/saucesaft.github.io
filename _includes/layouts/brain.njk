@@ -25,7 +25,7 @@ templateClass: tmpl-brain
               <b style="padding-left:10px;">{{ post.data.title }}</b>
             </section>
             <section>
-              <p class="alert-text">{{ post.data.page.excerpt or (post.templateContent | striptags | truncate(150)) }}</p>
+              <p class="alert-text">{{ post.data.page.excerpt or (post.templateContent | stripKatexMathml | striptags | truncate(150)) }}</p>
             </section>
             <section class="field-row" style="justify-content: space-between">
               <small style="padding-left:10px;">{{ post.date | dateDisplay }}</small>

@@ -12,7 +12,7 @@ I'm reading the book *crafting a compiler with c* by *Charles N. Fischer*. here 
 
 "A compiler must perform two major tasks: analysis of the source program being compiled and synthesis of a machine-language program that when executed will correctly perform the activities described by that source program." - Fischer
 
-```tikz
+```
 \usetikzlibrary{shapes.geometric, arrows}
 
 \tikzstyle{rect} = [rectangle, minimum width=3cm, minimum height=2cm,text centered, draw=black]

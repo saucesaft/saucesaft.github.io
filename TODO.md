@@ -13,8 +13,7 @@
 	-[ ] markdown-related
 		-[X] render code
 		-[X] render correct links
-		-[ ] render math
-		-[X] render tikz diagrams
+		-[X] render math
 	-[ ] obsidian front matter
 	-[ ] project writeup
 	-[ ] recent posts list in home page
@@ -24,7 +23,6 @@
 	-[ ] change code syntax
 	-[ ] buttons on tags
 	-[ ] font on wiki project
-	-[ ] render math
 
 -[ ] wiki
 	-[ ] front matter image
