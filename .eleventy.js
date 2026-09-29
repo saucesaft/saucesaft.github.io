@@ -71,7 +71,11 @@ module.exports = function(eleventyConfig) {
   });
 
   // apply wiki functionality from the imported module
+  // (also copies every image in the obsidian vault next to its note)
   wikiModule(eleventyConfig, md);
+
+  // obsidian note templates live in the vault but are not pages
+  eleventyConfig.ignores.add('content/_templates/**');
 
   // Read all directories inside the wiki folder
   const wikiFolder = './content/wiki';
@@ -194,7 +198,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('fonts')
   eleventyConfig.addPassthroughCopy('img')
   eleventyConfig.addPassthroughCopy('files')
-  eleventyConfig.addPassthroughCopy('content/**/img/*')
   eleventyConfig.addPassthroughCopy({
     CNAME: 'CNAME'
   });
