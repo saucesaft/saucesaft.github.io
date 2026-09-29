@@ -1,0 +1,15 @@
+{
+  "commitMessage": "content: {{date}}",
+  "autoCommitMessage": "content: {{date}}",
+  "commitDateFormat": "YYYY-MM-DD HH:mm",
+  "listChangedFilesInMessageBody": true,
+  "autoSaveInterval": 0,
+  "autoPushInterval": 0,
+  "autoPullInterval": 0,
+  "autoPullOnBoot": true,
+  "pullBeforePush": true,
+  "syncMethod": "rebase",
+  "disablePush": false,
+  "showStatusBar": true,
+  "showBranchStatusBar": true
+}

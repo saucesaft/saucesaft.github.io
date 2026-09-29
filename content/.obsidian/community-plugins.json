@@ -1,5 +1,6 @@
 [
   "obsidian-image-caption",
   "obsidian-tikzjax",
-  "templater-obsidian"
+  "templater-obsidian",
+  "obsidian-git"
 ]

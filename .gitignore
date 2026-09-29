@@ -4,3 +4,5 @@ docs
 content/.obsidian/workspace
 content/.obsidian/workspace.json
 content/.trash
+content/.obsidian/plugins/obsidian-git/obsidian_askpass.sh
+content/.obsidian/plugins/obsidian-git/.git_credentials_input*
