@@ -40,6 +40,7 @@ templateClass: tmpl-home
             {% endif %}
               {% if project.media | lower | endsWith(".mp4") %}
                 {% set size = project.media | videoSize %}
+                <div class="video-frame">
                 <video
                   style="max-width:100%;{% if size %} aspect-ratio: {{ size.width }} / {{ size.height }};{% endif %}"
                   {% if size %}width="{{ size.width }}" height="{{ size.height }}"{% endif %}
@@ -51,6 +52,9 @@ templateClass: tmpl-home
                   playsinline
                   class="project-media"
                 ></video>
+                <span class="video-message video-loading" aria-hidden="true">loading<span class="dots"></span></span>
+                <span class="video-message video-nojs">turn on JavaScript to see this video</span>
+                </div>
               {% else %}
                 <img
                   style="max-width:100%;"
@@ -99,6 +103,7 @@ templateClass: tmpl-home
             {% endif %}
               {% if project.media | lower | endsWith(".mp4") %}
                 {% set size = project.media | videoSize %}
+                <div class="video-frame">
                 <video
                   style="max-width:100%;{% if size %} aspect-ratio: {{ size.width }} / {{ size.height }};{% endif %}"
                   {% if size %}width="{{ size.width }}" height="{{ size.height }}"{% endif %}
@@ -110,6 +115,9 @@ templateClass: tmpl-home
                   playsinline
                   class="project-media"
                 ></video>
+                <span class="video-message video-loading" aria-hidden="true">loading<span class="dots"></span></span>
+                <span class="video-message video-nojs">turn on JavaScript to see this video</span>
+                </div>
               {% else %}
                 <img
                   style="max-width:100%;"
@@ -158,6 +166,7 @@ templateClass: tmpl-home
             {% endif %}
               {% if project.media | lower | endsWith(".mp4") %}
                 {% set size = project.media | videoSize %}
+                <div class="video-frame">
                 <video
                   style="max-width:100%;{% if size %} aspect-ratio: {{ size.width }} / {{ size.height }};{% endif %}"
                   {% if size %}width="{{ size.width }}" height="{{ size.height }}"{% endif %}
@@ -169,6 +178,9 @@ templateClass: tmpl-home
                   playsinline
                   class="project-media"
                 ></video>
+                <span class="video-message video-loading" aria-hidden="true">loading<span class="dots"></span></span>
+                <span class="video-message video-nojs">turn on JavaScript to see this video</span>
+                </div>
               {% else %}
                 <img
                   style="max-width:100%;"
@@ -210,6 +222,12 @@ templateClass: tmpl-home
       // and they pause (keeping their place) once far off screen
       (function () {
         var videos = document.querySelectorAll('video[data-src]');
+        // hide the frame's loading message once the first frame is on screen
+        videos.forEach(function (video) {
+          video.addEventListener('loadeddata', function () {
+            video.parentNode.classList.add('loaded');
+          });
+        });
         var start = function (video) {
           if (!video.getAttribute('src')) video.src = video.dataset.src;
           var playing = video.play();

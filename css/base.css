@@ -603,3 +603,41 @@ a#scroller {
 video.project-media {
   background-color: #000;
 }
+/* homepage project videos: a message sits over the (black) video box until
+   it has a frame. without javascript the videos never load, so say why */
+.video-frame {
+  position: relative;
+}
+.video-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: Chicago_12, monospace;
+  color: var(--primary);
+  text-align: center;
+  pointer-events: none;
+}
+.video-loading,
+.js .video-nojs,
+.video-frame.loaded .video-loading {
+  display: none;
+}
+.js .video-loading {
+  display: flex;
+}
+.video-loading .dots::after {
+  content: "";
+  display: inline-block;
+  width: 3ch;
+  text-align: left;
+  animation: video-dots 1.2s steps(4, end) infinite;
+}
+@keyframes video-dots {
+  0%   { content: ""; }
+  25%  { content: "."; }
+  50%  { content: ".."; }
+  75%  { content: "..."; }
+}

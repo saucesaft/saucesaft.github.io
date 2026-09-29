@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# lets css tell "javascript on" apart before anything renders (see .video-frame) #}
+    <script>document.documentElement.classList.add('js');</script>
     <title>hair on the circuits - {{title or metadata.title }}</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     {% set pageDescription = description or metadata.description %}
