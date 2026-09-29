@@ -1,5 +1,13 @@
 {
   "legacyEditor": false,
   "livePreview": true,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "./img",
+  "newFileLocation": "folder",
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "strictLineBreaks": false,
+  "propertiesInDocument": "visible",
+  "newFileFolderPath": "brain",
+  "showInlineTitle": true
 }

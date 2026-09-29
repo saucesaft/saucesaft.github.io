@@ -1,4 +1,10 @@
 {
+  "name": "blog",
+  "private": true,
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
     "@ibm/plex": "^6.1.1",
@@ -15,8 +21,6 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
     "@types/bun": "latest"
   },
-  "name": "blog",
-  "private": true,
   "peerDependencies": {
     "typescript": "^5"
   }
