@@ -197,6 +197,43 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // intrinsic "width x height" of an mp4, read from its track header, so the
+  // page can reserve the video's space before it loads (no layout jump).
+  // accepts site urls like /img/projects/x.mp4 or /brain/img/x.mp4
+  eleventyConfig.addFilter("videoSize", function(url) {
+    const file = [url.slice(1), path.join('content', url)].find(f => fs.existsSync(f));
+    if (!file) return null;
+    const buf = fs.readFileSync(file);
+    const containers = new Set(['moov', 'trak']);
+    const walk = (start, end) => {
+      for (let i = start; i + 8 <= end;) {
+        let size = buf.readUInt32BE(i);
+        const type = buf.toString('latin1', i + 4, i + 8);
+        let header = 8;
+        if (size === 1) { size = Number(buf.readBigUInt64BE(i + 8)); header = 16; }
+        if (size === 0) size = end - i;
+        if (size < header) return null;
+        if (containers.has(type)) {
+          const found = walk(i + header, i + size);
+          if (found) return found;
+        } else if (type === 'tkhd') {
+          const v1 = buf[i + header] === 1;
+          const at = i + header + (v1 ? 88 : 76);
+          let width = Math.round(buf.readUInt32BE(at) / 65536);
+          let height = Math.round(buf.readUInt32BE(at + 4) / 65536);
+          // phone clips store a rotation matrix instead of rotated pixels;
+          // a zero first matrix entry means 90/270 degrees, so it displays swapped
+          const matrix = i + header + (v1 ? 52 : 40);
+          if (buf.readInt32BE(matrix) === 0 && buf.readInt32BE(matrix + 4) !== 0) [width, height] = [height, width];
+          if (width && height) return { width, height };
+        }
+        i += size;
+      }
+      return null;
+    };
+    return walk(0, buf.length);
+  });
+
   // get project from projects.json by tag
   eleventyConfig.addFilter("getProjectByTag", function(projectsList, tag) {
     if (!tag || !projectsList) return null;

@@ -39,9 +39,12 @@ templateClass: tmpl-home
             <a href="{{ project.wikiPath }}" style="cursor: pointer;">
             {% endif %}
               {% if project.media | lower | endsWith(".mp4") %}
+                {% set size = project.media | videoSize %}
                 <video
-                  style="max-width:100%;"
-                  src="{{ project.media }}"
+                  style="max-width:100%;{% if size %} aspect-ratio: {{ size.width }} / {{ size.height }};{% endif %}"
+                  {% if size %}width="{{ size.width }}" height="{{ size.height }}"{% endif %}
+                  data-src="{{ project.media }}"
+                  preload="none"
                   autoplay
                   loop
                   muted
@@ -95,9 +98,12 @@ templateClass: tmpl-home
             <a href="{{ project.wikiPath }}" style="cursor: pointer;">
             {% endif %}
               {% if project.media | lower | endsWith(".mp4") %}
+                {% set size = project.media | videoSize %}
                 <video
-                  style="max-width:100%;"
-                  src="{{ project.media }}"
+                  style="max-width:100%;{% if size %} aspect-ratio: {{ size.width }} / {{ size.height }};{% endif %}"
+                  {% if size %}width="{{ size.width }}" height="{{ size.height }}"{% endif %}
+                  data-src="{{ project.media }}"
+                  preload="none"
                   autoplay
                   loop
                   muted
@@ -151,9 +157,12 @@ templateClass: tmpl-home
             <a href="{{ project.wikiPath }}" style="cursor: pointer;">
             {% endif %}
               {% if project.media | lower | endsWith(".mp4") %}
+                {% set size = project.media | videoSize %}
                 <video
-                  style="max-width:100%;"
-                  src="{{ project.media }}"
+                  style="max-width:100%;{% if size %} aspect-ratio: {{ size.width }} / {{ size.height }};{% endif %}"
+                  {% if size %}width="{{ size.width }}" height="{{ size.height }}"{% endif %}
+                  data-src="{{ project.media }}"
+                  preload="none"
                   autoplay
                   loop
                   muted
@@ -195,6 +204,30 @@ templateClass: tmpl-home
   <div class="separator"></div>
 
   <div class="window-pane">
+    <script>
+      // project videos only download and play while on or near the screen.
+      // loading starts ~600px ahead so they're already playing when scrolled to,
+      // and they pause (keeping their place) once far off screen
+      (function () {
+        var videos = document.querySelectorAll('video[data-src]');
+        var start = function (video) {
+          if (!video.getAttribute('src')) video.src = video.dataset.src;
+          var playing = video.play();
+          if (playing) playing.catch(function () {});
+        };
+        if (!('IntersectionObserver' in window)) {
+          videos.forEach(start);
+          return;
+        }
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) start(entry.target);
+            else if (entry.target.getAttribute('src')) entry.target.pause();
+          });
+        }, { rootMargin: '600px 0px' });
+        videos.forEach(function (video) { observer.observe(video); });
+      })();
+    </script>
     <script type='text/javascript' id='mapmyvisitors' src='https://mapmyvisitors.com/map.js?cl=00bd80&w=a&t=n&d=BNdVFgnU-gV5-NmJ8ZUGTS86FLv0A939QT3rpGypSpI&co=ffffff&cmo=000000&cmn=0a8db2'></script>
   </div>
 </div>
