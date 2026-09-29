@@ -188,3 +188,7 @@ module.exports = function(eleventyConfig, md) {
       return eleventyConfig.getFilter("wikilinks")(processed, page, allPages);
     });
   };
+
+// shared with the seo data (social card image lookup)
+module.exports.findAttachments = findAttachments;
+module.exports.resolveAttachment = resolveAttachment;

@@ -1,0 +1,13 @@
+{
+  "title": "hair on the circuits",
+  "url": "https://haironthecircuits.net",
+  "description": "Eduardo Hernández (saucesaft) writes about robotics, machine learning, computer vision and embedded systems.",
+  "language": "en",
+  "author": {
+    "name": "Eduardo Hernández",
+    "twitter": "@saucesaft"
+  },
+  "feed": {
+    "path": "/feed.xml"
+  }
+}

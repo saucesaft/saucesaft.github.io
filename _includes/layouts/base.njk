@@ -5,7 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hair on the circuits - {{title or metadata.title }}</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-    <meta name="description" content="{{ description or metadata.description }}">
+    {% set pageDescription = description or metadata.description %}
+    {% set pageTitle = metadata.title if page.url == "/" else (title or metadata.title) %}
+    {% set pageUrl = page.url | absoluteUrl(metadata.url) %}
+    <meta name="description" content="{{ pageDescription }}">
+    <link rel="canonical" href="{{ pageUrl }}">
+
+    {# link previews (twitter, discord, slack, ...) #}
+    <meta property="og:site_name" content="{{ metadata.title }}">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:url" content="{{ pageUrl }}">
+    <meta property="og:locale" content="{{ metadata.language }}">
+    {% if isPost %}
+    <meta property="og:type" content="article">
+    {% if hasDate %}<meta property="article:published_time" content="{{ page.date | dateToRfc3339 }}">{% endif %}
+    {% else %}
+    <meta property="og:type" content="website">
+    {% endif %}
+    {% if socialImage %}
+    <meta property="og:image" content="{{ socialImage | absoluteUrl(metadata.url) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    {% else %}
+    <meta name="twitter:card" content="summary">
+    {% endif %}
+    <meta name="twitter:site" content="{{ metadata.author.twitter }}">
+    <meta name="twitter:creator" content="{{ metadata.author.twitter }}">
     <meta name="generator" content="{{ eleventy.generator }}">
 
     {# <link rel="preconnect" href="https://fonts.googleapis.com"> #}
@@ -20,7 +45,6 @@
     <link rel="stylesheet" href="{{ '/css/katex.min.css' | url }}">
 
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
   </head>
   <body>
 

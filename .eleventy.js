@@ -1,5 +1,6 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginAncestry = require("@tigersway/eleventy-plugin-ancestry");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 const wikiModule = require('./.wiki.js');
 
@@ -90,6 +91,14 @@ module.exports = function(eleventyConfig) {
         .filter(item => item.inputPath.startsWith(`${wikiFolder}/${folder}/`))
         .sort((a, b) => a.data.position - b.data.position);
     });
+  });
+
+  // posts for the feed: brain + wiki notes (drafts are already excluded).
+  // only notes with a real `date:` (see hasDate in content/content.11tydata.js)
+  eleventyConfig.addCollection("feedPosts", function(collection) {
+    return collection.getAllSorted()
+      .filter(item => item.data.isPost && item.data.hasDate)
+      .reverse();
   });
 
   // real brain posts only (excludes category/archive .njk pages like
@@ -211,6 +220,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setLibrary('md', md);
   eleventyConfig.addPlugin(pluginAncestry);
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginRss);
 
   return {
     passthroughFileCopy: true,
