@@ -55,7 +55,7 @@ templateClass: tmpl-brain
       {% for post in collections.brainPosts %}
         {% if post.data.tags %}
           {% for tag in post.data.tags %}
-            {% set brainTags = (brainTags.push(tag), brainTags) %}
+            {% if tag %}{% set brainTags = (brainTags.push(tag), brainTags) %}{% endif %}
           {% endfor %}
         {% endif %}
       {% endfor %}

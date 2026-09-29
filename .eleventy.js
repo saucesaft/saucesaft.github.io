@@ -148,7 +148,7 @@ module.exports = function(eleventyConfig) {
 
   // slugify a string for use in URLs
   eleventyConfig.addFilter("slugify", function(str) {
-    return str
+    return (str == null ? '' : str)
       .toString()
       .toLowerCase()
       .replace(/\s+/g, '-')     // replace spaces with -
@@ -166,8 +166,9 @@ module.exports = function(eleventyConfig) {
     collection.getAll().forEach(item => {
       if (!item.data.tags || !item.filePathStem.startsWith('/content/brain/')) return;
       
+      // empty "- " entries (e.g. an unfilled template) come through as null
       item.data.tags
-        .filter(tag => !["posts", "all", "brain"].includes(tag))
+        .filter(tag => tag && !["posts", "all", "brain"].includes(tag))
         .forEach(tag => tagsSet.add(tag));
     });
     
