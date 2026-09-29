@@ -8,9 +8,7 @@ show_folders: false
 
 The actual poster:
 
-<!-- ![](/img/poster.jpg) -->
-
-<img src="/img/poster.jpg" width="100%" />
+<a href="/wiki/icra2025/img/poster.jpg"><img src="/wiki/icra2025/img/poster.jpg" width="100%" alt="ICRA 2025 poster: Flow Matching Architecture for Navigation" /></a>
 
 Extended architecture:
 
