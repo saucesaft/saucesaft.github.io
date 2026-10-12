@@ -6,6 +6,10 @@ index: 3
 
 hello my name is Eduardo, people call me Lalo, but im better know as saucesaft on the internet. Im from the north of México so that's why i'll try to keep the languages balanced depending on the kind of post.
 
+<video src="/about/img/g1hands.mp4" width="832" height="464" style="max-width:100%;height:auto;aspect-ratio:832/464;" autoplay loop muted playsinline preload="metadata"></video>
+
+me, swapping the hands of a unitree g1. no context, i just like this one.
+
 ### find me in other places
 
 [twiterr](https://twitter.com/saucesaft) = get in contact with me
