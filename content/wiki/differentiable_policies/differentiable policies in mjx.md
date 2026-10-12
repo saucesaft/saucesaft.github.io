@@ -1,7 +1,7 @@
 ---
 title: differentiable policies in mjx
 date: 2026-10-06
-draft: true
+draft: false
 tags:
   - differentiable_policies
   - robotics
@@ -81,7 +81,7 @@ i kept a running list of every place where training and deployment disagree. a f
 
 ![[hardware.mp4]]
 
-<!-- TODO: hardware result write-up -->
+I'm yet to test it properly without the harness, I don't want to break the G1 that soon :P
 
 ### code
 
