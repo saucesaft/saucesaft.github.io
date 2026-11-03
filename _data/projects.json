@@ -12,7 +12,7 @@
             "description": "Open JAX/MJX replication of Schwarke et al. (CoRL 2025). Smoothed contacts, SHAC training, ANYmal walking from scratch",
             "media": "/img/projects/anymal.mp4",
             "tag": "diffsim",
-            "wikiPath": "https://github.com/saucesaft/differential_policies"
+            "wikiPath": "/wiki/differentiable_policies/differentiable%20policies%20in%20mjx.html"
         },
         {
             "title": "recurRL JAX",

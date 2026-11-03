@@ -13,6 +13,10 @@ templateClass: tmpl-home
 
   <div class="window-pane">
     {{ content | wikitransform(page, collections.all) | safe }}
+    {% set latest = collections.brainPosts | reverse | first %}
+    {% if latest %}
+    <p><b>My latest post:</b> <a href="{{ latest.url }}">{{ latest.data.title }}</a></p>
+    {% endif %}
   </div>
 </div>
 

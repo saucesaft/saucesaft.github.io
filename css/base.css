@@ -641,3 +641,39 @@ video.project-media {
   50%  { content: ".."; }
   75%  { content: "..."; }
 }
+
+/* Tables: fill the column with fixed widths so one long code cell can't
+   hog the width. Code wraps at spaces only, never mid-word. */
+.window-pane table, .layout table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.window-pane table th, .window-pane table td,
+.layout table th, .layout table td {
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  overflow-wrap: break-word;
+}
+/* 2 columns: code | explanation */
+.layout table th:first-child:nth-last-child(2) { width: 42%; }
+/* 3 columns: short label | description | analogue */
+.layout table th:first-child:nth-last-child(3) { width: 14%; }
+.layout table th:nth-child(2):nth-last-child(2) { width: 50%; }
+.window-pane table code, .layout table code {
+  white-space: normal;
+}
+
+/* Visible table lines (awsm's default #f2f2f2 is invisible on white) */
+.window-pane table, .layout table {
+  border-collapse: collapse;
+  border: 2px solid #334155;
+}
+.window-pane table th, .window-pane table td,
+.layout table th, .layout table td {
+  border: 1px solid #334155;
+  padding: 0.4em 0.75em;
+}
+.window-pane table th, .layout table th {
+  border-bottom: 2px solid #334155;
+}

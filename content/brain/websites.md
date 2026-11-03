@@ -1,6 +1,6 @@
 ---
 date: 2026-10-03
-draft: true
+draft: false
 tags:
   - random
   - braindump
@@ -14,3 +14,5 @@ multimedia sketchpad https://internet-janitor.itch.io/decker
 graphic design studio https://www.studiobalcony.com/three-1
 
 aphextwin's brain https://gitlab.com/then-try-this/samplebrain
+
+katamari on any website https://www.funwithcomputervision.com/weball/

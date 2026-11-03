@@ -93,6 +93,24 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  // wiki projects (folders whose index.md has project_root), ordered by the
+  // newest dated note inside each. projects with no dated notes go last.
+  eleventyConfig.addCollection("wikiProjects", function(collection) {
+    const all = collection.getAllSorted();
+    const newest = root => {
+      const dir = root.inputPath.replace(/index\.md$/, '');
+      const dates = all
+        .filter(item => item.data.isPost && item.data.hasDate && item.inputPath.startsWith(dir))
+        .map(item => item.date.getTime());
+      return dates.length ? Math.max(...dates) : -Infinity;
+    };
+    return all
+      .filter(item => item.data.project_root === true)
+      .map((item, i) => ({ item, i, t: newest(item) }))
+      .sort((a, b) => (b.t - a.t) || (a.i - b.i))
+      .map(x => x.item);
+  });
+
   // posts for the feed: brain + wiki notes (drafts are already excluded).
   // only notes with a real `date:` (see hasDate in content/content.11tydata.js)
   eleventyConfig.addCollection("feedPosts", function(collection) {

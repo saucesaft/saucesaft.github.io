@@ -24,7 +24,7 @@ templateClass: tmpl-home
   {# show the folders (project) and the description they have #}
   {% if show_folders == true %}
 
-    {% for post in collections.all %}
+    {% for post in collections.wikiProjects %}
       {% if post.data.project_root  == true %}
         <div class="alert-box outer-border scale-down"  style="width:30rem;">
         <div class="inner-border">
