@@ -401,6 +401,12 @@ div.breaking {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+/* push an item (rss) to the right end of the navbar */
+.sidebar.nav-right {
+  margin-left: auto;
 }
 
 a#title {
@@ -470,6 +476,10 @@ a#scroller {
   div.breaking {
     display: block;
     flex-direction: unset;
+  }
+
+  .sidebar.nav-right {
+    float: right;
   }
 }
 

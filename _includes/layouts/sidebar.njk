@@ -31,7 +31,7 @@
 
             {% for item in navigation.menu %}
 
-                <div class="sidebar">
+                <div class="sidebar{% if item.align == 'right' %} nav-right{% endif %}">
                     
                         <a href={{ item.url }}
 

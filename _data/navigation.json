@@ -15,6 +15,11 @@
     {
       "name": "cv",
       "url": "/files/resume.pdf"
+    },
+    {
+      "name": "rss",
+      "url": "/feed.xml",
+      "align": "right"
     }
   ]
 }
